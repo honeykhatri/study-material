@@ -1,0 +1,21 @@
+Multithreading
+How to create threads?
+
+Types?
+
+Diff?
+
+Q: How Singleton classes & beans work in multithreading enviorment - 
+Singleton - bydef thread safe (not) — how ??? Using synchronised block 
+
+How synchronization works?
+
+Alternative of synchronisation. — using Locks 
+
+Typs of locks & how it works
+
+Basic 
+Fork 
+Join
+Sleep notify 
+Wait

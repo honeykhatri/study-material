@@ -1,0 +1,786 @@
+                        ***------------------------Collection Framework-----------------------------***
+It provides an architecture to store and manipulate group of objects.
+   Iterable interface - main interface
+   Collection interface extends Iterable interface
+  
+^^^List  Extends Collection^^^       
+   --Ordered
+   --Duplicate values 
+   --Classes which implements List Interface -  ArrayList, LinkedList, Vector, and Stack 
+
+    -- List <data-type> list1= new ArrayList();  
+	
+	  ArrayList <data-type> list1= new List();    //check whether the error is runtime or compile time? -- compile time error
+	   -concept of dynamic array.
+	   -Maintains the insertion order and is **non-synchronised
+            -The elements stored in the ArrayList class can be randomly accessed .
+	  
+	  LinkedList  
+	  -It uses a doubly linked list internally to store the elements
+	  -It can store the duplicate elements
+	  -It maintains the insertion order and is not synchronised
+	  -the manipulation is fast because no shifting is required.
+	  
+	  Vector
+	  -It uses dynamic array to store the data elements.
+	  -It is synchronised and contains many methods that are not a part of Collection framework.
+	  
+	  Stack
+	  -Subclass of Vector.
+	  -Implements Last In First Out DS.
+	  -It contains all the methods of Vector class and also provides its method like:: boolean push(), boolean peek(), boolean push(object o);
+
+
+Diff betweeen ArrayList and Vector::
+1 : ArrayList is not synchronized while Vector is; To use ArrayList concurrently we need to externally synchronize it; using 	
+Collections.synchronizedList() we can ;
+2 : Data Growth : Both ArrayList and Vector uses dynamic array internally , when the dyanamic array becomes full the ArrayList increases the size of Array by 50% while the Vector does it by 100%(double).
+   	  
+-----------------------------------------------------------------------------------------------------------------------------------------------------
+	
+^^^^ Queue interface extends Collection interface ^^^^ 
+   -Ordered(first-in-first-out order)
+   -FIFO
+   -    Queue<String> q1 = new PriorityQueue();  
+        Queue<String> q2 = new ArrayDeque();  
+  
+  These methods are:
+
+	peek()
+   	element()
+    	poll()
+    	remove()
+
+    The peek() method retrieves the value of the first element of the queue without removing it from the queue. 
+	For each invocation of the method we always get the same value and its execution
+    does not affect the size of the queue. If the queue is empty the peek() method returns null.
+	
+    The element() method behaves like peek(), so it again retrieves the value of the first element without removing it. 
+	Unlike peek( ), however, if the list is empty element() throws a NoSuchElementException
+   
+    The poll() method retrieves the value of the first element of the queue by removing it from the queue.
+    At each invocation it removes the first element of the list and if the list is already empty it returns null but does not throw any exception
+    
+	The remove() method behaves as the poll() method, so it removes the first element of the list and if the list is empty it throws a
+	NoSuchElementException
+
+   Classes which implements Queue interface: PriorityQueue,Dequeue, ArrayDequeue,Dequeue.
+   
+   PriorityQueue:: 
+   - It holds the elements and objects which are to be processed by their priorities.
+   - It does not allow null values to be stored in the queue.                                                                            
+   - It orders the elements according to their natural order(alphabetical)
+   
+   Deque(interface) - (Double ended queue)
+   -we can remove and add elements from both the sides of Queue.
+   -    Deque d = new ArrayDeque();  
+   
+   ArrayDeque(class extends AbstractCollection class and  implements the Dequeue interface,Cloneable and Serializable interface ) (https://www.baeldung.com/java-array-deque)
+   -It facilitates us to use the Deque
+   -we can add or delete the elements from both the ends.
+   -ArrayDeque is faster than ArrayList and Stack and has no capacity restrictions.
+   -They are not thread-safe which means that in the absence of external synchronization, ArrayDeque does not support concurrent access by multiple threads. 
+   -Null elements are not allowed in arraydequeue.
+   -ArrayDeque class is likely to be faster than Stack when used as a stack.
+   -ArrayDeque class is likely to be faster than LinkedList when used as a queue
+   -ArrayDeque() constructor creates an empty ArrayDeque and by default holds an initial capacity to hold 16 elements.
+   -ArrayDeque automatically doubles the size of an array when head and tail pointer meets each other while adding an element
+   
+   --ArrayDeque methods
+     Two types of methods are there first which throws an exception if the operation fails , second returns a status/value if it fails::
+	                        
+							method giving value                       method throwing exception
+							
+	 Insertion from Head :: offerFirst(e)                             addFirst(e)
+	 
+	 Removal from Head   :: pollFirst()                               removeFirst()
+	 
+	 Retrieval from Head :: peekFirst()                               getFirst()
+	 
+	 Insertion from Tail :: offerLast(e)                              addFirst(e)
+	 
+	 Removal from Tail   ::  pollLast()                               removeLast()
+	 
+	 Retrieval from Tail ::  peekLast()                               getLast()
+ -------------------------------------------------------------------------------------------------------------------------------------------------------------
+ 
+   ^^^^Set extends Collection^^^^^
+
+	Set Interface
+	-unordered
+	-No Duplicate values (unique items)
+	-We can store atmost one null value in set
+
+-- Set is implemented by classes :: HashSet ,LinkedHashSet , TreeSet
+       Set<data-type> s1 = new HashSet<data-type>();  
+       Set<data-type> s2 = new LinkedHashSet<data-type>();  
+       Set<data-type> s3 = new TreeSet<data-type>();  
+	   
+	   WHY SET not allow duplicate values???
+	   Internally SET store element using HASHTABLE ...HASHTABLE is a structure of Key value pairs..Here what the values passed by the SET is treated as Keys of HASHTABLE Internally. keys are unique cannot be duplicated. That is the reason if you pass any duplicate value it return false and does not added to the SET ...
+       If the adding element return true it will added into SET...Else it return False, that why it won't give any compilation or runtime error and it wont be added to SET
+
+	   
+	 -------------------------------------------------------------------------------------------------------------------------------------  
+	   HashSet   -- implements Set interface   //https://www.geeksforgeeks.org/hashset-in-java/
+	 -------------------------------------------------------------------------------------------------------------------------------------
+       - It represents the collection that uses hash table(which is a HashMap instance) internally for data storage, Hashing is used to store the     elements in HashSet.
+	   - It contains unique items.
+	   - Null Items are allowed (No Duplicates allowed)
+	   - Class offers  constant time performance(O(1)) for all basic operations like add,remove,contains and size assuming the hash function disperses the elements
+	     properly among the buckets
+		 To maintain this constant time performance :: Load factor and initial capacity affect the operation of HashSet operations(0.75 load factor
+		 provides very effective performance as wrt time and space complexity).
+		 Example: If internal capacity is 16 and load factor is 0.75 then, number of buckets will automatically 
+		 get increased when the table has 12 elements in it.
+	   - No specified order for insertion.Objects are inserted based on there hashcode.
+	   - HashSet also implements Serializable and Cloneable interface.
+	   - Not synchronized implemention
+	     to prevent accidental unsynchronized access to the set use::
+		 Set s = Collections.synchronizedSet(new HashSet(...));
+	     
+		-*-Constructors in HashSet:
+		1.) HashSet h = new HashSet();
+		Default initial capacity is 16 and default load factor is 0.75.
+		2.) HashSet h = new HashSet(int initialCapacity);
+		default loadFactor of 0.75
+		3.) HashSet h = new HashSet(int initialCapacity, float loadFactor);
+		4.) HashSet h = new HashSet(Collection C);
+		
+Internal working of a HashSet
+All the classes of Set interface internally backed up by Map. 
+HashSet uses HashMap for storing its object internally. You must be wondering that to enter a value in HashMap we need a key-value pair,
+but in HashSet we are passing only one value.
+
+Storage in HashMap
+Actually the value we insert in HashSet acts as key to the map Object 
+and for its value java uses a constant variable. So in key-value pair all the keys will have same value.
+
+--Methods in HashSet:
+
+    boolean add(E e): Used to add the specified element if it is not present, if it is present then return false.
+    void clear(): Used to remove all the elements from set.
+    boolean contains(Object o): Used to return true if an element is present in set.
+    boolean remove(Object o): Used to remove the element if it is present in set.
+    Iterator iterator(): Used to return an iterator over the element in the set.
+    boolean isEmpty(): Used to check whether the set is empty or not. Returns true for empty and false for non-empty condition for set.
+    int size(): Used to return the size of the set.
+    Object clone(): Used to create a shallow copy of the set.
+	
+	
+	-------------------------------------------------------------------------------------------------
+LinkedHashSet - Implements Set interface and extends HashSet class
+    --------------------------------------------------------------------------------------------------
+	
+	- Contains unique elements.
+	- Maintains insertion order.)Ordered version of HashSet
+	- Permits NULL elements.
+	- When iteration order need to be maintained linkedHashSet is used.
+	
+List of constructors supported by LinkedHashSet::
+	
+    LinkedHashSet(): This constructor is used to create a default HashSet.
+    LinkedHashSet(Collection C): Used in initializing the HashSet with the eleements of the collection C
+    LinkedHashSet(int size): Used to intialize the size of the LinkedHashSet with the integer mentioned in the parameter.
+    LinkedHashSet(int capacity, float fillRatio): Can be used to initialize both the capacity and the fill ratio, also called 
+	the load capacity of the LinkedHashSet with the arguments mentioned in the parameter. When the number of elements exceeds 
+	the capacity of the hash set is multiplied with the fill ratio thus expanding the capacity of the LinkedHashSet
+
+Methods in LinkedHashSet:
+
+    **spliterator​(): This method creates a late-binding and fail-fast Spliterator over the elements in this set.
+    clear​(): This method removes all of the elements from this set.
+    contains​(Object o): This method returns true if this set contains the specified element.
+	
+	--------------------------------------------------
+SortedSet Interface
+	--------------------------------------------------
+	-Provides total ordering of elements.(Increasing order)
+	-It provides additional methods that inhibit natural ordering of the elements.
+	-The SortedSet can be instantiated as
+	SortedSet<data-type> set = new TreeSet();
+	
+	----------------------------------------------------
+TreeSet - implements SortedSet interface
+	----------------------------------------------------
+	
+	-Unique eleements
+	-Uses Tree for storage.
+	-Access and retrieval time of TreeSet is fast.
+	-Insreasing order.
+	
+---------------------------------------------------------
+Map Interface: (java.util.Map)
+----------------------------------------------------------
+- Represents mapping between key and a value.
+- Not a subtype of Collection interface, threfore it behaves a bit different from the rest of Collection types.
+- No Duplicate keys and each key can map to atmost one value.
+- Null value and order depends on specific implementations.
+
+Map Hierarchy
+*SortedMap extends Map 
+*TreeMap(c) implements SortedMap
+*HashMap(c) implements Map
+*LinkedHashMap(c) extends HashMap
+
+Why and When to use Maps::
+1. Maps are perfect to use for key-value association mapping such as dictionaries.
+2. Maps are used to perform lookups by keys or when someone wants to retrieve and update elements by keys.
+   eg:: map of error codes and their description.
+        map of zip codes and cities.
+		map of managers and employees.
+		map of classes and students.
+		
+Methods in Map interface::
+1. public Object put(Object key,Object value)   :: inserts an entry in the Map.
+2. public void putAll(Map map)                  :: inserts an specified map in this map.
+3. public Object remove(Object key)             :: delets an entry for the specified key.
+4. public Object get(Object key)                :: return value for the specified key.
+5. public boolean containsKey(Object key)		:: Search the specified key in the map.
+6. public Set keySet()							:: returns the Set view containing all the keys.
+7. public Set entrySet()						:: returns the Set view containing all the keys and values.
+
+--Map< String,Integer> hm =   new HashMap< String,Integer>(); 
+SortedMap
+TreeMap
+HashMap
+LinkedHashMap
+-------------------------------------
+
+Marker Interface - 
+empty interface(no fields and methods)
+eg: Cloneable,Serializable,Remote Interface
+----------------------------------
+Cloneable Interface (java.lang)
+ * There is one method clone() in Object class. A class that implements Cloneable interface indicates that it is legal for clone() method
+   to make a field-for-field copy of instances of that class.
+   Invoing Object's clone method on an instance of class that does not implements Cloneable interface results in CloneNotSupportedException.
+   Classes which implements this interface have to override clone method of Object class.
+   
+   @Override
+    protected Object clone() 
+    throws CloneNotSupportedException 
+    { 
+        return super.clone(); 
+    } 
+   
+-------------------------------------
+Serializable Interface (java.io )
+- It is used to make an object eligible for saving its state in a file.
+- 
+
+
+
+——————————————————
+
+Java Provides two interfaces for sorting the collection objects using data members of the class
+
+Comparable and Comparator Interface
+
+
+
+
+
+
+	   
+   **Doubt
+   non-synchronized:: needs external methods to make the code synchronized(thread safe). If the method/class/anything is not-synchronized 
+   Synchronization. At times when more than one thread try to access a shared resource, we need to ensure that resource will be used by only one threa
+   at a time. The process by which this is achieved is called synchronization.
+   spliterator​:: 
+Iterator
+//Traversing list through Iterator  
+Iterator itr=list.iterator();  
+while(itr.hasNext()){  
+System.out.println(itr.next());  
+}
+
+
+---------------------------------------------------------------------
+-------------------------------------------------------------------
+
+------------------------------------------------------------------------------
+Java collection interview general questions
+
+1) What is the Java Collection framework? List down its advantages?
+
+By definition, a collection is an object that represents a group of objects. Like in set theory, a set is group of elements. Easy enough !!
+
+Prior to JDK 1.2, JDK has some utility classes such as Vector and HashTable, but there was no concept of Collection framework. Later from JDK 1.2 onwards, JDK felt the need of having a consistent support for reusable data structures. Finally, the collections framework was designed and developed primarily by Joshua Bloch, and was introduced in JDK 1.2.
+
+Its most noticeable benefits of java collections can be listed as:
+
+    Reduced programming effort due to ready to use code
+    Increased performance because of high-performance implementations of data structures and algorithms
+    Provides interoperability between unrelated APIs by establishing a common language to pass collections back and forth
+    Easy to learn APIs by learning only some top level interfaces and supported operations
+
+2) Explain Collection’s hierarchy?
+Java Collection Hierarchy
+                       interface
+					   Collection
+                       |    |    |
+				|           |           |
+			 |	            |               |
+		interface		interface            interface
+		Set   		   List						Queue
+          |
+		  |
+	  SortedSet
+Java Collection Hierarchy
+
+
+
+
+
+
+As shown in above image, collection framework has one interface at top i.e. Collection. It is extended by Set, List and Queue interfaces. Then there are loads of other classes in these 3 branches which we will learn in following questions.
+
+Remember the signature of Collection interface. It will help you in many question.
+public interface Collection extends Iterable {
+//method definitions
+}
+
+Framework also consist of Map interface, which is part of collection framework. but it does not extend Collection interface. We will see the reason in 4th question in this question bank.
+
+3) Why Collection interface does not extend Cloneable and Serializable interface?
+
+Well, simplest answer is “there is no need to do it“. Extending an interface simply means that you are creating a subtype of interface, in other words a more specialized behavior and Collection interface is not expected to do what Cloneable and Serializable interfaces do.
+
+Another reason is that not everybody will have a reason to have Cloneable collection because if it has very large data, then every unnecessary clone operation will consume a big memory. Beginners might use it without knowing the consequences.
+
+Another reason is that Cloneable and Serializable are very specialized behavior and so should be implemented only when required. For example, many concrete classes in collection implement these interfaces. So if you want this feature. use these collection classes otherwise use their alternative classes.
+
+4) Why Map interface does not extend Collection interface?
+
+A good answer to this interview question is “because they are incompatible“. Collection has a method add(Object o). Map can not have such method because it need key-value pair. There are other reasons also such as Map supports keySet, valueSet etc. Collection classes does not have such views.
+
+Due to such big differences, Collection interface was not used in Map interface, and it was build in separate hierarchy.
+Java collection interview – List interface questions
+
+5) Why we use List interface? What are main classes implementing List interface?
+
+A java list is a “ordered” collection of elements. This ordering is a zero based index. It does not care about duplicates. Apart from methods defined in Collection interface, it does have its own methods also which are largely to manipulate the collection based on index location of element. These methods can be grouped as search, get, iteration and range view. All above operations support index locations.
+
+The main classes implementing List interface are: Stack, Vector, ArrayList and LinkedList. Read more about them in java documentation.
+
+6) How to convert an array of String to arraylist?
+
+This is more of a programmatic question which is seen at beginner level. The intent is to check the knowledge of applicant in Collection utility classes. For now, lets learn that there are two utility classes in Collection framework which are mostly seen in interviews i.e. Collections and Arrays.
+
+Collections class provides some static functions to perform specific operations on collection types. And Arrays provide utility functions to be performed on array types.
+//String array
+String[] words = {"ace", "boom", "crew", "dog", "eon"};
+//Use Arrays utility class
+List wordList = Arrays.asList(words);
+//Now you can iterate over the list
+
+Please not that this function is not specific to String class, it will return List of element of any type, of which the array is. e.g.
+//String array
+Integer[] nums = {1,2,3,4};
+//Use Arrays utility class
+List numsList = Arrays.asList(nums);
+
+7) How to reverse the list?
+
+This question is just like above to test your knowledge of Collections utility class. Use it reverse() method to reverse the list.
+Collections.reverse(list);
+Java collection interview – Set interface questions
+
+8) Why we use Set interface? What are main classes implementing Set interface?
+
+It models the mathematical set in set theory. Set interface is like List interface but with some differences. First, it is not ordered collection. So no ordering is preserved while adding or removing elements. The main feature it does provide is “uniqueness of elements“. It does not support duplicate elements.
+
+Set also adds a stronger contract on the behavior of the equals and hashCode operations, allowing Set instances to be compared meaningfully even if their implementation types differ. Two Set instances are equal if they contain the same elements.
+
+Based on above reasons, it does not have operations based on indexes of elements like List. It only has methods which are inherited by Collection interface.
+
+Main classes implementing Set interface are : EnumSet, HashSet, LinkedHashSet, TreeSet. Read more on related java documentation.
+
+9) How HashSet store elements?
+
+You must know that HashMap store key-value pairs, with one condition i.e. keys will be unique. HashSet uses Map’s this feature to ensure uniqueness of elements. In HashSet class, a map declaration is as below:
+private transient HashMap<E,Object> map;
+ 
+//This is added as value for each key
+private static final Object PRESENT = new Object();
+
+So when you store a element in HashSet, it stores the element as key in map and “PRESENT” object as value. (See declaration above).
+public boolean add(E e) {
+return map.put(e, PRESENT)==null;
+}
+
+I will highly suggest you to read this post: How HashMap works in java? This post will help you in answering all the HashMap related questions very easily.
+
+10) Can a null element added to a TreeSet or HashSet?
+
+As you see, There is no null check in add() method in previous question. And HashMap also allows one null key, so one “null” is allowed in HashSet.
+
+TreeSet uses the same concept as HashSet for internal logic, but uses NavigableMap for storing the elements.
+private transient NavigableMap<E,Object> m;
+ 
+// Dummy value to associate with an Object in the backing Map
+private static final Object PRESENT = new Object();
+
+NavigableMap is subtype of SortedMap which does not allow null keys. So essentially, TreeSet also does not support null keys. It will throw NullPointerException if you try to add null element in TreeSet.
+Java collection interview – Map interface questions
+
+11) Why we use Map interface? What are main classes implementing Map interface?
+
+Map interface is a special type of collection which is used to store key-value pairs. It does not extend Collection interface for this reason. This interface provides methods to add, remove, search or iterate over various views of Map.
+
+Main classes implementing Map interface are: HashMap, Hashtable, EnumMap, IdentityHashMap, LinkedHashMap and Properties.
+
+12) What are IdentityHashMap and WeakHashMap?
+
+IdentityHashMap is similar to HashMap except that it uses reference equality when comparing elements. IdentityHashMap class is not a widely used Map implementation. While this class implements the Map interface, it intentionally violates Map’s general contract, which mandates the use of the equals() method when comparing objects. IdentityHashMap is designed for use only in the rare cases wherein reference-equality semantics are required.
+
+WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage collected when its key is no longer referenced outside of the WeakHashMap. This class is intended primarily for use with key objects whose equals methods test for object identity using the == operator. Once such a key is discarded it can never be recreated, so it is impossible to do a look-up of that key in a WeakHashMap at some later time and be surprised that its entry has been removed.
+
+13) Explain ConcurrentHashMap? How it works?
+
+Taking from java docs:
+
+A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.
+
+Read more about how ConcurrentHashMap interview questions.
+
+14) How hashmap works?
+
+The most important question which is most likely to be seen in every level of job interviews. You must be very clear on this topic., not only because it is most asked question but also it will open up your mind in further questions related to collection APIs.
+
+Answer to this question is very large and you should read it my post: How HashMap works? For now, lets remember that HashMap works on principle of Hashing. A map by definition is : “An object that maps keys to values”. To store such structure, it uses an inner class Entry:
+static class Entry implements Map.Entry
+{
+final K key;
+V value;
+Entry next;
+final int hash;
+...//More code goes here
+}
+
+Here key and value variables are used to store key-value pairs. Whole entry object is stored in an array.
+/**
+* The table, re-sized as necessary. Length MUST Always be a power of two.
+*/
+transient Entry[] table;
+
+The index of array is calculated on basis on hashcode of Key object. Read more of linked topic.
+
+15) How to design a good key for hashmap?
+
+Another good question usually followed up after answering how hashmap works. Well, the most important constraint is you must be able to fetch the value object back in future. Otherwise, there is no use of having such a data structure. If you understand the working of hashmap, you will find it largely depends on hashCode() and equals() method of Key objects.
+
+So a good key object must provide same hashCode() again and again, no matter how many times it is fetched. Similarly, same keys must return true when compare with equals() method and different keys must return false.
+
+For this reason, immutable classes are considered best candidate for HashMap keys.
+
+Read more : How to design a good key for HashMap?
+
+16) What are different Collection views provided by Map interface?
+
+Map interface provides 3 views of key-values pairs stored in it:
+
+    key set view
+    value set view
+    entry set view
+
+All the views can be navigated using iterators.
+
+17) When to use HashMap or TreeMap?
+
+HashMap is well known class and all of us know that. So, I will leave this part by saying that it is used to store key-value pairs and allows to perform many operations on such collection of pairs.
+
+TreeMap is special form of HashMap. It maintains the ordering of keys which is missing in HashMap class. This ordering is by default “natural ordering”. The default ordering can be override by providing an instance of Comparator class, whose compare method will be used to maintain ordering of keys.
+
+Please note that all keys inserted into the map must implement the Comparable interface (this is necessary to decide the ordering). Furthermore, all such keys must be mutually comparable: k1.compareTo(k2) must not throw a ClassCastException for any keys k1 and k2 in the map. If the user attempts to put a key into the map that violates this constraint (for example, the user attempts to put a string key into a map whose keys are integers), the put(Object key, Object value) call will throw a ClassCastException.
+Java collection interview – Tell the difference questions
+
+18) Difference between Set and List?
+
+The most noticeable differences are :
+
+    Set is unordered collection where List is ordered collection based on zero based index.
+    List allow duplicate elements but Set does not allow duplicates.
+    List does not prevent inserting null elements (as many you like), but Set will allow only one null element.
+
+19) Difference between List and Map?
+
+Perhaps most easy question. List is collection of elements where as map is collection of key-value pairs. There is actually lots of differences which originate from first statement. They have separate top level interface, separate set of generic methods, different supported methods and different views of collection.
+
+I will take much time hear as answer to this question is enough as first difference only.
+
+20) Difference between HashMap and HashTable?
+
+There are several differences between HashMap and Hashtable in Java:
+
+    Hashtable is synchronized, whereas HashMap is not.
+    Hashtable does not allow null keys or values. HashMap allows one null key and any number of null values.
+    The third significant difference between HashMap vs Hashtable is that Iterator in the HashMap is a fail-fast iterator while the enumerator for the Hashtable is not.
+
+21) Difference between Vector and ArrayList?
+
+Lets note down the differences:
+
+    All the methods of Vector is synchronized. But, the methods of ArrayList is not synchronized.
+    Vector is a Legacy class added in first release of JDK. ArrayList was part of JDK 1.2, when collection framework was introduced in java.
+    By default, Vector doubles the size of its array when it is re-sized internally. But, ArrayList increases by half of its size when it is re-sized.
+
+22) Difference between Iterator and Enumeration?
+
+Iterators differ from enumerations in three ways:
+
+    Iterators allow the caller to remove elements from the underlying collection during the iteration with its remove() method. You can not add/remove elements from a collection when using enumerator.
+    Enumeration is available in legacy classes i.e Vector/Stack etc. whereas Iterator is available in all modern collection classes.
+    Another minor difference is that Iterator has improved method names e.g. Enumeration.hasMoreElement() has become Iterator.hasNext(), Enumeration.nextElement() has become Iterator.next() etc.
+
+23) Difference between HashMap and HashSet?
+
+HashMap is collection of key-value pairs whereas HashSet is un-ordered collection of unique elements. That’s it. No need to describe further.
+
+24) Difference between Iterator and ListIterator?
+
+There are three Differences are there:
+
+    We can use Iterator to traverse Set and List and also Map type of Objects. But List Iterator can be used to traverse for List type Objects, but not for Set type of Objects.
+    By using Iterator we can retrieve the elements from Collection Object in forward direction only whereas List Iterator, which allows you to traverse in either directions using hasPrevious() and previous() methods.
+    ListIterator allows you modify the list using add() remove() methods. Using Iterator you can not add, only remove the elements.
+
+25) Difference between TreeSet and SortedSet?
+
+SortedSet is an interface which TreeSet implements. That’ it !!
+
+26) Difference between ArrayList and LinkedList?
+
+    LinkedList store elements within a doubly-linked list data structure. ArrayList store elements within a dynamically resizing array.
+    LinkedList allows for constant-time insertions or removals, but only sequential access of elements. In other words, you can walk the list forwards or backwards, but grabbing an element in the middle takes time proportional to the size of the list. ArrayLists, on the other hand, allow random access, so you can grab any element in constant time. But adding or removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap.
+    LinkedList has more memory overhead than ArrayList because in ArrayList each index only holds actual object (data) but in case of LinkedList each node holds both data and address of next and previous node.
+
+More collection interview questions
+
+27) How to make a collection read only?
+
+Use following methods:
+
+    Collections.unmodifiableList(list);
+    Collections.unmodifiableSet(set);
+    Collections.unmodifiableMap(map);
+
+These methods takes collection parameter and return a new read-only collection with same elements as in original collection.
+
+28) How to make a collection thread safe?
+
+Use below methods:
+
+    Collections.synchronizedList(list);
+    Collections.synchronizedSet(set);
+    Collections.synchronizedMap(map);
+
+Above methods take collection as parameter and return same type of collection which are synchronized and thread safe.
+
+29) Why there is not method like Iterator.add() to add elements to the collection?
+
+The sole purpose of an Iterator is to enumerate through a collection. All collections contain the add() method to serve your purpose. There would be no point in adding to an Iterator because the collection may or may not be ordered. And add() method can not have same implementation for ordered and unordered collections.
+
+30) What are different ways to iterate over a list?
+
+You can iterate over a list using following ways:
+
+    Iterator loop
+    For loop
+    For loop (Advance)
+    While loop
+
+Read more : http://www.mkyong.com/java/how-do-loop-iterate-a-list-in-java/
+
+31) What do you understand by iterator fail-fast property?
+
+Fail-fast Iterators fail as soon as they realized that structure of Collection has been changed since iteration has begun. Structural changes means adding, removing or updating any element from collection while one thread is Iterating over that collection.
+
+Fail-fast behavior is implemented by keeping a modification count and if iteration thread realizes the change in modification count it throws ConcurrentModificationException.
+
+32) What is difference between fail-fast and fail-safe?
+
+You have understood fail-fast in previous question. Fail-safe iterators are just opposite to fail-fast. They never fail if you modify the underlying collection on which they are iterating, because they work on clone of Collection instead of original collection and that’s why they are called as fail-safe iterator.
+
+Iterator of CopyOnWriteArrayList is an example of fail-safe Iterator also iterator written by ConcurrentHashMap keySet is also fail-safe iterator and never throw ConcurrentModificationException.
+
+33) How to avoid ConcurrentModificationException while iterating a collection?
+
+You should first try to find another alternative iterator which are fail-safe. For example if you are using List and you can use ListIterator. If it is legacy collection, you can use enumeration.
+
+If above options are not possible then you can use one of three changes:
+
+    If you are using JDK1.5 or higher then you can use ConcurrentHashMap and CopyOnWriteArrayList classes. It is the recommended approach.
+    You can convert the list to an array and then iterate on the array.
+    You can lock the list while iterating by putting it in a synchronized block.
+
+Please note that last two approaches will cause a performance hit.
+
+34) What is UnsupportedOperationException?
+
+This exception is thrown on invoked methods which are not supported by actual collection type.
+
+For example, if you make a read-only list list using “Collections.unmodifiableList(list)” and then call add() or remove() method, what should happen. It should clearly throw UnsupportedOperationException.
+
+35) Which collection classes provide random access of it’s elements?
+
+ArrayList, HashMap, TreeMap, Hashtable classes provide random access to it’s elements.
+
+36) What is BlockingQueue?
+
+A Queue that additionally supports operations that wait for the queue to become non-empty when retrieving an element, and wait for space to become available in the queue when storing an element.
+
+BlockingQueue methods come in four forms: one throws an exception, the second returns a special value (either null or false, depending on the operation), the third blocks the current thread indefinitely until the operation can succeed, and the fourth blocks for only a given maximum time limit before giving up.
+
+Read the example usage of blocking queue in post : How to use blocking queue?
+
+37) What is Queue and Stack, list down their differences?
+
+A collection designed for holding elements prior to processing. Besides basic Collection operations, queues provide additional insertion, extraction, and inspection operations.
+Queues typically, but do not necessarily, order elements in a FIFO (first-in-first-out) manner.
+
+Stack is also a form of Queue but one difference, it is LIFO (last-in-first-out).
+
+Whatever the ordering used, the head of the queue is that element which would be removed by a call to remove() or poll(). Also note that Stack and Vector are both synchronized.
+
+Usage: Use a queue if you want to process a stream of incoming items in the order that they are received.Good for work lists and handling requests.
+Use a stack if you want to push and pop from the top of the stack only. Good for recursive algorithms.
+
+38) What is Comparable and Comparator interface?
+
+In java. all collection which have feature of automatic sorting, uses compare methods to ensure the correct sorting of elements. For example classes which use sorting are TreeSet, TreeMap etc.
+
+To sort the data elements a class needs to implement Comparator or Comparable interface. That’s why all Wrapper classes like Integer,Double and String class implements Comparable interface.
+
+Comparable helps in preserving default natural sorting, whereas Comparator helps in sorting the elements in some special required sorting pattern. The instance of comparator if passed usually as collection’s constructor argument in supporting collections.
+
+39) What are Collections and Arrays classes?
+
+Collections and Arrays classes are special utility classes to support collection framework core classes. They provide utility functions to get read-only/ synchronized collections, sort the collection on various ways etc.
+
+Arrays also helps array of objects to convert in collection objects. Arrays also have some functions which helps in copying or working in part of array objects.
+
+
+-------------------------------------------------------------------------------
+Hashing : Hashing is a technique that is used to uniquely identify a specific object from a group of similar objects.	
+
+Assume that you have an object and you want to assign a key to it to make searching easy. To store the key/value pair, you can use a simple array like a data structure where keys (integers) can be used directly as an index to store values. However, in cases where the keys are large and cannot be used directly as an index, you should use hashing. 
+
+In hashing, large keys are converted into small keys by using hash functions. The values are then stored in a data structure called hash table. 
+
+The idea of hashing is to distribute entries (key/value pairs) uniformly across an array. Each element is assigned a key (converted key). By using that key you can access the element in O(1) time. Using the key, the algorithm (hash function) computes an index that suggests where an entry can be found or inserted.
+
+Hashing is implemented in two steps:
+
+    An element is converted into an integer by using a hash function. This element can be used as an index to store the original element, which falls into the hash table.
+
+    The element is stored in the hash table where it can be quickly retrieved using hashed key.
+
+    hash = hashfunc(key)
+    index = hash % array_size
+
+Hash function
+A hash function is any function that can be used to map a data set of an arbitrary size to a data set of a fixed size, which falls into the hash table. The values returned by a hash function are called hash values, hash codes, hash sums, or simply hashes.
+
+To achieve a good hashing mechanism, It is important to have a good hash function with the following basic requirements:
+
+    Easy to compute: It should be easy to compute and must not become an algorithm in itself.
+
+    Uniform distribution: It should provide a uniform distribution across the hash table and should not result in clustering.
+
+    Less collisions: Collisions occur when pairs of elements are mapped to the same hash value. These should be avoided.
+
+    Note: Irrespective of how good a hash function is, collisions are bound to occur. Therefore, to maintain the performance of a hash table, it is important to manage collisions through various collision resolution techniques.
+
+Collision resolution techniques
+
+1.  Separate chaining (open hashing)
+
+Separate chaining is one of the most commonly used collision resolution techniques. It is usually implemented using linked lists. In separate chaining, each element of the hash table is a linked list. To store an element in the hash table you must insert it into a specific linked list. If there is any collision (i.e. two different elements have same hash value) then store both the elements in the same linked list.
+
+2. Linear probing (open addressing or closed hashing)
+
+In open addressing, instead of in linked lists, all entry records are stored in the array itself. When a new entry has to be inserted, the hash index of the hashed value is computed and then the array is examined (starting with the hashed index). If the slot at the hashed index is unoccupied, then the entry record is inserted in slot at the hashed index else it proceeds in some probe sequence until it finds an unoccupied slot.
+
+The probe sequence is the sequence that is followed while traversing through entries. In different probe sequences, you can have different intervals between successive entry slots or probes.
+
+When searching for an entry, the array is scanned in the same sequence until either the target element is found or an unused slot is found. This indicates that there is no such key in the table. The name "open addressing" refers to the fact that the location or address of the item is not determined by its hash value.
+
+Linear probing is when the interval between successive probes is fixed (usually to 1). Let’s assume that the hashed index for a particular entry is index. The probing sequence for linear probing will be:
+
+index = index % hashTableSize
+index = (index + 1) % hashTableSize
+index = (index + 2) % hashTableSize
+index = (index + 3) % hashTableSize
+
+and so on…
+
+3. quadratic probing
+
+-- 
+Applications
+
+    Associative arrays: Hash tables are commonly used to implement many types of in-memory tables. They are used to implement associative arrays (arrays whose indices are arbitrary strings or other complicated objects).
+    Database indexing: Hash tables may also be used as disk-based data structures and database indices (such as in dbm).
+    Caches: Hash tables can be used to implement caches i.e. auxiliary data tables that are used to speed up the access to data, which is primarily stored in slower media.
+    Object representation: Several dynamic languages, such as Perl, Python, JavaScript, and Ruby use hash tables to implement objects.
+    Hash Functions are used in various algorithms to make their computing faster
+
+
+
+
+
+
+
+
+----------------------------------------
+
+
+
+Java Collections Interview Questions
+
+    What are Collection related features in Java 8?
+    What is Java Collections Framework? List out some benefits of Collections framework?
+    What is the benefit of Generics in Collections Framework?
+    What are the basic interfaces of Java Collections Framework?
+    Why Collection doesn’t extend Cloneable and Serializable interfaces?
+    Why Map interface doesn’t extend Collection interface?
+    What is an Iterator?
+    What is difference between Enumeration and Iterator interface?
+    Why there is not method like Iterator.add() to add elements to the collection?
+    Why Iterator don’t have a method to get next element directly without moving the cursor?
+    What is different between Iterator and ListIterator?
+    What are different ways to iterate over a list?
+    What do you understand by iterator fail-fast property?
+    What is difference between fail-fast and fail-safe?
+    How to avoid ConcurrentModificationException while iterating a collection?
+    Why there are no concrete implementations of Iterator interface?
+    What is UnsupportedOperationException?
+    How HashMap works in Java?
+    What is the importance of hashCode() and equals() methods?
+    Can we use any class as Map key?
+    What are different Collection views provided by Map interface?
+    What is difference between HashMap and Hashtable?
+    How to decide between HashMap and TreeMap?
+    What are similarities and difference between ArrayList and Vector?
+    What is difference between Array and ArrayList? When will you use Array over ArrayList?
+    What is difference between ArrayList and LinkedList?
+    Which collection classes provide random access of it’s elements?
+    What is EnumSet?
+    Which collection classes are thread-safe?
+    What are concurrent Collection Classes?
+    What is BlockingQueue?
+    What is Queue and Stack, list their differences?
+    What is Collections Class?
+    What is Comparable and Comparator interface?
+    What is difference between Comparable and Comparator interface?
+    How can we sort a list of Objects?
+    While passing a Collection as argument to a function, how can we make sure the function will not be able to modify it?
+    How can we create a synchronized collection from given collection?
+    What are common algorithms implemented in Collections Framework?
+    What is Big-O notation? Give some examples?
+    What are best practices related to Java Collections Framework?
+    What is Java Priority Queue?
+    Why can’t we write code as List<Number> numbers = new ArrayList<Integer>();?
+    Why can’t we create generic array? or write code as List<Integer>[] array = new ArrayList<Integer>[10];

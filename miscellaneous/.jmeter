@@ -1,0 +1,83 @@
+Apache JMETER 
+
+Jmeter is a open source java application designed to measure performance and load testing.
+
+Apache JMeter can measure performance and load test static and dynamic web applications.
+Installation
+To install a release build, simply unzip the zip/tar file into the directory where you want JMeter to be installed. Provided that you have a JRE/JDK correctly installed and the JAVA_HOME environment variable set, there is nothing more for you to do.
+
+
+Running JMeter¶
+To run JMeter, run the jmeter.bat (for Windows) or jmeter (for Unix) file. These files are found in the bin directory. After a short time, the JMeter GUI should appear. 
+
+Steps: 
+1. Create a test plan
+2. Create a Thread Group (Thread group elements are the beginning points of any test plan. All controllers and samplers must be under a thread group.)
+       Right Click on Test plan->Add->Threads->Thread Group
+       Fill the required details
+       
+The controls for a thread group allow you to: 
+* Set the number of threads
+* Set the ramp-up period
+* Set the number of times to execute the test
+
+The ramp-up period tells JMeter how long to take to "ramp-up" to the full number of threads chosen. If 10 threads are used, and the ramp-up period is 100 seconds, then JMeter will take 100 seconds to get all 10 threads up and running. Each thread will start 10 (100/10) seconds after the previous thread was begun. If there are 30 threads and a ramp-up period of 120 seconds, then each successive thread will be delayed by 4 seconds.
+Ramp-up needs to be long enough to avoid too large a work-load at the start of a test, and short enough that the last threads start running before the first ones finish (unless one wants that to happen). 
+Start with Ramp-up = number of threads and adjust up or down as needed. 
+By default, the thread group is configured to loop once through its elements
+
+3. To test a REST endpoint, Create a HTTP Request
+      a. Right Click on Thread group ->Add-> Sampler -> HTTP Request
+** Samplers tell JMeter to send requests to a server and wait for a response. They are processed in the order they appear in the tree. Controllers can be used to modify the number of repetitions of a sampler. 
+      b. Add Configurations to HTTP Request:
+          - Add HTTP Header Manager to set headers value eg; content-type: application/json.
+          - Add Assertions:Assertions allow you to assert facts about responses received from the server being tested
+              Add Duration Assertion: set the duration limit for response time.
+           -Add Listeners: View Result tree - to see the result of performance test
+                                       You can also add Summary report to generate report of test.
+      c. Configure the Client’s side certificate: 
+          Keystore configuration element helps to configure client side certificate
+          Before adding a Keystore Configuration element, you must set up a Java Key Store with the client certificates that you want to test. 
+           Follow the below steps:
+           - Create your certificates either with Java keytool utility or through your PKI and converting them to a format acceptable by JKS: If you have a PKCS12 file, use the following command line to convert it to a JKS file:                 keytool -importkeystore -srckeystore certificate.p12 -srcstoretype PKCS12                 -srcstorepass <certificate_password>                 -keystore <keystore_filename>-storepass <stored_password>
+
+          - Changes need to be done in system.properties file (if not available (or commented) then add (or uncomment) them: 		javax.net.ssl.keyStore=path_to_keystore 		javax.net.ssl.keyStorePassword=password_of_keystore
+         - Change your HTTP sampler implementation to Java (instead of HC3.1 or HC4)
+
+         How to add ‘Keystore Configuration’?
+	You can follow below steps to add Keystore Configuration:
+    1. Select “Test Plan” node
+    2. Right-click on “Test Plan” node
+    3. Hover the mouse on “Add”
+    4. Hover the mouse on ‘Config Element‘
+    5. Click on ‘Keystore Configuration’ 
+What are the input fields of ‘Keystore Configuration’?
+* Name: To provide element name
+* Comments: To provide arbitrary comments (if any)
+* Preload: This option helps you to choose whether you want preload Keystore or not?
+* Variable name holding certificate alias: Variable name that will contain the alias to use for authentication by client certificate.
+* Alias Start Index: The index of the first key to use in Keystore, 0-based
+* Alias End Index: The index of the last key to use in Keystore, 0-based. When using “Variable name holding certificate alias” ensure it is large enough so that all keys are loaded at startup. 
+
+How to verify?
+To verify keystore creation and loading, view JMeter log file
+2016/01/03 11:09:15 INFO  – jmeter.util.SSLManager: JmeterKeyStore Location: testKeystore.jks type JKS 2016/01/03 11:09:15 INFO  – jmeter.util.SSLManager: KeyStore created OK 2016/01/03 11:09:15 INFO  – jmeter.util.SSLManager: Total of 1 aliases loaded OK from keystore
+
+
+——Convert pfx to jmx certificate—
+
+keytool -importkeystore -srckeystore test certificate.pfx -srcstoretype pkcs12 -destkeystore clientcert.jks -deststoretype JKS 
+openssl pkcs12 -in testcertificate.pfx -nocerts -out testCert.key
+
+openssl pkcs12 -in testcertificate.pfx -clcerts -nokeys -out testCert.crt
+
+keytool -import -file testCert.crt -alias exampleCA -keystore truststore.jks
+
+openssl pkcs12 -export -in testCert.crt -inkey testCert.key -certfile testCert.crt -name “examplecert” -out keystore.p12
+
+keytool -importkeystore -srckeystore keystore.p12 -srcstoretype pkcs12 -destkeystore keystore.jks -deststoretype JKS
+Importing keystore keystore.p12 to keystore.jks…
+
+
+
+

@@ -1,1 +1,13 @@
-PRINCIPLES OF MICROSERVICES
+SIX PRINCIPLES OF MICROSERVICES
+
+1. High Cohesion : Single responsibilty principle or single reason to change
+
+2. Autonomous (Loose coupling) : 
+
+3. Domain Driven Development : 
+
+4. Resilience : 
+
+5. Observable : 
+
+6. Automation : 

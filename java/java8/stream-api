@@ -1,1 +1,81 @@
+STREAM API
 
+java.util.stream
+We can use stream to filter, collect, print, and convert from one data structure to other etc.
+Operations performed on a stream does not modify it's source.
+Stream is lazy and evaluates code only when required.
+
+Q: Print elements of a list using stream
+   List list = new ArrayList<>();
+   list.stream().collect(Collectors.toList());
+   OR
+   list.stream().forEach(System.out::print)
+
+Q: Filtering Collection by using Stream
+
+   Given a collection of PRODUCTs with name,id,price, Filter all the products with price > 30,000::
+   
+   List :: productList
+   
+   productList.stream()
+              .filter(p->p.price>30000)          //filtering data
+              .map(p->p.name)                    //fetching names
+              .collect(Collectors.toList());     //collecting as a list
+              
+              
+Q: Create stream from array?
+ int []store = {0,1,2,3,4,5,6,7,8,9};
+ Stream.of(store).forEach(System.out::println);
+ 
+Q: Given a list of employees, sort all the employee on the basis of age? 
+   
+           employeeList.sort((e1,e2)->e1.getAge()-e2.getAge());
+           employeeList.forEach(System.out::println);
+           
+Q: Join all the names of employees in list with ","?
+   List<Employee> employeeList= createList();
+   List<String> list = employeeList.stream()
+                                   .map(Employee::getName)
+                                   .collect(Collectors.toList());
+                                   
+   String result = String.join(",",list);
+   
+Q: Given the list of employee, group them by employee name?
+
+   employeeList.stream().collect(Collectors.groupingBy(Employee::name);
+
+Q: Given the list of numbers, remove the duplicate elements from the list.
+
+   numbersList.stream().distinct().collect(Collectors.toList());
+   OR
+   numbersList.stream().collect(Collectors.toSet());
+   
+Q: Given a list of numbers, square them and filter the numbers which are greater 10000 and then find average of them.
+
+   numbersList.map(n->n*n).filter(r->r>1000).average();
+
+    
+        
+Q: Main components of a Stream?
+
+    A data source
+    Set of Intermediate Operations to process the data source
+    Single Terminal Operation that produces the result
+    
+Q: What are the most commonly used Intermediate operations?
+
+*   Filter(Predicate<T>)  :  It returns elements which satisfy the given condition in predicate   - Selective processing of stream elements.
+
+*   map(Funtion<T, R>)    :  It returns new stream, transforming each of the element by applying supplied mapper function.
+
+*   distinct()   : stateful operation which returns distict elements of a stream.
+Collection<String> list = Arrays.asList("A", "B", "C", "D", "A", "B", "C");
+list.stream().distinct().collect.(Collectors.toList());
+
+
+*  limit(long maxsize) : limts length of stream
+
+* skip(long start) - Skip the initial elements till the start.
+
+              
+              

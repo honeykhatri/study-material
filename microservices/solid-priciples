@@ -1,6 +1,6 @@
 SOLID PRINCIPLES
 :: 5 principles of Object Oriented Design
-::Solid Principles helps to build robust applications
+:: Solid Principles helps to build robust applications
 :: Architectural principles helps to build business centric solutions
 :: Adopting these practices can also contribute to avoiding code smells, refactoring code, and Agile or Adaptive software development.
 
@@ -13,16 +13,20 @@ Objects or entities should be open for extension but closed for modification.
 i.e; Class should be extendable without modifying the class itself.
 
 L - LISKOV Substitution PRINCIPLE :: 
-If S is a subtype of T, then objects of T in a program can be replaces by objects of type S without altering any of the desirable properties of a program.
+If S is a subtype of T, then objects of T in a program can be replaced by objects of type S without altering any of the desirable properties of a program.
 Eg;
 IF Parent T can make coffee
-and S is child of T .. then S can also make coffee
+and S is child of T .. then S can also make coffee(Espresso)
 
 I - INTERFACE SEGREGATION PRINCIPLE ::
 Clients should not be forced to depend on the methods they dont use.
-This principle aims at splitting a set of actions into smaller sets so that a Class executes ONLY the set of actions it requires.
+Segregation means keeping things separated, and the Interface Segregation Principle is about separating the interfaces.
+The principle states that many client-specific interfaces are better than one general-purpose interface. Clients should not be forced to implement a 
+function they do no need. 
 
 D - DEPENDENCY INVERSION PRINCIPLE :: 
+The Dependency Inversion principle states that our classes should depend upon interfaces or abstract classes instead of concrete classes and functions. 
+
 
 
 

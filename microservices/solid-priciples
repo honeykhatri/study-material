@@ -1,13 +1,28 @@
 SOLID PRINCIPLES
+:: 5 principles of Object Oriented Design
+::Solid Principles helps to build robust applications
+:: Architectural principles helps to build business centric solutions
+:: Adopting these practices can also contribute to avoiding code smells, refactoring code, and Agile or Adaptive software development.
 
-S - SINGLE RESPONSIBILITY PRINCIPLE
 
-O - OPEN AND CLOSE ENDED
+S - SINGLE RESPONSIBILITY PRINCIPLE :: 
+A class should have one and only one reason to change, meaning that a class should have only one job.
 
-L - LISKOV PRINCIPLE
+O - OPEN AND CLOSE ENDED ::
+Objects or entities should be open for extension but closed for modification.
+i.e; Class should be extendable without modifying the class itself.
 
-I - INVERSION OF CONTROL
+L - LISKOV Substitution PRINCIPLE :: 
+If S is a subtype of T, then objects of T in a program can be replaces by objects of type S without altering any of the desirable properties of a program.
+Eg;
+IF Parent T can make coffee
+and S is child of T .. then S can also make coffee
 
-D - DEPENDENCY INJECTION
+I - INTERFACE SEGREGATION PRINCIPLE ::
+Clients should not be forced to depend on the methods they dont use.
+This principle aims at splitting a set of actions into smaller sets so that a Class executes ONLY the set of actions it requires.
+
+D - DEPENDENCY INVERSION PRINCIPLE :: 
+
 
 

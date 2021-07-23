@@ -1,1 +1,104 @@
+IMP CONCEPTS/QUESTIONS in JAVA
 
+
+	- THIS Keyword?
+    * Predefined instance variable which holds the reference to the current object.
+    
+    *Uses of THIS in contructor: 
+         -this keyword is used to access the instance variables when the name of local variable and instance variable is same .
+          public class ThisDemo{
+               int a=0;
+               int b;
+          ThisDemo(int a,int b){
+                   this.a = a;
+                   this.b = b;
+              }
+              }
+ 
+         - this keyword can be used for constructor overloading.
+         - To call one constructor from other we need this();
+           this();should be the first statement of constructor.
+           
+         * We can call methods using this keyword :: this.show()
+         * We can call method on this keyword from constructor.
+         * Is it not possible to assign any value/reference to this.
+         * We can return this from a method
+         * We can pass this as a parameter in a method.
+         * We can not use this inside a static block.
+         * We can not use this inside static methods as .. static is bound to class not to an instance.
+    
+ :: IMP :: Diff between this and super 
+   * this keyword holds the reference of current object while super holds the reference to super class object.
+   * Using this we can access all non static methods and variables. using super we can access super class variables and methods from subclass.
+   * Using this(); we can call a constructor from another constructor in the same class.using super(); we can call constructor of super class from 
+     constructor of subclass.
+   
+    
+ INSTANCE VARIABLE :: Variables declared inside the class and outside a method without static keyword
+ are known as instance variables.
+ They are used by objects to store the state of object.Every object will have there own copy of set of
+ instance variables.
+ instance variables can be final , transient
+ instance variables can not be declared as abstract,static strictfp,synchronized and native.
+ 
+ STATIC VARIABLE :: Variables declared with static keyword. They are single for a class and are shared
+ among objects of the class.
+ Static variables are associated with the class.
+  
+HOW TO CREATE A IMMUTABLE CLASS?
+Immutable class means that once an object is created, we cannot change its content.
+
+There are many immutable classes like String, Boolean, Byte, Short, Integer, Long, Float, Double etc. 
+In short, all the wrapper classes and String class is immutable. 
+We can also create immutable class by creating final class that have final data members as the example given below:
+
+:: Example to create Immutable class
+
+In this example, we have created a final class named Employee. It have one final datamember, a parameterized constructor and getter method.
+
+    public final class Employee{  
+    final String pancardNumber;  
+      
+    public Employee(String pancardNumber){  
+    this.pancardNumber=pancardNumber;  
+    }  
+      
+    public String getPancardNumber(){  
+    return pancardNumber;  
+    }        
+    }  
+    The above class is immutable because:
+
+    The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
+    The class is final so we cannot create the subclass.
+    There is no setter methods i.e. we have no option to change the value of the instance variable. These points makes this class as immutable.
+
+  public static void main String(args[]) :: 
+	
+	
+  
+  ARRAYS IN JAVA
+  :: Disadvantages of array in java
+    Arrays are Strongly Typed.
+    Arrays does not have add or remove methods.
+    We need to mention the size of the array. Fixed length.
+    So there is a chance of memory wastage.
+    To delete an element in an array we need to traverse through out the array so this will reduce performance.
+	
+ :: Advantages of arrays:
+    We can access any element randomly by using indexes provided by arrays.
+    Primitive type to wrapper classes object conversion will not happen so it is fast.
+    Array can store many number of elements at a time
+
+5 different ways to print ARRAY::
+  1. using for loop
+  2. using advance for loop
+  3. using Arrays.toString(array)
+  4. using Arrays.deepToString(array)
+  5. using Arrays.asList(array) Method
+ 
+  
+  CONSTRUCTORS IN JAVA
+	*If we give a return type to constructor JVM will treat this as a method :: Constructor does not have a return type .
+	* we can declare constructor as private in order to restrict object creation outside the class.
+	* Interfaces can not have a constructor, we can not create object for interface so there is no need of constructor.

@@ -9,3 +9,23 @@
   (p) -> System.out.println("One parameter: " + p);
   (p1, p2) -> System.out.println("Multiple parameters: " + p1 + ", " + p2);
   
+  
+  :: java.util.function.FUNCTION
+  
+  It was introduced in java8 for FUNCTIONAL Programming
+  Function(T,R) will be used in streams where to take one type of object and convert to another  and return.
+  and This Function() supports methods like apply(),addThen(),compose(),identity().
+  
+  public class Java8Function {
+
+  public static void main(String[] args) {
+  
+  Function<Integer, String> function = (n) -> {
+   return "Number received: "+n;
+  };
+
+  System.out.println(function.apply(37));
+  System.out.println(function.apply(64));
+ }
+ 
+  

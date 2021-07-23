@@ -1,1 +1,11 @@
-
+  LAMBDA EXPRESSIONS in java ::
+ 
+  They are used to express instances of functional interfaces.
+  
+  FUNCTIONAL INTERFACE :: an interface with single abstract method is known as functional interface.
+  
+  lambda operator -> body
+  () -> System.out.println("Zero parameter lambda");
+  (p) -> System.out.println("One parameter: " + p);
+  (p1, p2) -> System.out.println("Multiple parameters: " + p1 + ", " + p2);
+  

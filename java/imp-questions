@@ -24,3 +24,46 @@
 	 return object;
   }
  }
+
+## Can we have a try block without a catch block in Java? 
+
+    It is possible to have try block without catch block by using finally block
+    Java supports try with finally block
+    As we know finally block will always executes even there is an exception occurred in try block, Except System.exit() it will executes always.
+    We can place logic like connections closing or cleaning data in finally.
+    Finally block executes Even though the method have return type and try block returns something.
+    Even though exception raised in try block finally block executes.
+
+
+    package exceptionsInterviewQuestions;
+     
+    public class TryWithFinally {
+     
+    public static int method(){  
+      
+           
+    try {
+                
+      System.out.println("inside try block");
+     
+     return 10;        
+    } finally{
+                
+                System.out.println("inside finally block");
+    }
+     
+    }
+     
+    public static void main(String[] args) {
+            
+    System.out.println(method());
+     
+    }
+     
+    }
+
+}
+
+Output: inside try block
+inside finally block
+10

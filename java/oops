@@ -1,1 +1,48 @@
 OOPS 
+
+How Java implements OOPs?
+OOPs refers to the programming languages that uses objects in programming.
+OOPs aims at implementing real world entities like inheritance, hiding, polymorphism etc in programming.
+The main aim of OOP is to bind together the data and the functions that operate on them so that no other part of code can access the data except the function.
+
+OOPs Concept
+	
+Polymorphism : ability of  OOPs programming languages to differentiate between entities with same name efficiently.
+Types :: Overriding and Overloading
+
+1. Static binding/Compile-Time binding/Early binding/Method overloading.(in same class)
+
+2. Dynamic binding/Run-Time binding/Late binding/Method overriding.(in different classes)
+
+Inheritance : It is the mechanism in java by which one class allow to inherit the features of another class.
+
+Encapsulation : It is defined as the wrapping up of data & code under a single unit.It is a mechanism that binds together the code and the data
+                it manipulates.
+                
+ It is a shield that prevents the data from being accessed by the code outside the shield.
+ * In Encapsulation,the variables or data is hidden from other class and can be accessed only through any member fn of own class in which 
+   they are declared.
+ * As in Encapsulation, the data in a class is hidden from other classes,so it is known as data hiding.
+ * Encapsulation can be achieved by: declaring all the variables in the class as private and writing public methods in the class to set 
+   and get the values of variables.
+  
+Abstraction : It is the property by virtue of which only essential details are displayed to the user.The non-essential details are not displayed to 
+	            the user. eg ; car is viewed as car rather than its individual components.
+              
+In java, abstraction is achieved by interfaces and abstract classes.
+	
+	Class : Class is a user defined blueprint or prototype from which objects are created .It represents set of properties or methods that
+  are common to all the objects of one type.
+	
+	Object : Object is basic unit of OOP and represent real life entities.
+
+Abstract Class : Hiding the implementation and showing the function definition to the user , Abstract class contains abstract methods and
+                 concrete methods.
+	
+	It is not mandatory to create at-least one abstract method in abstract class. 
+  
+  USE : we will not be able to instantiate this class.
+	      Abstract class can not be instantitated.
+	
+	valid modifiers with abstract : public , protected , default
+	invalid modifiers with abstract :  static , final , private 

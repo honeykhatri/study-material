@@ -1,0 +1,31 @@
+Strings
+
+Immutable in Java
+Classes like StringBuilder and StringBuffer allow you to make string like Objects mutable.
+StringBuffer is thread safe as there methods are synchornized.
+
+
+From Java 9, Strings are stored as byte arrays instead of char arrays .. because of this Strngs now takes half the space.
+
+There are 2 ways to create Strings 
+
+1. String Literals
+String A="abc";
+String B="abc";
+Live in String constant pool.
+Strings A and B reference the same object and value.
+A==B true
+A.equals(B) true
+
+2.String Objects
+String A=new String("abc");
+String B=new String("abc");
+Live In the heap
+String A and B reference to two separate objects
+A==B will return false
+A.equals(B) will return true;
+
+
+== vs .equals
+== compares the references 
+.equals compares the value.

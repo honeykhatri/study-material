@@ -18,6 +18,17 @@ The primary annotations that Spring Boot offers reside in its org.springframewor
    Spring boot application scans all the beans and package declarations when the application initializes. You need to add @ComponentScan annotation
    to  your class file to scan your components added to the project.
    
+  
+  
+3. @RestController - combination of @Controller & @ResponseBody, used for creating rest controller
+                   - converts response to JSON or XML
+                   - It Ensures that data returned by each method will be written straight into response body instead of returning a template.
+                   
+             @Controller vs @RestController
+                   - Controllers maps the object to view or template and it make it human readable.
+                   - Restcontroller returns the object & object data directly to the HTTP response as JSON or XML
+                   
+   
    
                    
                    

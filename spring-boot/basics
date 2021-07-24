@@ -2,4 +2,89 @@ Spring boot : Java based spring framework used for Rapid Application Development
               Extra support for auto configuration & embedded application server like tomcat,jetty.
               
               
+Features of Spring boot application
+
+1. Creates stand alone web application with minimal auto configuration.
+2. Embedded tomcat, jetty which makes it code and run the application
+3. Provide production ready features like health check , metrics and externalized configuration.
+4. Absolutely no requirement for XML Configuration.
+
+
+
+Advantages of Spring boot
+
+1. Easy to understand and develop spring applications.
+2. It is nothing just a existing framework with the addition of embeeded HTTP server and annotation configuration which makes it easier understand
+   and faster the process of development.
+3. Increases productivity and reduces development time.
+4. Minimal configuration
+5. We dont need to write XML configuration only a few annotations are required.
+
+
+
+FOUR Key components of Spring Boot
+
+1. Spring boot Auto Configuration
+2. Spring boot CLI
+3. Spring boot Actuators
+4. Spring boot starter POMs
+
+
+
+Spring boot vs Spring??
+
+Following are the keypoints which spring boot offers but spring doesn't
+1. Strater POM.
+2. Spring boot actuators
+3. Component scanning 
+4. Auto configuration
+5. Version management
+6. Embedded server
+7. InMemory DB
+
+
+STARTER dependency of Spring boot?
+Starter Dependencies: Spring boot starter is a maven template that has collection of relavant transitive depencies that are needed to start a particular functionaliy
+
+Like if we need to import spring-boot-web-starter dependecny for creating a web application
+<dependency>
+<groupId>org.springframework.boot</groupId>
+<artifactId>spring-boot-starter-web</artifactId>
+</dependency>
+
+Spring boot offers number of started dependencies,few of them are listed below
+1. Web starter
+2. Data JPA starter
+3. Test starter
+4. Thymeleaf starter
+5. Mail starter
+6. Security starter
+
+
+HOW SPRING BOOT WORKS?
+Spring boot automatically configures your application based on the dependencies you have added to the project. 
+The entry point of the spring boot application is the class annotated with @SpringBootApplication and have a main method.
+Spring boot automatically scans all the componrents in the project using @ComponentScan annotation.
+
+- How it starts?
+  Just like any other java program, spring boot application must have a main method. This method is the entry point of the application, which invokes
+  SpringApplication#run  method to bootstrap the application
+  
+  @SpringBootApplication
+  public class MainClass{
+  public static void main(String[] args){
+  SpringApplication.run(MainClass.class);
+  //other statements
+  }
+  }
+  
+  Spring Boot CLI : Command line interface that allow you to create spring-based applications in Groovy. 
+  
+
+
+
+
+
+              
+              
               

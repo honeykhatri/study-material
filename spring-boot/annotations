@@ -1,6 +1,8 @@
 
 ANNOTATIONS
 
+The primary annotations that Spring Boot offers reside in its org.springframework.boot.autoconfigure and its sub-packages.
+
 1. @SpringBootApplication
    Equivalent to using 
                    - @Configuration,

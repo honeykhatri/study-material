@@ -1,1 +1,22 @@
 
+ANNOTATIONS
+
+1. @SpringBootApplication
+   Equivalent to using 
+                   - @Configuration,
+                   - @EnableAutoConfiguration & 
+                   - @ComponentScan 
+                   with their default attributes
+        
+   Spring boot enables developers to use a single annoation instead of using multiple.
+   
+   
+   
+2. @ComponentScan 
+   Spring boot application scans all the beans and package declarations when the application initializes. You need to add @ComponentScan annotation
+   to  your class file to scan your components added to the project.
+   
+   
+                   
+                   
+          

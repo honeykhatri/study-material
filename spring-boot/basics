@@ -80,6 +80,38 @@ Spring boot automatically scans all the componrents in the project using @Compon
   
   Spring Boot CLI : Command line interface that allow you to create spring-based applications in Groovy. 
   
+  
+  SPRING BOOT DEPENDENCY MANAGEMENT
+  It is used to manage dependencies and configuration without you specifying any version for any of that dependencies.
+  
+  
+  NON-WEB APPLICATION IN SPRING BOOT ? HOW ? 
+  By removing all the web dependecies from classpath and doing the way spring boot creates the application context.
+  We need to implement CommandLineRunner interface and override run method to create a standalone application.
+  
+  
+  
+  Override or replace the Embedded tomcat server in Spring Boot?
+  You can replace the Embedded tomcat server with any server by using starter dependency in POM file. For example to replace it with jetty server, 
+  we need to add starter dependency " spring-boot-starter-jetty" 
+  
+  
+  Disabling default web server in spring boot application?
+  In application.properties
+  spring.main.web-application-type=none
+  
+  
+  Disable specific auto-configuration class?
+  @EnableAutoConfiguration(exclude={className})
+  
+  
+  
+  
+  
+  
+  
+  
+  
 
 
 

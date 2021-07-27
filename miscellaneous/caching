@@ -1,0 +1,5 @@
+Caching
+Using Redis
+
+Azure APIM Redis Caching.
+https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-initializer-java-app-with-redis-cache

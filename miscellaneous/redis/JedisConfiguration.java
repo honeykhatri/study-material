@@ -20,24 +20,13 @@ public class JedisConfiguration {
     @Bean
     public JedisConnectionFactory redisConnectionFactory() {
 
-        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration("gmt-redis-dev.redis.cache.windows.net",
+        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration(redisHostname,
                 6379);
-        redisStandaloneConfiguration.setPassword("UVN7QmfqCRIR2Zo6tmtmMZz9rmRmpFGS+W1dTnYoeBg=");
+        redisStandaloneConfiguration.setPassword(redisPassword);
         return new JedisConnectionFactory(redisStandaloneConfiguration);
 
     }
 
-//    @Bean
-//    RedisConnectionFactory jedisConnectionFactory() {
-//        RedisStandaloneConfiguration redisStandaloneConfiguration = new RedisStandaloneConfiguration("gmt-redis-dev.redis.cache.windows.net",
-//                6380);
-////        JedisClientConfiguration jedisClientConfiguration = JedisClientConfiguration.builder().useSsl().build();
-//        redisStandaloneConfiguration.setPassword(RedisPassword.of("UVN7QmfqCRIR2Zo6tmtmMZz9rmRmpFGS+W1dTnYoeBg="));
-//        return new JedisConnectionFactory(redisStandaloneConfiguration);
-//
-//
-//
-//    }
     @Bean
     public RedisTemplate<String, Object> redisTemplate() {
         RedisTemplate<String, Object> redisTemplate = new RedisTemplate<String, Object>();

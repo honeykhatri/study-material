@@ -1,0 +1,17 @@
+Redis
+Remote Dictionary server 
+
+Redis with Spring boot
+
+1. add below dependencies to your project
+   -spring-boot-starter-data-redis
+   -redis-clients
+   
+2. Configure Jedis & Redistemplate in your application
+    The configuration is shown in JedisConfiguration.java
+    
+
+
+
+
+

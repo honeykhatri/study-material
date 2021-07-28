@@ -1,1 +1,6 @@
 
+Azure Cache for Redis
+
+Create azure cache for redis in azure
+Use the hostname and accesskey in your application to set it up in similar manner.
+

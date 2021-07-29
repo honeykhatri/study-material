@@ -53,6 +53,12 @@ Q: Given the list of numbers, remove the duplicate elements from the list.
 Q: Given a list of numbers, square them and filter the numbers which are greater 10000 and then find average of them.
 
    numbersList.map(n->n*n).filter(r->r>1000).average();
+   
+Q: Convert a 2D list to 1D list using streams?
+ List<List<Integer>> listOfLists = Arrays.asList(Arrays.asList(1, 2), Arrays.asList(3, 4));//2D
+ List<Integer> faltList = listOfLists.
+        stream().flatMap(s -> s.stream()).collect(Collectors.toList());
+System.out.println(faltList);
 
     
         

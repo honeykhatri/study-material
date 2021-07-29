@@ -104,9 +104,32 @@ Spring boot automatically scans all the componrents in the project using @Compon
   Disable specific auto-configuration class?
   @EnableAutoConfiguration(exclude={className})
   
+  ** Spring boot flow architecture : https://s3.ap-south-1.amazonaws.com/myinterviewtrainer-domestic/public_assets/assets/000/000/247/original/Spring_Boot_Flow_Architecture.png?1616151707
   
-  
-  
+ 
+ ** DIFFERENCE BETWEEN @RequestMapping & @GetMapping
+     RequestMapping can be used with GET,POST, PUT and many other methods by just using method attribute on annotation 
+     Whereas, GetMapping is an extension of Requestmapping which gives clarity on the requestttpe.
+     
+ ** Profiles in SpringBoot 
+    
+While developing the application we deal with multiple environments such as dev, QA, Prod, and each environment 
+requires a different configuration. For eg., we might be using an embedded H2 database for dev but for prod, we might have proprietary Oracle or DB2. 
+Even if DBMS is the same across the environment, the URLs will be different.
+
+To make this easy and clean, Spring has the provision of Profiles to keep the separate configuration of environments.
+
+
+** How to enable debugging log in the spring boot application?
+
+Debugging logs can be enabled in three ways -
+
+    We can start the application with --debug switch.
+    We can set the logging.level.root=debug property in application.property file.
+    We can set the logging level of the root logger to debug in the supplied logging configuration file.
+
+
+
   
   
   

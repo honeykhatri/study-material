@@ -1,1 +1,59 @@
+Q: If two overloaded methods differ only by throws exception, are they overloaded?? NO - Compile time error
+Thrown exceptions from methods are also not considered when overloading a method. So your overloaded method throws the same exception, a different exception or it simply does no throw any exception; 
+no effect at all on method loading.
+
+Q: Can a final class be extended?  - NO
+When we try to extend a final class that will lead to a compilation error saying “cannot inherit from final SuperClass”
+
+Q: How to use a custom object as a key in hashmap?
+
+objects of custom classes can be used as a key in a HashMap. But in order to retrieve the value object back from the map without failure, there are certain guidelines that need to be followed.
+
+1)Custom class should follow the contract between hashCode() and equals().
+
+The contract states that:
+
+If two objects are equal according to the equals(Object) method, then calling
+the hashCode method on each of the two objects must produce the same integer result.
+
+This can be done by implementing hashcode() and equals() in your custom class.
+
+2) Make custom class immutable.
+
+Hint: use final, remove setters, use deep copy to set fields
+EXAMPLE: 
+public class Employee {    
+    private long id;    
+    private String name;    
+    private Date dateOfBirth;    
+    private BigDecimal salary;    
+
+    //Getter and Setters    
+    // to String    
+    @Override    
+    public boolean equals(Object o) {        
+        if (this == o) return true;        
+        if (o == null || getClass() != o.getClass()) return false;        
+        Employee employee = (Employee) o;        
+        if (id != employee.id) return false;        
+        if (name != null ? !name.equals(employee.name) : employee.name != null) return false;        
+        if (dateOfBirth != null ? !dateOfBirth.equals(employee.dateOfBirth) : employee.dateOfBirth != null) return false;        
+        return salary != null ? salary.equals(employee.salary) : employee.salary == null;    
+    }    
+
+    @Override    
+    public int hashCode() {        
+        int result = (int) (id ^ (id >>> 32));        
+        result = 31 * result + (name != null ? name.hashCode() : 0);        
+        result = 31 * result + (dateOfBirth != null ? dateOfBirth.hashCode() : 0);
+        result = 31 * result + (salary != null ? salary.hashCode() : 0);
+        return result;    
+    }    
+}
+Q:Can we catch Errors?? YES = but it is a bad practice.
+Q:hashcode() and equals() in HashMap implementation? HASHMAP INTERNAL WORKING??
+
+
+
+
 

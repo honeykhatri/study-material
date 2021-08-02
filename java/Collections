@@ -13,7 +13,7 @@ It provides an architecture to store and manipulate group of objects.
 	  ArrayList <data-type> list1= new List();    //check whether the error is runtime or compile time? -- compile time error
 	   -concept of dynamic array.
 	   -Maintains the insertion order and is **non-synchronised
-            -The elements stored in the ArrayList class can be randomly accessed .
+           -The elements stored in the ArrayList class can be randomly accessed .
 	  
 	  LinkedList  
 	  -It uses a doubly linked list internally to store the elements
@@ -34,7 +34,8 @@ It provides an architecture to store and manipulate group of objects.
 Diff betweeen ArrayList and Vector::
 1 : ArrayList is not synchronized while Vector is; To use ArrayList concurrently we need to externally synchronize it; using 	
 Collections.synchronizedList() we can ;
-2 : Data Growth : Both ArrayList and Vector uses dynamic array internally , when the dyanamic array becomes full the ArrayList increases the size of Array by 50% while the Vector does it by 100%(double).
+2 : Data Growth : Both ArrayList and Vector uses dynamic array internally , when the dyanamic array becomes full the ArrayList increases the size of Array by 50% 
+while the Vector does it by 100%(double).
    	  
 -----------------------------------------------------------------------------------------------------------------------------------------------------
 	
@@ -89,7 +90,7 @@ Collections.synchronizedList() we can ;
    --ArrayDeque methods
      Two types of methods are there first which throws an exception if the operation fails , second returns a status/value if it fails::
 	                        
-							method giving value                       method throwing exception
+			 method giving value                       method throwing exception
 							
 	 Insertion from Head :: offerFirst(e)                             addFirst(e)
 	 
@@ -117,18 +118,22 @@ Collections.synchronizedList() we can ;
        Set<data-type> s3 = new TreeSet<data-type>();  
 	   
 	   WHY SET not allow duplicate values???
-	   Internally SET store element using HASHTABLE ...HASHTABLE is a structure of Key value pairs..Here what the values passed by the SET is treated as Keys of HASHTABLE Internally. keys are unique cannot be duplicated. That is the reason if you pass any duplicate value it return false and does not added to the SET ...
-       If the adding element return true it will added into SET...Else it return False, that why it won't give any compilation or runtime error and it wont be added to SET
+	   Internally SET store element using HASHTABLE ...HASHTABLE is a structure of Key value pairs..Here what the values passed by the SET is treated as Keys of
+	   HASHTABLE Internally. keys are unique cannot be duplicated. That is the reason if you pass any duplicate value it return false and does not added to 
+	   the SET ...
+       If the adding element return true it will added into SET...Else it return False, that why it won't give any compilation or runtime error and it wont be added
+       to SET
 
 	   
 	 -------------------------------------------------------------------------------------------------------------------------------------  
 	   HashSet   -- implements Set interface   //https://www.geeksforgeeks.org/hashset-in-java/
 	 -------------------------------------------------------------------------------------------------------------------------------------
-       - It represents the collection that uses hash table(which is a HashMap instance) internally for data storage, Hashing is used to store the     elements in HashSet.
+       - It represents the collection that uses hash table(which is a HashMap instance) internally for data storage, Hashing is used to store the   
+       elements in HashSet.
 	   - It contains unique items.
 	   - Null Items are allowed (No Duplicates allowed)
-	   - Class offers  constant time performance(O(1)) for all basic operations like add,remove,contains and size assuming the hash function disperses the elements
-	     properly among the buckets
+	   - Class offers  constant time performance(O(1)) for all basic operations like add,remove,contains and size assuming the hash function disperses the
+	   elements properly among the buckets
 		 To maintain this constant time performance :: Load factor and initial capacity affect the operation of HashSet operations(0.75 load factor
 		 provides very effective performance as wrt time and space complexity).
 		 Example: If internal capacity is 16 and load factor is 0.75 then, number of buckets will automatically 

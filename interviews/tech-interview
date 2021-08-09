@@ -1,0 +1,29 @@
+
+Q: ClassLoaders?
+
+Q: Possible Factors of negative number?
+
+class Main {
+
+public static void main(String[] args) {
+
+// negative number
+int number = -60;
+System.out.print("Factors of " + number + " are: ");
+
+// code here}
+}
+
+Q: Binary Search Tree?
+
+Q: Builder Design Pattern?
+
+Q: @RestController vs @Controller?
+
+Q: Event Driven Architecture ? How two REST APIs Communicate?
+
+Q: How to make String class concurrent?
+
+Q: Concurrency
+
+Q: 

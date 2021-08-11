@@ -1,0 +1,119 @@
+
+BEANS?
+When a class is annotated or decorated using the @Component, such a class is called a Bean in Spring. Beans are maintained by Application Context.
+
+Bean creation process?
+The process of Bean creation has the following phases
+
+(i) Starts with a class (c1) which has the annotation @Component.
+
+(ii) Checks if the component annotated class (c1) is dependent.
+
+(iii) If yes, then Spring will create a bean for that class (c2) too.
+
+(iv) A connection or autowiring will occur between the two classes (c1 and c2) using @Autowired annotation and also 
+    through the constructor (c2) or the default case setClass Function (interface the Interface).
+    
+Dependency Injection?
+Dependency Injection is where Spring searches for beans; once the appropriate bean is found, it autowires the bean to the dependent class. 
+Dependency Injection is the process where Spring framework looks for the beans and identifies the dependencies,and creates the instances of beans and autowires them.
+
+Inversion of Control (IOC)?
+In Tight Coupling the dependent class takes the responsibility of creating its dependency. Whereas, in Loose Coupling, 
+we use @Autowired annotation over the dependency class (or reference) and Spring takes control of creating the instance and injects the dependency.
+
+The roles of an IOC (Inversion of Control) Container?
+IOC Container does the following things-
+
+ (i) Find Beans
+
+(ii) Identify their dependencies and wire the dependencies
+
+(iii) Manage Lifecycle of the Bean (creation, processing, and destruction)
+
+ Application Context?
+ It is an advanced version of IOC Container. It provides all the functionalities of Bean Factory and also provides things like AOP, 
+ Internationalization capabilities, web application context (request, session, etc).
+ 
+ Process of creating an ApplicationContext in Spring?
+ The ApplicationContext can be defined in two ways (i) using XML, (ii) using @Configuration. Once the configuration is done in any of the ways defined above,
+ the ApplicationContext is created using new ClassPathXmlApplicationContext. The ClassPathXmlApplicationContext looks for the XML files, using this is one of 
+ the two ways. The other way is to use AnnotationConfigApplicationContext.
+ 
+ ComponentScan?
+ Component Scan is one method of asking Spring to detect Spring-managed components, the input for this search is the packages. 
+ Two methods are available to define a Component Scan-
+
+(i) Java Configuration; wherein, we use the @Component annotation to which we specify all the packages, for which Spring does the search.
+
+(ii) XML Configuration- we use <context:component-scan base-package=”com.demo.compscanex”/>
+
+Differentiate @Component, @Repository and @Service and @Controller?
+Typically a web application is developed in layers like the controller (which is the initial point of client communication), 
+business (where the actual code or logic of the application is written) and DAO (where the database connections and interaction happens). 
+In such an architecture web application, @Component can be used in any of the layers. Whereas, the @Controller is used in the controller/web layer.
+@Service is used in the business layer and @Repository is used in the DAO layer.
+
+Scopes of Bean.
+(i) Singleton: throughout the spring context only one instance is created.
+
+(ii) Prototype: a new bean is created whenever requested.
+
+(iii) Request: Every HTTP Request creates a bean.
+
+(iv) Session: A bean for every HTTP Session.
+
+Dirty Read?
+When a transaction (t1) is meant to read the changes that are performed by another transaction (t2) and provided transaction t2 is not committed yet; then in such a situation, the transaction t1 is called Dirty Read transaction.
+
+
+What is a FrontController?
+In FrontController, the Servlet will not get the first request; the first request would go to FrontController and the request is passed on to the right servlet. 
+In other words, DispatcherServlet is the front controller which intercepts all the requests from the client and then dispatches to appropriate controllers.
+
+What is a ViewResolver?
+ViewResolver enables a web application to select its view (such as JSP) dynamically. ViewResolver gets a name which is appended by /WEB-INF/views and a .jsp. 
+All the display on the content is done in an HTML page
+
+List out all the concepts that are available in the MVC Architecture?
+(i)  The browser sends a request to DispatcherServlet
+(ii) DispatcherServlet knows the HanderMapping and can find the appropriate controllers
+(iii) Controllers execute the request and put the data in the model and return back the view name to the DispatcherServlet.
+(iv) DispatcherServlet uses the view name and ViewResolver to map to the view.
+
+Model Attribute?
+The annotation @ModelAttribute is decorated on a method typically present inside a Controller. 
+This will help the method to be available in all other methods available in the controller.
+
+What is a Session Attribute?
+The annotation @SessionAttributes (“argument”) is decorated on class (Controller). T
+he attribute (argument) that is present in Model is available in the session.
+
+
+Explain the @InitBinder?
+This annotation is decorated on a method in which a date format is declared, and throughout the class, the defined date format is used. 
+Whenever the binding happens with a date field @InitBinder;
+annotation says to use the CustomDateEditor, which in return uses the date format mentioned in @InitBinder.
+ 
+ Spring vs Spring MVC vs Spring Boot?
+
+Spring: the most important feature of Spring is Dependency Injection or Inversion of Control.
+
+Spring MVC: provides a decoupled approach in developing web applications. Concepts like DispatcherServlet, ModelAndView, ViewResolver makes web application development easy.
+
+Spring Boot: makes the configuration very easy and automatic using a feature called Auto Configuration, in which the DispatcherServlet is done by Spring internally.
+
+@SpringBootApplication
+The @SpringBootApplication annotation is equivalent to using @Configuration, @EnableAutoConfiguration, and @ComponentScan with their default attributes,
+    @EnableAutoConfiguration: enable Spring Boot’s auto-configuration mechanism
+    @ComponentScan: enable @Component scan on the package where the application is located 
+    @Configuration: allow to register extra beans in the context or import additional configuration classes
+    
+
+Embedded Server mean in Spring Boot?
+To deploy any web application a server like Tomcat is required. In Spring Boot a server (like Tomcat) is available as part of the application in a jar.
+The concept of Embedded Server makes the deployment of application very easy and independent.
+
+
+
+

@@ -138,6 +138,30 @@ IMP :: Diff between this and super
  -----------------------------------------------------------------------------------------------------
  ----------------------------------------------------------------------------------------------
   Advantages and Disadvantages of Hibernate over JDBC 
+   framework
+Advantages of hibernates:
+
+    Hibernate supports Inheritance, Associations, Collections
+    In hibernate if we save the derived class object,  then its base class object will also be stored into the database, it means hibernate supporting inheritance
+    Hibernate supports relationships like One-To-Many,One-To-One, Many-To-Many-to-Many, Many-To-One
+    This will also supports collections like List,Set,Map (Only new collections)
+    In jdbc all exceptions are checked exceptions, so we must write code in try, catch and throws, but in hibernate we only have Un-checked exceptions, so no need to write try, catch, or no need to write throws.  Actually in hibernate we have the translator which converts checked to Un-checked 😉
+    Hibernate has capability to generate primary keys automatically while we are storing the records into database
+    Hibernate has its own query language, i.e hibernate query language which is database independent
+    So if we change the database, then also our application will works as HQL is database independent
+    HQL contains database independent commands
+    While we are inserting any record, if we don’t have any particular table in the database, JDBC will rises an error like “View not exist”, and throws exception, but in case of hibernate, if it not found any table in the database this will create the table for us 😉
+    Hibernate supports caching mechanism by this, the number of round trips between an application and the database will be reduced, by using this caching technique an application performance will be increased automatically.
+    Hibernate supports annotations, apart from XML
+    Hibernate provided Dialect classes, so we no need to write sql queries in hibernate, instead we use the methods provided by that API.
+    Getting pagination in hibernate is quite simple.
+
+ 
+Disadvantages of hibernates:
+
+    I don’t think there are disadvantages in hibernate
+    You know some thing.., Its saying hibernate is little slower than pure JDBC, actually the reason being hibernate used to generate many SQL statements in run time, but i guess this is not the disadvantage 🙂
+    But there is one major disadvantage, which was boilerplate code issue, actually we need to write same code in several files in the same application, but spring eliminated this
  ------------------------------------------------------------------------------------------------
  ------------------------------------------------------------------------------------------------
  

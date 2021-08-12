@@ -1,24 +1,22 @@
-OOPS 
-
-How Java implements OOPs?
+Java Imp Topics
+-------------------------------------------------------------------------------------------
+How Java implements OOPs
 OOPs refers to the programming languages that uses objects in programming.
 OOPs aims at implementing real world entities like inheritance, hiding, polymorphism etc in programming.
 The main aim of OOP is to bind together the data and the functions that operate on them so that no other part of code can access the data except the function.
 
 OOPs Concept
-	
-Polymorphism : ability of  OOPs programming languages to differentiate between entities with same name efficiently.
+	Polymorphism : ability of  OOPs programming languages to differentiate between entities with same name efficiently.
 Types :: Overriding and Overloading
 
 1. Static binding/Compile-Time binding/Early binding/Method overloading.(in same class)
 
 2. Dynamic binding/Run-Time binding/Late binding/Method overriding.(in different classes)
 
-Inheritance : It is the mechanism in java by which one class allow to inherit the features of another class.
+	Inheritance : It is the mechanism in java by which one class allow to inherit the features of another class.
 
-Encapsulation : It is defined as the wrapping up of data & code under a single unit.It is a mechanism that binds together the code and the data
-                it manipulates.
-                
+	Encapsulation : It is defined as the wrapping up of data under a single unit.it is a mechanism that binds together the code and the data
+                    it manipulates.
  It is a shield that prevents the data from being accessed by the code outside the shield.
  * In Encapsulation,the variables or data is hidden from other class and can be accessed only through any member fn of own class in which 
    they are declared.
@@ -26,23 +24,446 @@ Encapsulation : It is defined as the wrapping up of data & code under a single u
  * Encapsulation can be achieved by: declaring all the variables in the class as private and writing public methods in the class to set 
    and get the values of variables.
   
-Abstraction : It is the property by virtue of which only essential details are displayed to the user.The non-essential details are not displayed to 
-	            the user. eg ; car is viewed as car rather than its individual components.
-              
-In java, abstraction is achieved by interfaces and abstract classes.
+	Abstraction : It is the property by virtue of which only essential details are displayed to the user.the non-essential details are not displayed to 
+	the user. eg ; car is viewed as car rather than its individual comp onents.
+	In java, abstraction is achieved by interfaces and abstract classes.
 	
-	Class : Class is a user defined blueprint or prototype from which objects are created .It represents set of properties or methods that
-  are common to all the objects of one type.
+	Class : class is a user defined blueprint or prototype from which objects are created .It represents set of properties or methods that
+	are common to all the objects of one type.
 	
 	Object : Object is basic unit of OOP and represent real life entities.
-
-Abstract Class : Hiding the implementation and showing the function definition to the user , Abstract class contains abstract methods and
-                 concrete methods.
+	----------------------------------------------------------------------------------------
+	Abstract Class : Hiding the implementation and showing the function definition to the user , Abstract class contains abstract methods and
+	concrete methods.
 	
-	It is not mandatory to create at-least one abstract method in abstract class. 
-  
-  USE : we will not be able to instantiate this class.
-	      Abstract class can not be instantitated.
+	It is not mandatory to create at-least one abstract method in abstract class. USE : we will not be able to instantiate this class.
+	Abstract class can not be instantitated.
 	
 	valid modifiers with abstract : public , protected , default
 	invalid modifiers with abstract :  static , final , private 
+	--------------------------------------------------------------------------------------------
+	public static void main String(args[]) :: 
+	
+	------------------------------------------------------------------------------------------
+	*If we give a return type to constructor JVM will treat this as a method :: Constructor does not have a return type .
+	* we can declare constructor as private in order to restrict object creation outside the class.
+	* Interfaces can not have a constructor, we can not create object for interface so there  is no need of constructor.
+	--------------------------------------------------------------------------------------------
+This Keyword
+
+This keyword is a predefined instance variable which holds the reference of current object
+
+Uses of this in constructor ::
+-this keyword is used to access the instance variables when the name of local variable and
+ instance variable is same .
+ public class ThisDemo{
+  int a=0;
+  int b;
+  ThisDemo(int a,int b){
+    this.a = a;
+	this.b = b;
+  }
+ 
+ public sta main(){
+ ThisDemo a1= new ThisDemo();
+ this
+ ThisDemo a2= new ThisDemo();
+ }
+ 
+-this keyword can be used for constructor overloading.
+-To call one constructor from other we need this();
+ this();should be the first statement of constructor.
+ 
+-------------------------------------------------------------------------------------------------
+* We can call methods using this keyword :: this.show()
+* We can call method on this keyword from constructor.
+* Is it not possible to assign any value/reference to this.
+* We can return this from a method
+* We can pass this as a parameter in a method.
+* We can not use this inside a static block.
+* We can not use this inside static methods as .. static is bound to class not to an instance.
+--------------------------------------------------------------------------------------------------
+IMP :: Diff between this and super 
+* this keyword holds the reference of current object while super holds the reference to super
+  class object.
+* Using this we can access all non static methods and variables. using super we can access super  
+  class variables and methods from subclass.
+* Using this(); we can call a constructor from another constructor in the same class.using super();
+  we can call constructor of super class from constructor of subclass.
+  
+  
+  -------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------
+  -------------------------------------------------------------------------------------------------
+  
+ INSTANCE VARIABLE :: Variables declared inside the class and outside a method without static keyword
+ are known as instance variables.
+ They are used by objects to store the state of object.Every object will have there own copy od set of
+ instance variables.
+ instance variables can be final , transient
+ instance variables can not be declared as abstract,static strictfp,synchronized and native.
+ 
+ STATIC VARIABLE :: Variables declared with static keyword. They are single for a class and are shared
+ among objects of the class.Static variables are associated with the class.
+ 
+ ---------------------------------------------------------------------------------------------------
+ ---------------------------------------------------------------------------------------------------
+ LAMBDA EXPRESSIONS in java ::
+  They are used to express instances of functional interfaces.
+  FUNCTIONAL INTERFACE :: an interface with single abstract method is known as functional interface.
+  lambda operator -> body
+  () -> System.out.println("Zero parameter lambda");
+  (p) -> System.out.println("One parameter: " + p);
+  (p1, p2) -> System.out.println("Multiple parameters: " + p1 + ", " + p2);
+  
+  ----------------------------------------------------------------------------------------------
+  -----------------------------------------------------------------------------------------------
+  
+  java.util.function.FUNCTION
+  It was introduced in java8 for FUNCTIONAL Programming
+  Function(T,R) will be used in streams where to take one type of object and convert to another 
+  and return.
+  and This Function() supports methods like apply(),addThen(),compose(),identity().
+  public class Java8Function {
+
+  public static void main(String[] args) {
+  
+  Function<Integer, String> function = (n) -> {
+   return "Number received: "+n;
+  };
+
+  System.out.println(function.apply(37));
+  System.out.println(function.apply(64));
+ }
+ -----------------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------
+  Advantages and Disadvantages of Hibernate over JDBC 
+ ------------------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------------
+ 
+ Disadvantages of array in java
+
+    Arrays are Strongly Typed.
+    Arrays does not have add or remove methods.
+    We need to mention the size of the array. Fixed length.
+    So there is a chance of memory wastage.
+    To delete an element in an array we need to traverse through out the array so this will reduce
+	performance.
+	
+````Advantages of arrays:
+
+    We can access any element randomly by using indexes provided by arrays.
+    Primitive type to wrapper classes object conversion will not happen so it is fast.
+    Array can store many number of elements at a time
+
+5 different ways to print ARRAY::
+  1. using for loop
+  2. using advance for loop
+  3. using Arrays.toString(array)
+  4. using Arrays.deepToString(array)
+  5. using Arrays.asList(array) Method
+ -----------------------------------------------------------------------------------------------------
+ -----------------------------------------------------------------------------------------------------
+ 
+## Restricting a class from creating multiple instances(Say 3)
+   
+   -- As we know using singleton we can restrict a class from creating multiple objects it will 
+      create single object and share it.
+   -- Same design pattern we can apply here with an counter
+   -- It will take a static variable counter to check how many objects created
+   -- As we can access static variables in constructor and static variables are class level we 
+      can use static variable to count number of object created.
+   
+ public RestrictInstance{						
+ static int objCount;
+ static RestrictInstance object;
+ 
+ RestrictInstance(){
+ System.out.println("Constructor called");
+ objCount++;
+ }
+ 
+ public Object getInstance(){
+ if(objCount < 3){
+   object = new RestrictInstance();
+	}
+	 return object;
+  }
+ }
+Example to create Immutable class
+In this example, we have created a final class named Employee. It have one final datamember, a parameterized constructor and getter method.
+
+    public final class Employee{  
+    final String pancardNumber;  
+      
+    public Employee(String pancardNumber){  
+    this.pancardNumber=pancardNumber;  
+    }  
+      
+    public String getPancardNumber(){  
+    return pancardNumber;  
+    }  
+      
+    }  
+
+The above class is immutable because:
+
+    The instance variable of the class is final i.e. we cannot change the value of it after creating an object.
+    The class is final so we cannot create the subclass.
+    There is no setter methods i.e. we have no option to change the value of the instance variable.
+
+These points makes this class as immutable.
+
+ ----------------------------------------------------------------------------------------------
+How to create Immutable class?
+
+Immutable class means that once an object is created, we cannot change its content
+
+There are many immutable classes like String, Boolean, Byte, Short, Integer, Long, Float, Double etc. In short, all the wrapper classes and String class is immutable. We can also create immutable class by creating final class that have final data members as the example given below:
+ -=--------------------------------------------------=-------------------=---------------------
+ Print message without using system.out.println
+ 
+ 1. using System.out.write("Hello world\n".getBytes());
+ 2. using System.out.format("%s","Hello World\n");
+ 3. using PrintStream myout = new PrintStream(new FileOutputStream(FileDescriptor.out));
+    myout.print("Hello World");
+ 4. System.err.print("This is custom error message");
+ 5. System.console().writer().println("Hello world");
+ ----------------------------------------------------------------------------------------------
+ ----------------------------------------------------------------------------------------------
+  java source files from jar files:: 
+	JAR : Java Archive is a group of .class files 
+	
+ To create jar file from class files :: jar -cvf example.jar example.class
+                                   or    jar -cvf example.jar *.*
+						
+ unzip jar file : jar -xvf example.jar
+ 
+ ----------------------------------------------------------------------------------------------------
+ --------------------------------------------------------------------------------------------------
+ Quicksort algorithm 
+ -- Divide and Conquer algorithm.
+ -- 
+ 
+ -----------------------------------------------------------------------------------------------
+ ------------------------------------------------------------------------------------------------
+ 8 different ways to convert int to String in java 
+ 
+1.Convert Integer to String using Integer.toString() method: 
+	 String str= i.toString();
+  // also we can use like String str= Integer.toString(i);
+2.Convert Integer to String using String.valueOf() method.
+	String numberstr= String.valueOf(number);
+3.Convert Integer to String / int to String using new Integer(int).toString() 
+ String numberstr=    new Integer(number).toString();
+4.Convert Integer to String / int to String using String.format() method 
+	String numberstr=   String.format ("%d", number);
+5.Convert Integer to String / int to String using DecimalFormat 
+	DecimalFormat obj= new DecimalFormat("#");
+    String numberstr=    obj.format(number);
+    System.out.println(numberstr);
+6.Convert Integer to String/ int to String using StringBuffer / StringBuilder 
+	StringBuilder sb=new StringBuilder();
+    sb.append(number);
+    String nstr=    sb.toString();
+7.Convert Integer to String / int to String directly by adding to ""
+String numberstr=   ""+number; 
+8.Convert Integer to String / int to String using Special radix. 
+ Integer.toOctalString(),Integer.toHexString(),Integer.toBinaryString(),Integer.toString()
+ ----------------------------------------------------------------------------------------------
+ Exception Handling 
+ Exception :: Exception are the objects representing logical errors that occur at runtime and makes JVM enters into the state of ambiguity
+              The objects that are automatically created by JVM for representing these runtime errors are known as exceptions.
+			  
+			  Exception vs Error 
+			  Error is a subclass of Throwable that indicates serious problems that a reasonable application should not try to catch.
+			  Exception is a serious problem that a reasonable application should try to catch.
+			  
+			           Object
+					     '
+						 '
+						 '
+				     Throwable
+					 '      '
+					 '  	'
+		        Exception	Error(Virtual machine error, Assertion error)
+				(Checked,
+				Unchecked 
+				exception)
+				
+	Exception handling : In java , eception handling is done by five keywords : try ,catch, throw, throws, finally
+	try : Program statements that you think can raise exceptions are contained within a try block.
+	catch : If an exceptions occurs within the try block ,it is thrown and your code can catch that exception using catch block and handle it in some rational manner
+	*System generated exceptions are automatically thrown by java runtime system.
+	throw : To manually throw an exception we use throw keyword.
+	throws : this keyword is used in the method signature to indicate that this method might throw one of the listed type of exception.the caller of 
+	this method has to handle the exceptions using try catch block.
+	finally : 
+	
+What is the difference between final, finally and finalize in java?
+
+final is a keyword which is used to make a variable or a method or a class as ìunchangeableì. In simple terms,
+
+A variable which is declared as final, itís value can not be changed once it is initialized.
+	
+final int i = 10;    //final variable
+ 
+i = 20;      //Compile time error, Value can not be changed
+
+A method declared as final can not be overridden or modified in the sub class.
+	
+  finally Block :
+
+finally is a block which is used for exception handling along with try and catch blocks. finally block is always executed whether exception is raised or not and raised exception is handled or not. Most of time, this block is used to close the resources like database connection, I/O resources etc.
+finalize() Method :
+
+finalize() method is a protected method of java.lang.Object class. It is inherited to every class you create in java. This method is called by garbage collector thread before an object is removed from the memory. finalize() method is used to perform some clean up operations on an object before it is removed from the memory.
+	
+protected void finalize() throws Throwable
+{
+    //Clean up operations
+}
+finally Vs finalize() :
+
+But, there is one similarity between finally block and finalize() method. Both are used to close the resources used by the program. finally block is used to close the resources soon after their use. finalize() method is used to close the resources before an object is removed from the memory. That means if you use finalize() method to close the resources, they will remain open until an object,  which is using them, is garbage collected.
+
+But, using finalize() method to close the resources is less recommended as it is not guaranteed that garbage collector will always call finalize() method on an object before it is removed from the memory. If it is not called, the resources will remain open. Therefore, it is always good to close the resources soon after their use using finally block.
+			  
+			  
+ ----------------------------------------------------------------------------------------------
+ MULTITHREADING 
+ 
+
+--------
+Strings
+
+Immutable in Java
+Classes like StringBuilder and StringBuffer allow you to make string like
+ Objects mutable.
+StringBuffer is thread safe as there methods are synchornized.
+
+
+From Java 9, Strings are stored as byte arrays instead of char arrays .. because of this Strngs now takes half the space.
+
+There are 2 ways to create Strings 
+1. String Literals
+String A="abc";
+String B="abc";
+Live in String constant pool.
+Strings A and B reference the same object and value.
+
+2.String Objects
+
+String A=new String("abc");
+String B=new String("abc");
+Live In the heap
+String A and B reference to two separate objects
+
+
+== vs .equals
+== compares the references 
+.equals compares the value.
+
+-----------------------------------------------------------------------
+Can we have a try block without a catch block in Java? 
+
+    It is possible to have try block without catch block by using finally block
+    Java supports try with finally block
+    As we know finally block will always executes even there is an exception occurred in try block, Except System.exit() it will executes always.
+    We can place logic like connections closing or cleaning data  in finally.
+    Finally block executes Even though the method have return type and try block returns something.
+    Even though exception raised in try block finally block executes.
+
+
+    package exceptionsInterviewQuestions;
+     
+    public class TryWithFinally {
+     
+    public static int method(){  
+      
+           
+    try {
+                
+      System.out.println("inside try block");
+     
+     return 10;        
+    } finally{
+                
+                System.out.println("inside finally block");
+    }
+     
+    }
+     
+    public static void main(String[] args) {
+            
+    System.out.println(method());
+     
+    }
+     
+    }
+
+}
+
+Output: inside try block
+inside finally block
+10
+---------------------------------------------------------------------
+
+JAVA 8 
+
+1)  What are new features which got introduced in Java 8?
+
+There are lots of new features which were added in Java 8. Here is the list of important features:
+
+    Lambda Expression
+    Stream API
+    Default methods in the interface
+    Functional Interface
+    Optional
+    Method reference
+    Date API
+    Nashorn, JavaScript Engine
+
+1. Lambda Expressions 
+	Representation of anonymous fn which can be passed around. It does not have a name but it has parameters, body, and return type.
+
+        (Parameters)->expression
+		OR
+	(parameters)->{statements;}
+
+The connection between Lambda Expression and Functional Interface:Lambda expression can be applied for the abstract method of functional Interface which is being implemented or being instantiated anonymously.
+
+
+
+
+
+
+--------------------------
+Serialization In Java:
+
+Serialization is a mechanism of converting the state of an object into a byte stream. Deserialization is the reverse process where the byte stream is used to recreate the actual Java object in memory. This mechanism is used to persist the object.
+
+The byte stream created is platform independent. So, the object serialized on one platform can be deserialized on a different platform.
+
+To make a Java object serializable we implement the java.io.Serializable interface.
+
+The ObjectOutputStream class contains writeObject() method for serializing an Object.
+public final void writeObject(Object obj)
+                       throws IOException
+
+The ObjectInputStream class contains readObject() method for deserializing an object.
+public final Object readObject()
+                  throws IOException,
+               ClassNotFoundException
+
+Advantages of Serialization
+1. To save/persist state of an object.
+2. To travel an object across a network.
+
+Serializable is a marker interface (has no data member and method). It is used to “mark” java classes so that objects of these classes may get certain capability. Other examples of marker interfaces are:- Cloneable and Remote.
+
+
+
+Check main(null);
+
+ 

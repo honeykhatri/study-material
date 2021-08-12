@@ -322,24 +322,23 @@ Its most noticeable benefits of java collections can be listed as:
 
 2) Explain Collection’s hierarchy?
 Java Collection Hierarchy
-                       interface
-					   Collection
-                       |    |    |
-				|           |           |
-			 |	            |               |
-		interface		interface            interface
-		Set   		   List						Queue
-          |
-		  |
-	  SortedSet
-Java Collection Hierarchy
+                       
+					   Collection interface
+					 |           |            |
+					|	     |             |
+					|	     |             |
+					Set	     List          Queue interface
+				interface	    interface
+					|   
+				Sorted Set  
 
 
 
 
 
 
-As shown in above image, collection framework has one interface at top i.e. Collection. It is extended by Set, List and Queue interfaces. Then there are loads of other classes in these 3 branches which we will learn in following questions.
+As shown in above image, collection framework has one interface at top i.e. Collection. 
+It is extended by Set, List and Queue interfaces. Then there are loads of other classes in these 3 branches which we will learn in following questions.
 
 Remember the signature of Collection interface. It will help you in many question.
 public interface Collection extends Iterable {
@@ -446,15 +445,22 @@ WeakHashMap is an implementation of the Map interface that stores only weak refe
 
 Taking from java docs:
 
-A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the entire table in a way that prevents all access. This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.
+A hash table supporting full concurrency of retrievals and adjustable expected concurrency for updates. 
+This class obeys the same functional specification as Hashtable, and includes versions of methods corresponding to each method of Hashtable. 
+However, even though all operations are thread-safe, retrieval operations do not entail locking, and there is not any support for locking the 
+entire table in a way that prevents all access.
+This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.
 
 Read more about how ConcurrentHashMap interview questions.
 
 14) How hashmap works?
 
-The most important question which is most likely to be seen in every level of job interviews. You must be very clear on this topic., not only because it is most asked question but also it will open up your mind in further questions related to collection APIs.
+The most important question which is most likely to be seen in every level of job interviews. You must be very clear on this topic.,
+not only because it is most asked question but also it will open up your mind in further questions related to collection APIs.
 
-Answer to this question is very large and you should read it my post: How HashMap works? For now, lets remember that HashMap works on principle of Hashing. A map by definition is : “An object that maps keys to values”. To store such structure, it uses an inner class Entry:
+Answer to this question is very large and you should read it my post: 
+How HashMap works? For now, lets remember that HashMap works on principle of Hashing. A map by definition is : “An object that maps keys to values”.
+To store such structure, it uses an inner class Entry:
 static class Entry implements Map.Entry
 {
 final K key;
@@ -474,9 +480,11 @@ The index of array is calculated on basis on hashcode of Key object. Read more o
 
 15) How to design a good key for hashmap?
 
-Another good question usually followed up after answering how hashmap works. Well, the most important constraint is you must be able to fetch the value object back in future. Otherwise, there is no use of having such a data structure. If you understand the working of hashmap, you will find it largely depends on hashCode() and equals() method of Key objects.
+Another good question usually followed up after answering how hashmap works. Well, the most important constraint is you must be able to fetch the value object back in future. Otherwise, there is no use of having such a data structure.
+If you understand the working of hashmap, you will find it largely depends on hashCode() and equals() method of Key objects.
 
-So a good key object must provide same hashCode() again and again, no matter how many times it is fetched. Similarly, same keys must return true when compare with equals() method and different keys must return false.
+So a good key object must provide same hashCode() again and again, no matter how many times it is fetched. Similarly, 
+same keys must return true when compare with equals() method and different keys must return false.
 
 For this reason, immutable classes are considered best candidate for HashMap keys.
 
@@ -494,11 +502,18 @@ All the views can be navigated using iterators.
 
 17) When to use HashMap or TreeMap?
 
-HashMap is well known class and all of us know that. So, I will leave this part by saying that it is used to store key-value pairs and allows to perform many operations on such collection of pairs.
+HashMap is well known class and all of us know that. So, I will leave this part by saying that it is used to store key-value pairs and allows to 
+perform many operations on such collection of pairs.
 
-TreeMap is special form of HashMap. It maintains the ordering of keys which is missing in HashMap class. This ordering is by default “natural ordering”. The default ordering can be override by providing an instance of Comparator class, whose compare method will be used to maintain ordering of keys.
+TreeMap is special form of HashMap. It maintains the ordering of keys which is missing in HashMap class. This ordering is by default “natural ordering”.
+The default ordering can be override by providing an instance of Comparator class, whose compare method will be used to maintain ordering of keys.
 
-Please note that all keys inserted into the map must implement the Comparable interface (this is necessary to decide the ordering). Furthermore, all such keys must be mutually comparable: k1.compareTo(k2) must not throw a ClassCastException for any keys k1 and k2 in the map. If the user attempts to put a key into the map that violates this constraint (for example, the user attempts to put a string key into a map whose keys are integers), the put(Object key, Object value) call will throw a ClassCastException.
+Please note that all keys inserted into the map must implement the Comparable interface (this is necessary to decide the ordering). Furthermore, 
+all such keys must be mutually comparable: k1.compareTo(k2) must not throw a ClassCastException for any keys k1 and k2 in the map. If the user 
+attempts to put a key into the map that violates this constraint (for example, the user attempts to put a string key into a map whose keys are integers), 
+the put(Object key, Object value) call will throw a ClassCastException.
+
+
 Java collection interview – Tell the difference questions
 
 18) Difference between Set and List?
@@ -511,7 +526,9 @@ The most noticeable differences are :
 
 19) Difference between List and Map?
 
-Perhaps most easy question. List is collection of elements where as map is collection of key-value pairs. There is actually lots of differences which originate from first statement. They have separate top level interface, separate set of generic methods, different supported methods and different views of collection.
+Perhaps most easy question. List is collection of elements where as map is collection of key-value pairs. 
+There is actually lots of differences which originate from first statement. 
+They have separate top level interface, separate set of generic methods, different supported methods and different views of collection.
 
 I will take much time hear as answer to this question is enough as first difference only.
 
@@ -558,7 +575,8 @@ SortedSet is an interface which TreeSet implements. That’ it !!
 26) Difference between ArrayList and LinkedList?
 
     LinkedList store elements within a doubly-linked list data structure. ArrayList store elements within a dynamically resizing array.
-    LinkedList allows for constant-time insertions or removals, but only sequential access of elements. In other words, you can walk the list forwards or backwards, but grabbing an element in the middle takes time proportional to the size of the list. ArrayLists, on the other hand, allow random access, so you can grab any element in constant time. But adding or removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap.
+    LinkedList allows for constant-time insertions or removals, but only sequential access of elements. In other words, you can walk the list forwards or backwards, but grabbing an element in the middle takes time proportional to the size of the list.
+    ArrayLists, on the other hand, allow random access, so you can grab any element in constant time. But adding or removing from anywhere but the end requires shifting all the latter elements over, either to make an opening or fill the gap.
     LinkedList has more memory overhead than ArrayList because in ArrayList each index only holds actual object (data) but in case of LinkedList each node holds both data and address of next and previous node.
 
 More collection interview questions
@@ -600,19 +618,24 @@ Read more : http://www.mkyong.com/java/how-do-loop-iterate-a-list-in-java/
 
 31) What do you understand by iterator fail-fast property?
 
-Fail-fast Iterators fail as soon as they realized that structure of Collection has been changed since iteration has begun. Structural changes means adding, removing or updating any element from collection while one thread is Iterating over that collection.
+Fail-fast Iterators fail as soon as they realized that structure of Collection has been changed since iteration has begun.
+Structural changes means adding, removing or updating any element from collection while one thread is Iterating over that collection.
 
-Fail-fast behavior is implemented by keeping a modification count and if iteration thread realizes the change in modification count it throws ConcurrentModificationException.
+Fail-fast behavior is implemented by keeping a modification count and if iteration thread realizes the change in modification count it throws
+ConcurrentModificationException.
 
 32) What is difference between fail-fast and fail-safe?
 
-You have understood fail-fast in previous question. Fail-safe iterators are just opposite to fail-fast. They never fail if you modify the underlying collection on which they are iterating, because they work on clone of Collection instead of original collection and that’s why they are called as fail-safe iterator.
+You have understood fail-fast in previous question. Fail-safe iterators are just opposite to fail-fast. They never fail if you modify the underlying collection on which they are iterating, 
+because they work on clone of Collection instead of original collection and that’s why they are called as fail-safe iterator.
 
-Iterator of CopyOnWriteArrayList is an example of fail-safe Iterator also iterator written by ConcurrentHashMap keySet is also fail-safe iterator and never throw ConcurrentModificationException.
+Iterator of CopyOnWriteArrayList is an example of fail-safe Iterator also iterator written by 
+ConcurrentHashMap keySet is also fail-safe iterator and never throw ConcurrentModificationException.
 
 33) How to avoid ConcurrentModificationException while iterating a collection?
 
-You should first try to find another alternative iterator which are fail-safe. For example if you are using List and you can use ListIterator. If it is legacy collection, you can use enumeration.
+You should first try to find another alternative iterator which are fail-safe. For example if you are using List and you can use ListIterator.
+If it is legacy collection, you can use enumeration.
 
 If above options are not possible then you can use one of three changes:
 
@@ -654,15 +677,19 @@ Use a stack if you want to push and pop from the top of the stack only. Good for
 
 38) What is Comparable and Comparator interface?
 
-In java. all collection which have feature of automatic sorting, uses compare methods to ensure the correct sorting of elements. For example classes which use sorting are TreeSet, TreeMap etc.
+In java. all collection which have feature of automatic sorting, uses compare methods to ensure the correct sorting of elements. For example classes which 
+use sorting are TreeSet, TreeMap etc.
 
-To sort the data elements a class needs to implement Comparator or Comparable interface. That’s why all Wrapper classes like Integer,Double and String class implements Comparable interface.
+To sort the data elements a class needs to implement Comparator or Comparable interface. That’s why all Wrapper classes like Integer,Double and String
+class implements Comparable interface.
 
-Comparable helps in preserving default natural sorting, whereas Comparator helps in sorting the elements in some special required sorting pattern. The instance of comparator if passed usually as collection’s constructor argument in supporting collections.
+Comparable helps in preserving default natural sorting, whereas Comparator helps in sorting the elements in some special required sorting pattern.
+The instance of comparator if passed usually as collection’s constructor argument in supporting collections.
 
 39) What are Collections and Arrays classes?
 
-Collections and Arrays classes are special utility classes to support collection framework core classes. They provide utility functions to get read-only/ synchronized collections, sort the collection on various ways etc.
+Collections and Arrays classes are special utility classes to support collection framework core classes. They provide utility functions to get read-only/ 
+synchronized collections, sort the collection on various ways etc.
 
 Arrays also helps array of objects to convert in collection objects. Arrays also have some functions which helps in copying or working in part of array objects.
 

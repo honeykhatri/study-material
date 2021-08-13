@@ -1,0 +1,54 @@
+BRIDGE DESIGN PATTERN
+
+Allows you to separate the abstraction from the implementation
+
+There are 2 parts in Bridge design pattern :
+
+    1. Abstraction
+    2. Implementation
+    
+    
+    
+    The bridge pattern allows the Abstraction and the Implementation to be developed 
+    independently and the client code can access only the Abstraction part without being concerned about the Implementation part.
+    
+    The abstraction is an interface or abstract class and the implementor is also an interface or abstract class.
+    
+    The abstraction contains a reference to the implementor
+    
+    It increases the loose coupling between class abstraction and it’s implementation.
+    
+    
+When we need bridge design pattern??
+The Bridge pattern is an application of the old advice, “prefer composition over inheritance”
+
+EXAMPLE:
+WITHOUT Bridge Design Pattern 
+
+     VEHICLE class
+     BUS class extends VEHICLE, BIKE class extends VEHICLE
+     PRODUCEBUS class extends BUS,PRODUCEBIKE class extends BIKE
+     ASSEMBLEBUS class extends BUS,ASSEMBLEBIKE class extends BIKE
+     
+     But the above solution has a problem. If you want to change the Bus class, then you may end up changing ProduceBus and AssembleBus 
+     as well and if the change is workshop specific then you may need to change the Bike class as well.
+     
+WITH Bridge Design Pattern
+You can solve the above problem by decoupling the Vehicle and Workshop interfaces in the below manner.
+     VEHICLE class(ac/I)
+     BUS class(ac/I) extends VEHICLE, BIKE class extends VEHICLE
+     WORKSHOP(ac/I) interface extends VEHICLE
+     PRODUCE(Ac/I) interface implements WORKSHOP
+     ASSEMBLE(ac/I) interface implements WORKSHOP
+     
+     
+     Advantages
+    Bridge pattern decouple an abstraction from its implementation so that the two can vary independently.
+    It is used mainly for implementing platform independence feature.
+    It adds one more method level redirection to achieve the objective.
+    Publish abstraction interface in a separate inheritance hierarchy, and put the implementation in its own inheritance hierarchy.
+    Use bridge pattern to run-time binding of the implementation.
+    Use bridge pattern to map orthogonal class hierarchies
+    Bridge is designed up-front to let the abstraction and the implementation vary independently.
+     
+

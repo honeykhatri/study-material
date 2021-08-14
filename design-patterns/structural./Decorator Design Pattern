@@ -1,0 +1,8 @@
+Decorator Design Pattern
+
+A Decorator Pattern says that just "attach a flexible additional responsibilities to an object dynamically".
+The Decorator Pattern uses composition instead of inheritance to extend the functionality of an object at runtime.
+The Decorator Pattern is also known as Wrapper.
+
+A Decorator pattern can be used to attach additional responsibilities to an object either statically or dynamically. 
+A Decorator provides an enhanced interface to the original object.

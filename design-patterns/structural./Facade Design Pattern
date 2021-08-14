@@ -1,0 +1,7 @@
+Facade Design Pattern
+
+It hides the complexities of the system and provides an interface to the client from where the client can access the system.'
+
+Eg:JDBC 
+In Java, the interface JDBC can be called a facade because, we as users or clients create connection using the “java.sql.Connection” interface,
+the implementation of which we are not concerned about. The implementation is left to the vendor of driver.

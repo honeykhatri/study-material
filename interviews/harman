@@ -1,0 +1,33 @@
+Q: Return names of laptops with price gretaer than 25000
+List<Product> productsList = new ArrayList<Product>();       
+productsList.add(new Product(1,"HP Laptop",25000));
+productsList.add(new Product(2,"Dell Laptop",30000));
+productsList.add(new Product(3,"Lenevo Laptop",28000));
+
+productList.stream().filter(p->p.price>25000).map(n->n.name).collect(Collectors.toList());
+
+
+Q: Lambda expression to find sum of two numbers by creating a functional interface?
+
+Q: Employee e1 = new Employee("Java");
+   Employee e2 = new Employee("Java");
+   System.out.println("== :" +(e1==e2));           == false 
+   System.out.println("equals : " + e1.equals(e2));  equals : false (comparision of names would return true)
+   
+Q: Map<Trial, String> trialMap = new HashMap<Trial, String>();
+   trialMap.put(e1, "Value_1");
+   trialMap.put(e2, "Value_1");
+   System.out.println(trialMap);
+   Number of items in the HashMap: -> 2
+   
+Q:  We have three methods m1,m2 & m3 
+    m1->m2->m3 ( m1 is calling m2, m2 is calling m3) exception should be handled at which method?
+    
+Q: Static in java , static class? , can we make main class static?
+    
+
+
+
+
+
+

@@ -1,0 +1,12 @@
+CLASSLOADERS
+https://javarevisited.blogspot.com/2012/12/how-classloader-works-in-java.html#axzz59AWpr6cb
+
+class loaders are used to load classes at runtime
+
+ClassLoader in Java works on three principles: delegation, visibility, and uniqueness. 
+Delegation principle forward request of class loading to parent class loader and only loads the class if the parent is not able to find or load the class. 
+The visibility principle allows the child class loader to see all the classes loaded by the parent ClassLoader, but the parent class loader can not see classes 
+loaded by a child. 
+The uniqueness principle allows one to load a class exactly once, which is basically achieved by delegation and ensures that child ClassLoader doesn't reload the
+class already loaded by a parent.
+

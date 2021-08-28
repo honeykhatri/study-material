@@ -1,7 +1,5 @@
 Nagarro 
 
-
-
 Select rollno, sum(Score) from Student groupby roll no;
 
 
@@ -41,6 +39,10 @@ Circuit breaker
 }
 
 Concurrent Hashmap
+
+Parallel streams in Java8
+
+Communication between two siblings components in angular?
 
 
 

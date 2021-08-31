@@ -1,0 +1,23 @@
+API GATEWAY DESIGN PATTERN
+
+  The user makes a single call to API Gateway, and then the API Gateway calls each relevant micro service. 
+        
+  The API Gateway pattern can also be considered as the proxy service to route a request to the concerned micro service
+       
+  Real world example
+       We are implementing micro services and API Gateway pattern for an e-commerce website.In this system API Gateway makes the call to the Image and 
+       Price micro services.
+
+       For a system implemented using microservices architecture, API Gateway is the single entry point that aggregates the calls to the individual
+       microservices.
+
+	With this Microservices pattern, a client may need data from multiple different microservices. If the client called each microservice directly, 
+  that could contribute to longer load times, since the client would have to make a network request for each microservice called. Moreover, 
+  having the client call each microservice directly ties the client to that microservice - if the internal implementations of the microservices
+  change (for example, if two microservices	are combined sometime in the future) or if the location (host and port) of a microservice changes,
+  then every client that makes use of those microservices must be updated.
+	
+	The intent of the API Gateway pattern is to alleviate some of these issues. In the API Gateway pattern, an additional entity (the API Gateway) is 
+  placed between the client and the microservices. The job of the API Gateway is to aggregate the calls to the microservices. Rather than the client 
+  calling each microservice individually, the client calls the API Gateway a single time. The API Gateway then calls each of the microservices that
+  the client needs.

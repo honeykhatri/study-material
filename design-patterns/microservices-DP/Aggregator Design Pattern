@@ -1,0 +1,8 @@
+Aggregator Design Pattern
+
+      Aggregator micro service collects pieces of data from various micro services and returns the aggregate for processing.
+
+      Aggregator Micro service invokes multiple services to achieve the functionality required by the application.
+      
+      This aggregating microservice acts as an intermediary service that is a composition of other microservices, in the sense that it calls the microservices,
+      obtains the individual responses from each microservice, and applies the necessary business rule, returning the final response to the client.

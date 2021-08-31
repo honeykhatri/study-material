@@ -3,3 +3,6 @@ Circuit Breaker Design Pattern
 Popular design pattern in microservices, it comes under Sustainable design pattern category
 refer
 https://medium.com/nerd-for-tech/design-patterns-for-microservices-circuit-breaker-pattern-ba402a45aac2
+
+We can use circuit breaker design pattern to improve fault tolerance and resilience of microservices architecture and also to prevent
+cascading of failure to other microservices.

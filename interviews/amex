@@ -1,0 +1,14 @@
+spring mvc vs spring boot (advantages of spring boot)
+     - structural design pattern (*study about design patterns)
+     - how to implement auth (different ways)
+     - part of JWT token
+     - what kind of info can be added in the payload of jwt token
+     - collections - difference between arraylist and list
+     - list - interface or class (how to use list)
+     - multiple ways to instantiate a class (new and reflection API)
+     - stream API (Java 8) - how to use streams and different uses of stream
+     - coding ques    -  count the number of occurence of words in the given string
+     - join in database (difference in inner and left)
+     - advantages of reactjs
+     - routing in reactjs
+     - sql - get top n rows of result set

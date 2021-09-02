@@ -67,3 +67,40 @@
 Output: inside try block
 inside finally block
 10
+
+
+Q: Reverse a string using recursion?
+
+reverse(String str){
+if(str==null || str.length<=1) return str;
+
+else{
+System.out.println(str.charAt(str.length-1));
+reverse(str.substring(0,str.length-1);
+}
+}
+
+Q: Metaspace in java8?
+https://www.geeksforgeeks.org/metaspace-in-java-8-with-examples/
+
+Q: DIFF between PUT,POST,GET,PATCH?
+The below definition is from the real world example.
+
+Example Overview
+For every client data, we are storing an identifier to find that client data and we will send back that identifier to the client for reference.
+
+    POST
+        If the client sends data without any identifier, then we will store the data and assign/generate a new identifier.
+        If the client again sends the same data without any identifier, then we will store the data and assign/generate a new identifier.
+        Note: Duplication is allowed here.
+
+    PUT
+        If the client sends data with an identifier, then we will check whether that identifier exists.
+	If the identifier exists, we will update the resource with the data, else we will create a resource with the data and assign/generate a new identifier.
+
+    PATCH
+        If the client sends data with an identifier, then we will check whether that identifier exists. 
+	If the identifier exists, we will update the resource with the data, else we will throw an exception.
+
+Note: On the PUT method, we are not throwing an exception if an identifier is not found. But in the PATCH method, we are throwing an exception if 
+the identifier is not found.

@@ -1,0 +1,29 @@
+Trantor
+
+	core java
+	- what are marker interfaces? 
+	- what happens when a class implements a marker interface?
+	- what is serialization?
+	- checked and unchecked exceptions with examples
+	- lsit out java 8 features
+	- what is lambda expression
+	- what is predicate
+	- what are streams
+	- what is intermediary and terminary opreations in streams
+	- what are functinal interfaces with examples
+	- can a functional interface extend another interface
+	- what is function overloading
+	- if one function throws an exception then, will the overloaded function also throw the same exception
+	- what is factory pattern
+	- types of memory available in java
+	
+	spring
+	- lifecycle of bean
+	- scopes of bean
+	- how to use beans if they are of same type (qualifier)
+	- AOP
+	- annotations (use of annotations)
+	
+	react
+	- how to pass data between components(direct, redux, context)
+	- use of hooks (useEffect, useState)

@@ -2,18 +2,18 @@ Nagarro
 
 Select rollno, sum(Score) from Student groupby roll no;
 
+Diff b/w Post and Put 
 
-Post and Put 
-
-Interface ->. 2 Implementiion -> autowire in controller
+Interface -> 2 Implementiion Classes -> how to autowire in controller - @Qualifier
 
 String constant pool 
 
-@Qualifier 
+@Qualifier ?
+
 App service -> block a port 
 
 Network security groups
-Indexes 
+Indexes in SQL
 
 IAAS and PAAS
 
@@ -25,7 +25,7 @@ Deployment slots in azure app service
 
 Polymorphism 
 
-Java 8  -> 
+Java 8  
 
 Indexes
 
@@ -38,7 +38,7 @@ Circuit breaker
  .a .b{
 }
 
-Concurrent Hashmap
+Concurrent Hashmap working
 
 Parallel streams in Java8
 

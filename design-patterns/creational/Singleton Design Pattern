@@ -1,1 +1,80 @@
 Singleton Design Pattern
+
+The singleton pattern is a design pattern that restricts the instantiation of a class to one object. 
+
+1. Classical Implementation:  LAZY INITIALIZATION
+
+class Singleton{
+ private static Singleton obj;
+ 
+ private Singleton(){}
+ 
+ public static Singleton getInstance(){
+ if (obj==null) obj=new Singleton();
+ 
+ else return obj;
+ }
+}
+
+Here we have declared getInstance() static so that we can call it without instantiating the class. 
+Note that Singleton obj is not created until we need it and call getInstance() method. This is called lazy instantiation.
+The main problem with above method is that it is not thread safe.
+
+
+2. Method 2 - Synchronized getInstance() 
+-Here using synchronized makes sure that only one thread at a time can execute getInstance(). 
+class Singleton{
+ private static Singleton obj;
+ 
+ private Singleton(){}
+ 
+ public static synchronized Singleton getInstance(){
+ if (obj==null) obj=new Singleton();
+ 
+ else return obj;
+ }
+}
+
+The main disadvantage of this is method is that using synchronized every time while creating the singleton object is expensive and 
+may decrease the performance of your program.
+
+
+
+Method 3: Eager Instantiation 
+// Static initializer based Java implementation of
+// singleton design pattern
+
+
+class Singleton{
+
+private static obj=new Singleton();
+private Singleton(){}
+
+public static Singleton getInstance(){
+return obj;
+}
+}
+JVM executes static initializer when the class is loaded and hence this is guaranteed to be thread safe
+
+
+Method 4 (Best): Use “Double Checked Locking” 
+
+Class Singleton{
+private volatile Singleton obj=null;
+
+private Singleton(){}
+
+public static getInstance(){
+if(obj==null){
+   synchronized(Singleton.class){
+      if(obj=null){
+       obj=new Singleton():
+      }
+   }
+   return obj;
+}
+}
+}
+
+We have declared the obj volatile which ensures that multiple threads offer the obj variable correctly when it is being initialized to Singleton instance. 
+This method drastically reduces the overhead of calling the synchronized method every time.

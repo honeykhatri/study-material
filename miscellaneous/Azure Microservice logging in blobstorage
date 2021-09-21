@@ -1,0 +1,20 @@
+    App service configuration: While crating Web app with the following settings, Publish as Code, Runtime stack as Java 8 or version you are using and most 
+    important Java web server stack as Java SE(Embedded Web Server). This configuration can also be changed from configuration blade from app service.
+
+                                            
+
+
+    Enable application logging in blob-storage in App service logs blade in App service. Application logging in filesystem is not needed.
+
+                                         
+
+
+    In Release pipeline for post deployment add inline script to delete the web.config file which is generated default.
+    Also in our project we have changed the jar name of each file to app.jar, this is default name which Azure Web app expects.
+
+
+Rename of application jar
+archivesBaseName = 'app'
+
+
+    After deployment when you hit the service with logging data, the logging data is stored in blob-storage.

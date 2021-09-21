@@ -1,0 +1,18 @@
+Ways I found for securing back-end apis by Azure provided services -
+
+    By using subscription key - subscription key are provided by azure for using apis at api management but they are static in nature.
+    reference - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-create-subscriptions
+
+    By registering two application one will be acting as client to other
+    reference - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-protect-backend-with-aad
+
+    By using some sort of certificate at api management - secure back-end services using client certificate authentication in Azure API Management
+    reference - https://docs.microsoft.com/en-us/azure/api-management/api-management-howto-mutual-certificates
+                      https://medium.com/@ericjwhuang/how-to-secure-you-backend-apis-with-azure-apim-b58d2a690b9c
+                      https://github.com/MicrosoftDocs/azure-docs/blob/master/articles/api-management/api-management-howto-mutual-certificates-for-clients.md
+
+    By restriction on api via fire wall or internal and external network in api management -
+    reference - https://docs.microsoft.com/en-us/azure/api-management/api-management-using-with-vnet
+
+    Securing Azure app service via certificate -
+    reference - https://docs.microsoft.com/en-us/azure/app-service/app-service-web-configure-tls-mutual-auth

@@ -1,0 +1,41 @@
+class Solution {
+    public int compress(char[] chars) {
+        if(chars.length==0){
+            return 0;
+        }
+        if(chars.length==1){
+            return 1;
+        }
+        int counter=0;     
+        char prevChar=0;
+        StringBuilder sb=new StringBuilder();
+        for(char c:chars){
+            if(c==prevChar){
+                counter++;
+            }
+            else if(counter!=0 && c!=prevChar){
+                if(counter==1){
+                    sb.append(prevChar);
+                }
+                else
+                sb.append(prevChar).append(counter);
+                counter=1;
+            }
+            else if(counter==0){
+                counter++;
+            }
+            prevChar=c;
+        }
+        if(counter==1) sb.append(prevChar);
+        else
+        sb.append(prevChar).append(counter);
+        System.out.print(sb.toString());
+        for(int i=0;i<sb.length();i++){
+            chars[i]=sb.charAt(i);
+        }
+        
+    return sb.length();
+    }
+}
+
+Link: https://leetcode.com/problems/string-compression/submissions/

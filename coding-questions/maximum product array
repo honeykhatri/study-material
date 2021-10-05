@@ -1,0 +1,27 @@
+
+Maximum product array?
+
+ int res=arr[0];
+ for(int i = 0; i<arr.length();I++){
+    int temp =arr[i];
+   for(int j=I+1;j<arr.length();j++){
+   res=Math.max(res,temp);
+   temp *= arr[j];
+ }
+res=Math.max(res,temp);
+}
+
+
+Maximum product array with size K?
+
+int res=1;
+for(int I=0;i<k;i++){
+        res=res*arr[i]
+     }
+  int temp=res;
+for(int j=k;j<arr.length();j++){
+temp=temp/arr[j-k];
+temp *= arr[j];
+res=Math.max(res, temp);
+}
+

@@ -22,3 +22,7 @@ Q: How to configure oracle database in spring and spring boot?
 Q: Given table MATCH(match_id,player_name,score)
    write a sql query to find name of player with maximum average score?
    
+Q: Spring boot property to add a custom error page?
+
+Q: Diff between JPARepository & CRUDRepository?
+   

@@ -1,1 +1,66 @@
 
+https://leetcode.com/problems/trapping-rain-water/
+
+To find water which can be stored above a block of width w;
+find level of water = min(leftMax,rightMax);
+water which can be stored above one block = level of water - height of block * w;
+
+To find for whole set; find water can which can be stored above each block in similar fashion and add them
+
+APPROACH:
+Brute force : O(n2) => iterate over each element and find min(leftMax,rightMax) for each block;
+
+Dynamic programming: O(n) : T ,O(n) : S 
+Algorithm
+
+    Find maximum height of bar from the left end upto an index i in the array left_max.
+    Find maximum height of bar from the right end upto an index i in the array right_max.
+    Iterate over the height array and update ans:
+    Add min(left_max[i],right_max[i])-height[i]
+    
+Two Pointer approach:
+initialise left =0 and right=arr.length-1;
+initailise leftMax=0 and rightMax=0,ans=0;
+iterate while left < right
+  if height[left]<height[right]
+     if(height[left]>=leftMax) leftMax=height[left]
+     else ans += leftMax-height[left]
+     left++;
+     
+ else 
+     if(height[right]>=rightMax) rightMax=height[right]
+     else ans += rightMax-height[right]
+     right--;
+     
+     return ans;
+
+CODE:
+class Solution {
+    public int trap(int[] height) {
+        
+        int left=0;
+        int right=height.length-1;
+        int leftMax=0;
+        int rightMax=0;
+        int ans=0;
+        while(left<right){
+            if(height[left]<height[right]){
+                if(height[left]>=leftMax){
+                    leftMax=height[left];
+                }
+                else{
+                   ans+=leftMax-height[left]; 
+                }
+            ++left;}
+            else{
+                if(height[right]>=rightMax){
+                    rightMax=height[right];
+                }
+                else{
+                    ans+=rightMax-height[right];
+                }
+                --right;
+            }
+        }
+  return ans;  }
+}

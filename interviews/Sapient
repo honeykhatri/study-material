@@ -35,6 +35,14 @@ Serialization
 Parent and class ? If we serialize subclass will the variables of parent class also gets serialzed
 use of serialversionUID
 
+Java 8 new features 
+name of few functional interfaces?
+Predicate ? 
+Consumer ?
+Optional use?
+why optional ?
+Whats new in Date and Time API ?
+
 Round 3 : Discussion on second round , Stream api , DevOps.
 
 Round 4 : Manager (behaviour) 

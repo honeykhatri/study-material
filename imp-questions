@@ -51,6 +51,17 @@ public class Employee {
 }
 Q:Can we catch Errors?? YES = but it is a bad practice.
 
+Q: Why streams are called lazy?
+Java 8 Streams do not process the collection operations until user actually starts using it.
+The Java 8 Streams API is fully based on the ‘process only on demand‘ strategy and hence supports laziness.
+
+In the Java 8 Streams API, the intermediate operations are lazy and their internal processing model is optimised 
+to make it being capable of processing the large amount of data with high performance
+http://www.amitph.com/java-8-streams-laziness-and-performance/
+
+Q: What is Java Parallel Streams?
+https://www.geeksforgeeks.org/what-is-java-parallel-streams/
+
 Q:hashcode() and equals() in HashMap implementation? HASHMAP INTERNAL WORKING??
 
 

@@ -16,6 +16,25 @@ Test cases also
 Api , entity , 
 
 
+Logging framework 
+why info and error
+
+Student class Treset do we need to do anything to maintain an order
+
+Generics in collections ? Why Generics
+
+Comparator vs comparable 
+
+API Gateway advantages
+
+can we have multiple index on a table
+
+How to Add Custom Class Objects to the TreeSet in Java?
+
+Serialization  
+Parent and class ? If we serialize subclass will the variables of parent class also gets serialzed
+use of serialversionUID
+
 Round 3 : Discussion on second round , Stream api , DevOps.
 
 Round 4 : Manager (behaviour) 

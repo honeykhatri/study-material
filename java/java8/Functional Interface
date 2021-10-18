@@ -1,0 +1,73 @@
+Functional Interfaces in Java
+
+A functional interface is an interface that contains only one abstract method.
+They can have only one functionality to exhibit. 
+It is implemented using the annotation called @FunctionalInterface. It ensures that the interface should have only one abstract method. 
+A functional interface can have multiple default methods (it can be said concrete methods which are default) but only one abstract method.
+From Java 8 onwards, lambda expressions can be used to represent the instance of a functional interface. A functional interface can have 
+any number of default methods. 
+
+Runnable, ActionListener, Comparable are some of the examples of functional interfaces. 
+
+Before Java 8, we had to create anonymous inner class objects or implement these interfaces.
+
+@FunctionalInterface Annotation 
+@FunctionalInterface annotation is used to ensure that the functional interface can’t have more than one abstract method. 
+In case more than one abstract methods are present, the compiler flags an ‘Unexpected @FunctionalInterface annotation’ message.
+However, it is not mandatory to use this annotation.
+
+Example : Create a functional interface and use it to find sum of two numbers
+
+@FunctionalInterface
+interface Addition{
+int sum(int a,int b);
+}
+
+class Test{
+Addition addition = (int a,int b)-> a+b;
+int resultantSum=addition.sum(2,3);
+}
+
+---------
+java.util.function Package: 
+
+In Java 8 there are 4 main functional interfaces are introduced which could be used in different scenarios. These are given below.
+
+    Consumer
+    Predicate
+    Function
+    Supplier
+
+1. PREDICATE 
+   The Predicate interface has an abstract method test which gives a Boolean value as a result for the specified argument. Its prototype is 
+   
+  public interface Predicate
+   {
+   public boolean test(T  t);
+   }
+   
+    BIPREDICATE
+    Instead of one argument BiPredicate will accept two arguments and return nothing.
+2. CONSUMER 
+  The consumer interface accepts one argument but there is no return value.
+  The name of function inside this interface is accept.
+   BICONSUMER
+  The extension of the Consumer which is BiConsumer accepts two arguments and return nothing.
+    
+
+3.FUNCTION : The Function interface has an abstract method apply which takes argument of type T and returns a result of type R. Its prototype is
+
+public interface Function 
+{
+   public R apply(T t);
+}
+ BINARYOPERATOR : The BinaryOperator interface has an abstract method apply which takes two argument and returns a result of same type. Its prototype is
+
+public interface BinaryOperator 
+{
+     public T apply(T x, T y);
+}   
+4.SUPPLIER :
+Supplier functional interface does not accept any input rather return single output. The following interface code is given for understanding :
+----------
+

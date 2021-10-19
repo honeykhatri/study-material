@@ -28,8 +28,10 @@ Q: Create stream from array?
  Stream.of(store).forEach(System.out::println);
  
 Q: Given a list of employees, sort all the employee on the basis of age? 
-   
+           //Ascending
            employeeList.sort((e1,e2)->e1.getAge()-e2.getAge());
+            //Descending
+            employeeList.sort((e1,e2)->e2.getAge()-e1.getAge());
            employeeList.stream().sorted(Comparator.comparingInt(Employee::age)).collect(Collectors.toList());
            employeeList.forEach(System.out::println);
            
@@ -43,7 +45,7 @@ Q: Join all the names of employees in list with ","?
    
 Q: Given the list of employee, group them by employee name?
 
-   employeeList.stream().collect(Collectors.groupingBy(Employee::getnNme);
+   employeeList.stream().collect(Collectors.groupingBy(Employee::getName);
 
 Q: Given the list of numbers, remove the duplicate elements from the list.
 

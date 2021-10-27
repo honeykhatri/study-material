@@ -1,1 +1,27 @@
+What is an Index?
 
+An Index is a key built from one or more columns in the database that speeds up fetching rows from the table or view. 
+This key helps a Database like Oracle, SQL Server, MySQL, etc. to find the row associated with key values quickly.
+
+Two types of Indexes are:
+
+    Clustered Index
+    Non-Clustered Index
+
+What is a Clustered index?
+
+Cluster index is a type of index which sorts the data rows in the table on their key values. In the Database, 
+there is only one clustered index per table.
+
+A clustered index defines the order in which data is stored in the table which can be sorted in only one way. 
+So, there can be an only a single clustered index for every table. In an RDBMS, usually, the primary key allows you to 
+create a clustered index based on that specific column.
+
+What is Non-clustered index?
+
+A Non-clustered index stores the data at one location and indices at another location. 
+The index contains pointers to the location of that data. 
+A single table can have many non-clustered indexes as an index in the non-clustered index is stored in different places.
+
+For example, a book can have more than one index, one at the beginning which displays the contents of a book unit wise while the second index shows 
+the index of terms in alphabetical order.

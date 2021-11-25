@@ -186,6 +186,123 @@ Day - 2
 Load Balancer 
 Outbound rules
 
+Java based sample 
+
+https://docs.microsoft.com/en-us/samples/azure-samples/active-directory-java-webapp-openidconnect/integrating-azure-ad-into-a-java-web-application/
+
+Spring boot tutorial
+
+https://docs.microsoft.com/en-us/azure/developer/java/spring-framework/configure-spring-boot-starter-java-app-with-azure-active-directory
+
+ttps://docs.microsoft.com/en-us/azure/key-vault/secrets/quick-create-java
+
+Implement Managed Identities for Azure resources
+
+ To not embed the credential directly in conf files
+Hiding DB cred details 
+o    Secure app configuration data by using Azure App Configuration
+Java Sample : 
+https://docs.microsoft.com/en-us/azure/azure-app-configuration/quickstart-java-spring-app
+
+Library used:
+https://docs.microsoft.com/en-us/java/api/overview/azure/data-appconfiguration-readme?view=azure-java-stable
+
+
+•    Monitor and Optimize Azure Solutions(Logging)
+    o    Overview of monitoring in Azure
+    o    Instrument an app for monitoring
+    o    Analyzing and troubleshooting apps
+
+Open any VM : 
+Overview -> Monitoring 
+* Containers :: 
+Lot of dependency issues comes when we deploy an application to a server.
+
+It takes time to fix these dependencies
+Issues. 
+
+Application fails to work bcoz we have created the application considering the development machine  and are deploying on diff kinda system.
+
+Approach 1: Virtualisation:Creating a VM like the which we are going to deploy.
+Limitations : Makes the size of VM huge when we install the softwares needed on servers. This will slow down the local machine. 
+Heavy Configuration 
+
+In terms of cloud also.. if we create a VM and use it , it would be very expensive. 
+
+To overcome these limitations, Containers came into picture.
+
+These containers are also known as Nano-machines.
+Abstraction b/w the application and the enviroment.
+
+Windows subsystems for linux :: new feature in windows 10 :: to simulate linux kind of OS on Windows.
+
+DOCKER (container)
+Orchestration tools : Kubernetes 
+
+
+Enable docker support while creating the application 
+
+A. We need docker tool to be Installed on my machine . 
+    1. Docker Desktop : we can switch b.w windows, linux containers
+    2. Docker Dashboard should open in your machine . 
+    3. Add docker support in already created application .. there is a option you can check.
+    4. Dockerfile provides info of all the images we are using 
+    5. 
+B. Command line method to create
+Container : 
+Run PowerShell at the project location 
+Check if Dockerfile is present 
+
+Run cmd:
+docker build . -t filename
+(Filename.csproj wud be there at project location)
+It would download the things required to create image of the project ..
+
+Go to Docker dashboard : we can see all the Information like port and all
+
+Open browser : and hit localhost:PORT/swagger
+
+We will not deploy app we will deploy container
+
+To check images
+docker images
+
+To RUN IMAGE ON SPECIFIC PORT SAY 8080
+docker run -d -p 8080:80 name of image
+
+
+C. NEED TO CREATE azure container Registry.
+ Go to PowerShell 
+ 
+Command to creare azure container registry:
+az acr create —resource-group Demo —name nameofACR —sku Basic
+
+Login to ACR:
+az acr login —n nameofACR —expose-token 
+
+To show login server name:
+az acr show —name nameofACR —query loginServer —output table 
+
+docker images
+
+Set TAG:
+docker tag projectimagename :dev loginservername/nameofapp:v1
+
+ Here V1: Tag 
+
+To push the image 
+Docker  push loginservername/appname:v1
+
+To see list of images
+az acr repository list —name namrofACR —output table 
+
+To see tags: 
+az acr repository show-tags —name namrofACR —repository app name —output table 
+
+Deploy the container 
+ az container create —resource-group Demo —name nameofapp —image loginservername/appname:v1 —cpu 1 —memory 1 —registry-login-server loginservername —registry username(of acr in access heys) — registry-password(can be get from access keys) —dns-name-label dnsname —ports 80
+
+V1 is tag name 
 
 Day 5 
 https://github.com/Azure-Samples/azure-voting-app-redis.git

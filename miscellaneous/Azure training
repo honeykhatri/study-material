@@ -1,0 +1,194 @@
+Azure - Day 3
+
+
+Deploying SQL Server using IaaS
+* Creating a  sql VM 
+New -> Databases-> SQL server 2019 on Windows Server 2019 -> create
+VM name -
+No Infra redundancy
+Eviction Policy - Stop
+Size:ds1v2
+Admin details 
+Inbound ports : None
+Vnet 
+Boot diagnostics disable
+SQL server settings : SQL connectivity : Public
+(We can connect to this sql via local as well)
+Port 1443
+CREATE
+
+Start the machine
+Open Microsoft sql management studio on local
+Server name : pass dns name of sql server
+Authentication : SQL Authentication {Azure AD is preferred}
+* Bastion: create bastion subnet
+       Add subnet :azure bastion subnet(10.1.1.0/ 24)
+       Create new public IP 
+       BASTION configured
+Connect using Bastion -> connect 
+SQL Server configuration : Security - SQL Authentication (enable)-> Provide credentials
+
+Try logging in Local sql server management studio 
+Create Database (CompanyDB) 
+Create Table
+
+
+Deploying SQL Server using PaaS
+Paas service - Cloud service manages the service 
+                       -Cloud Provider maintain and manage the service
+		       - Just require proper configuration
+
+Create -> Sql Server -> (vwpasssql)
+->Firewall Yes
+->In this case Azure created a new named instance.. that’s y it is fast
+
+Create Database inside sql server created 
+Configure DB : depending on your app needs -> Basic for Practice
+Backup : Depending on how critical your data is -> Locally redundant 
++Add pot endpoints ( we will do it later on)
+
+—
+
+Firewall settings 
+
+Now retry connecting 
+
+Can create tables on azure portal -> DB -> query editor and write and execute queries
+OR SSMS on local machine 
+
+Connection Strings —> JDBC for Java -> 
+Databasse synchronisation -> 
+
+__>Sql server
+->firewall 
+We can create secondary server (failover) 
+Changes to Primary server will be replicated to your secondary server.
+
+Develop Solutions using Cosmos DB Storage
+
+Azure Cosmos DB 
+Cosmo:: multimodel
+
+Types of NoSQL Db: Documents(mongo-db, elastic), Key-value, Graph(Neo4), Column oriented DB(AWS)
+Data Migration is easy 
+
+—we require a cosmos db account 
+Create resource -> Databases-> Cosmos DB->Create->
+API > Core(SQL)
+Notebook(Off) - big data analytics 
+Capacity mode-> 
+Connectivity method: all n/w
+Deployment…Overview-> 
+Database is called as container here 
+Data Explorer allow us to use DB graphically 
+Default consistency
+
+
+
+
+Add container ->new Database 
+
+https://docs.microsoft.com/en-us/azure/cosmos-db/create-sql-api-dotnet-v4#code-examples
+
+
+———
+Azure Functions 
+Independent unit of code
+Event triggering the fn event -> timer event
+Storage triggers-> blob trigger -
+
+Create Res-> Function App -> 
+1 Function can have multiple fns 
+Its like a billing unit .
+
+Its name has to be globally unique
+Select runtime stack and enviroment
+
+Next -> Hosting 
+Storage account : create new
+Plan type  :
+App service plan (if my app service plan is active then I will be charged)
+Premium gives isolated virtual machines
+Dedicated physical machines.
+Consumption : 
+Chose serverless fr practice 
+Application insights is about the logging 
+—>Create
+
+-Go to resource 
+Functions inside the Function app created
++Add 
+We will be directed to a blade showing many options 
+Http Trigger, Timer trigger etc
+Http trigger ->new fn Helloworldfunc
+
+Auth level -> fn->need to have api key associated
+Admin -> restricts the users 
+Anonymous->just by using the URL path someone can access
+Function(selected) 
+Code+Test -> check the method 
+
+https://docs.microsoft.com/en-us/azure/azure-functions/functions-create-first-azure-function-azure-cli?pivots=programming-language-java&tabs=bash%2Cbrowser
+
+Storage
+These terms comes in mind when we use term storage
+Databases,
+Filess,Objects,Logs,Secrets…
+
+All these can be called as Data.
+
+TO work with Storage services we need “Storage Account”.
+
+BLOB(Binary Large Objects)
+
+How to create a Storage account
+Create Resource-> Storage account->
+Globally unique name 
+
+BlobStorage :: entirely optimised for blobs only..
+StorageV2 (other data not only blob)
+Blob access tier:: Cool no cache 
+Hot : cache
+
+DIff b/w Blobs and Files
+Adv of Blob over Files
+Files-> Raw files-> have to work with streams ->I/O
+Stored like a File System
+
+Blobs->Objects-> I can directly read write I/O , streams not necessary.
+
+Load Balancing
+Outbound Rule.
+Configure IIS now
+
+Run this command on power shell of all 3 VMs
+
+# install IIS server role Install-WindowsFeature -name Web-Server -IncludeManagementTools 
+# remove default htm file remove-item C:\inetpub\wwwroot\iisstart.htm
+# Add a new htm file that displays server name Add-Content -Path "C:\inetpub\wwwroot\iisstart.htm" -Value $("Hello World from " + $env:computername)
+
+Installation done on all 3 VMS
+
+Check for public IP in LB
+Copy public IP 
+
+Stop vm3
+Status Deallocating 
+When vm3 is closed it will redirect to fallback VM -1 
+
+VM-1 closed —> response is coming from Vm2 
+
+SCALABLE SOL is provided 
+All 3 went down so service unavailable
+
+Azure training
+Day - 2 
+Load Balancer 
+Outbound rules
+
+
+Day 5 
+https://github.com/Azure-Samples/azure-voting-app-redis.git
+
+
+

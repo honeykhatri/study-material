@@ -1,0 +1,34 @@
+
+Q: Given an array return an array with each element replaced by the next greater elements in the array?
+
+Public void doReturnGreaterElements(int arr[]){
+
+Int size= arr.length;
+Int maxValue=arr[size-1];
+ arr[size-1]=-1;
+
+for(int I=size-2;i>0;i - - ){
+Int tempVal=arr[I];
+arr[i]=maxValue;
+if(maxValue<temp) {
+maxValue=temp;
+}
+}
+
+}
+
+Q : Given List of mobile numbers.. what datastructure you will use to create search on the list?
+
+99933332221 
+98989899888 
+98123123111 
+98943453433
+Ans: TRIE
+
+Class Node {
+
+Int data;
+Int arr[10] = [0,1,2,3,4,5,6,7,8,9];
+}
+
+Q: G

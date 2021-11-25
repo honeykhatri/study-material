@@ -67,6 +67,16 @@ Can we have a class without main method
 
 
 
+Immutable class
+ Immutable collection 
+Exceptions in inheritance Interface vs Abstract 
+How to prevent Singleton Pattern from Reflection,
+ Serialization and Cloning? 
+Atomic operations
+ what-is-a-serialversionuid-and-why-should-i-use-it
+ If you are trying to restore (deserialization) 
+empdata.dat to the Employee class, you can see it is not correct.
+ Those are two different formats. Note: Technically, this will deserialize without error, skipping the missing field. But your business logic output may not as expected. Transient super.super() why to implement hashcode and equals in java Notify and NotifyAll Thread safety in singleton Static methods cannot be overridden because they are not dispatched on the object instance at runtime. How ConcurrentHashMap Works Internally in Java 
 
 
 

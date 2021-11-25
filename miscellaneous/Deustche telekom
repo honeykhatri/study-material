@@ -1,0 +1,108 @@
+Round 1
+You are given two sorted arrays. First array contains n elements, and is of length n, second array contains m elements but its length is n+m.
+Elements in the second array are compacted from index 0 to m-1. Merge first array in second array, such that result is still sorted.
+
+firstArray
+n elements
+size = n
+
+secondArray
+m elements
+size = n+m
+
+firstArray = [1,3,5,7,9];
+secondArray = [2,4,6,8,10,0,0,0,0,0];
+// output
+secondArray = [1,2,3,4,5,6,7,8,9,10];
+
+
+void mergeTwoArrays(int[] first, int[] second, int n, int m) {
+int lengthOfSecondArray=secondArray.length();
+int pointerOnSecondArray=m-1;
+int pointerToTrackElements=0;
+int pointerToFirstArray=firstArray.length-1;
+
+while(pointerOnSecondArray!=0 && pointerToFirstArray !=0){
+if(secondArray[pointerOnSecondArray]>firstArray[pointerToFirstArray]){
+   if(pointerToTrackElements < secondArray[pointerOnSecondArray]){
+     pointerToTrackElements=secondArray[pointerOnSecondArray];
+     pointerOnSecondArray--;
+   }
+   else{
+   pointerToTrackElements=firstArray[pointerToFirstArray];
+   pointerToFirstArray--;
+   }
+   
+}
+
+
+
+
+Q1: Find the longest common prefix in a list of strings
+
+Example 1
+Input: -
+Flow
+Flower
+Face
+Output: -
+F
+
+
+substr=Flow;
+substr= Flow;
+substr=F
+
+
+
+Example 2
+Input: -
+Rakesh
+Rajesh
+Mukesh
+Ouptut: -
+Null
+
+
+input
+Flower
+Flow
+Florence
+Face
+Tree
+
+output
+null
+
+
+StringBuilder tempString=new StringBuilder(list.get(0));
+
+for(String s:list){
+	tempString = compareString(s,tempString)
+  if(tempString==null)  return null;
+}
+return tempString;
+}
+
+String compareStrings(String str1,StringBuilder str2){
+StringBuilder commonString= new StringBuilder("");
+  for(int i=0;i<str1.length;i++){
+  if(str1.charAt(i)==str2.charAt(i){
+    commonString=commonString.append(str1.charAt(i));
+  }
+  else{
+  if(commonString.equals(""))return null;
+  else return commonString
+  }
+  
+  commonString.toString();
+  }
+  return commonString.toString();
+}
+
+
+  F L O W E R
+F  
+L
+O 
+W

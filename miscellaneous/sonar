@@ -1,0 +1,21 @@
+sonar
+configuration
+
+# Additional properties that will be passed to the scanner,
+# Put one key=value per line, example:
+sonar.exclusions=**/*.bin,**/com/gmt/userdocumenttranslation/model/**/*,**/com/gmt/userdocumenttranslation/entity/**/*,**/HttpRequestFilter.java,**/ClientCertValidator.java,**/com/gmt/userdocumenttranslation/errorhandler/**/*
+
+sonar.projectKey=key
+sonar.projectName=name
+sonar.projectVersion=1.0
+sonar.sourceEncoding=UTF-8
+sonar.projectDescription=__ is the project to translate the text and documents.
+sonar.junit.reportPaths = ./build/test-results/test/TEST-*.xml
+sonar.tests=./src/test/java,../../texttranslation/src/test/java,../../webapp/src/app
+sonar.sources=./src/main/java,../../texttranslation/src/main,../../webapp/src/app
+sonar.java.binaries=./build/classes
+sonar.jacoco.reportPaths=./build/jacoco/test.exec
+sonar.java.coveragePlugin=jacoco
+sonar.branch.name=master
+sonar.coverage.exclusions=**/com/gmt/userdocumenttranslation/model/**/*,**/com/gmt/userdocumenttranslation/entity/**/*,**/HttpRequestFilter.java,**/ClientCertValidator.java
+

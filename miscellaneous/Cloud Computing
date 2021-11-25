@@ -1,0 +1,68 @@
+Cloud Computing 
+
+Cloud: Huge Humongous data centre maintained by cloud providers like AWS,GCP  Azure.
+
+Pay only for usage
+
+Less Capex (Captital expenditure)
+and Opex(Opertonal expenditure)
+
+Cloud Computing :: 
+Cloud computing is a model for enabling ubiquitous, convenient, on-demand network access to a shared pool of configurable computing resources that can be rapidly provisioned and released with minimal management effort or service provider interaction.
+
+Cloud Computing is like renting resources
+Res like CPU, memory, storage , network
+
+Cloud Computing Services 
+* Compute Power (Linux to web app)
+     
+
+* Storage (mysql)
+* Networking. 
+* Analytics( compute storage and network).
+
+#Read about VM, Containers and Serverless 
+
+* Benefit of Cloud Computing
+   - Cost-effective : Pay as you use 
+      Consumption based pricing model 
+       No upfront predefined amount
+       Renting resources.
+        Better cost prediction
+    - Scalability - Inc or Dec the   
+      Horizontal Scaling
+      Vertical Scaling
+Horizontal scaling means that you scale by adding more machines into your pool of resources whereas Vertical scaling means that you scale by adding more power (CPU, RAM) to an existing machine.
+ Resources based on demand
+ -   Elasticity:  
+- Current/Updated (patch and other IT tasks are done by Cloud Providers)
+- Reliable (Availability) 
+- Fault Tolerance(Disaster recovery,Backups)
+- Cloud is Global - fully redundant data centres across globe.
+- Cloud is Secure
+
+
+
+Azure:: Cloud computing platform with ever expanding set of services to help you build solutions to meet your business goals.
+
+It provides a wealth of cloud-based services like:
+Remote Storage,
+Database hosting
+Centralised account management
+
+What are cloud service models?
+These models define the different level of shared responsibility that a cloud provider and cloud tenant are responsible for.
+Computing model	Description
+IaaS	This cloud service model is the closest to managing physical servers. A cloud provider keeps the hardware up to date, but operating system maintenance and network configuration is left to the cloud tenant. For example, Azure virtual machines are fully operational virtual compute devices running in Microsoft's datacenters. An advantage of this cloud service model is rapid deployment of new compute devices. Setting up a new virtual machine is considerably faster than procuring, installing, and configuring a physical server.
+PaaS	This cloud service model is a managed hosting environment. The cloud provider manages the virtual machines and networking resources, and the cloud tenant deploys their applications into the managed hosting environment. For example, Azure App Services provides a managed hosting environment where developers can upload their web applications without having to deal with the physical hardware and software requirements.
+SaaS	In this cloud service model, the cloud provider manages all aspects of the application environment, such as virtual machines, networking resources, data storage, and applications. The cloud tenant only needs to provide their data to the application managed by the cloud provider. For example, Office 365 provides a fully working version of Office that runs in the cloud. All that you need to do is create your content, and Office 365 takes care of everything else.
+
+
+￼
+What are public, private, and hybrid clouds?
+There are three deployment models for cloud computing: public cloud, private cloud, and hybrid cloud. Each deployment model has different aspects that you should consider as you migrate to the cloud.
+What are public, private, and hybrid clouds?
+Deployment model	Description
+Public cloud	Services are offered over the public internet and available to anyone who wants to purchase them. Cloud resources like servers and storage are owned and operated by a third-party cloud service provider and delivered over the internet.
+Private cloud	Computing resources are used exclusively by users from one business or organization. A private cloud can be physically located at your organization's on-site datacenter. It also can be hosted by a third-party service provider.
+Hybrid cloud	This computing environment combines a public cloud and a private cloud by allowing data and applications to be shared between them.

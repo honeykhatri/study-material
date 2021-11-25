@@ -1,0 +1,17 @@
+@Transactional how it works
+If we have two services A and B 
+There is some transaction in A and transaction in B called from A, if B fails I want to rollback transaction of A how can we do that
+Bean scopes
+Singleton inside prototype 
+Can we have multiple web.xml
+Can we have mutable objects in immutable class
+If we have two implementation of a interfaces, then when we Autowire the interface which implementation would be used 
+
+Change context path ?how 
+
+Difference between persist and save?
+Create composite key in spring boot 
+
+
+
+How do we call backend apis in angular??

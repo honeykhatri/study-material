@@ -128,6 +128,67 @@ Debugging logs can be enabled in three ways -
     We can set the logging.level.root=debug property in application.property file.
     We can set the logging level of the root logger to debug in the supplied logging configuration file.
 
+Spring Boot
+
+Main Class : -> class annotated with @SpringBootApplication -> this defines that this class being the route package for configuration by component scanning as well as bean configurations define within it.. 
+
+We can put bean configuration In this class: 
+
+When we get the build of the application (jar file) that file points to this main method
+
+application.properties :: Here we define all the configurations properties for your application that you want to be stored in your application 
+
+application.yml :: 
+
+@SpringBootTest :: tells to load the configuration as part of this test
+
+AutoConfiguration : Heart of Spring boot
+We get a tomcat running without any configuration all because of auto config 
+- @EnableAutoConfiguration - 
+- 1. Allows configuration classes to be scanned dynamically into the application context.
+- 2. It is based on the JARs loaded onto the class path usually via maven or gradle.
+- 3. We can control the order of configuration by using couple of annotations like @AutoConfigureAfter & @AutoConfigureBefore.
+
+Conditional Loading (built into dependencies itself ) 
+- @ConditonalOnClass : Some configurations are only loaded when there are  classes specifically on the class path
+- @ConditionalOnBean : Drives configuration of the presence of a bean define n the application context.
+- @ConditonalOnProperties : Based on some properties being defined.
+- @ConditionalOnMissinBean /Class/Properties 
+
+Properties 
+There are some preconfigured default properties for auto configuration classes.
+@EnableConfigurationProperties specifies the default properties set. 
+They can always be overridden.
+
+Additional Conditional 
+- Application type based
+- Rsource based annotations (file)
+- Expression based conditionals
+
+
+CONFIGURING SPRING 
+
+We can change configuration either at runtime or startup 
+Ways to configure prop 
+—application.properties or application.yml  (Development Focused)  ::  these files should be used for development or demo purpose only not preferred to be used in prod       environment .
+
+— Environment variables : can be setup in app.properties 
+— Command line parameter 
+— Cloud Configurations (Config server, Consul) : we can change configuratons of an entire cloud native based app suite instead just of single application  (( PROD ))
+
+Bean Configuration : much like prop we can add beans to defualt application class(main) , or by using separate configuration class.
+
+Import XML based configuration classes ::  can be used for legacy application
+
+Component scanning :  To get your beans Ito your app, by default all the beans contained in the default package and subpage would be loaded unless it is said to disable some bean.
+
+
+SPRING PROFILES
+— WHY ??  
+
+
+
+
 
 
   

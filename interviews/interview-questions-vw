@@ -1,0 +1,107 @@
+Java 8
+Spring boot
+Microservices
+ORM: Hibernate with JPA
+Angular 6
+MySQL / Oracle
+REST:
+PUT vs PATCH
+Use of OPTIONS
+What will PUT do if resource does not exist
+Behaviour of PUT and POST when resource is already present with error code - PUT will oscillate in 200/201
+HTTP 200 vs 202
+Disadvantage of REST over SOAP - No well defined contract like wsdl
+Java:
+Functional interface
+Comparator and comparable and sorting mechanism
+private and static method
+hashmap null key
+hashmap overwrite and behaviour in multithreaded environment
+Employee emp1 = new Employee ("Name1", 10000);
+Employee emp2 = new Employee ("Name2", 20000);
+Employee emp3 = new Employee ("Name3", 30000);
+Employee emp4 = new Employee ("Name4", 30000);
+List<Employee> employees = Arrays.asList(emp1, emp2, emp3, emp4);
+Make a list of employees with salary greater than 15000 using stream.
+List<Employee> employeeList = employees
+	  .stream()
+	  .filter(e -> e.getSalary() > 15000)
+	  .collect(Collectors.toList());
+Iterator is fail-safe or fail fast
+String str = "abc";
+str.concat("def");
+System.out.println(str);
+Executor framework thread pool types
+Student{
+private int id;
+private String name;
+private Address address;
+}
+Address{
+private String addressLine1;
+private String zipCode;
+}
+Student s1 = new Student (1, "AA", new Address("DLF", "122002"));
+Student s2 = s1;
+System.out.println(s2.getId() + s2.getAddress().getzipCode()); // Point 1
+s2.getAddress.setzipCode("122001");
+s2.setId(2);
+System.out.println(s2.getId() + s2.getAddress().getzipCode()); // Point 2
+System.out.println(s1.getId() + s1.getAddress().getzipCode()); // Point 3
+Deep copy and Shallow copy
+Singleton design pattern
+When to use
+What is anti pattern
+Does singleton make code tightly coupled?
+Break singleton with cloneable and serialization
+write getInstance() method code
+Spring boot:
+Service class,
+driverMethod() {
+repo.function1(); //required
+repo.function2(); //required
+repo.function3(); //required
+}
+driverMethod() {
+repo.function1(); //required
+repo.function2(); //if it works its fine, if not even then its fine
+repo.function3(); //required
+}
+Chained transaction class to be configured and used here @Transactional (name = "chainedTransactionManager")
+driverMethod() {
+datasource1_repo.function1(); //required
+datasource2_repo.function2(); //required
+datasource2_repo.function3(); //required
+}
+How this will work in case of two different microservices - Transaction server or Saga pattern
+@Component vs @Service
+Actuator and its use
+Instance wise profiles in spring boot
+Devtools dependency use
+Tried any other embedded server than tomcat (Jetty, Undertow)
+Spring profiles
+Custom Auto configuration in spring boot
+Injecting prototype scope bean in singleton bean
+Programatic vs Declarative transaction management in Spring - Programatic uses TransactionTemplate
+Maven and Gradle Self dependency how to include
+JFrog
+Angular:
+https://www.interviewbit.com/angular-interview-questions/
+How are observables different from promises?
+What are lifecycle hooks in Angular? Explain a few lifecycle hooks.
+What is AOT compilation? What are the advantages of AOT?
+Explain MVVM architecture
+What is directive
+Component and directive differences
+Template driven forms vs reactive forms
+Component library - Material / Bootstrap
+Database:
+Query to return status wise order count from following schema
+TABLE name: Order_status
+Order_id
+Order_Status ó DONE/FAIL/IN_PROGRESS
+order_completion_date
+Database views triggers
+Memory requirement of a view
+Unidirectional vs bidirectional relation
+Stale state exception in hibernate

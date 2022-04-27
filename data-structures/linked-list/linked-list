@@ -1,0 +1,160 @@
+Linked list
+	sequential data structure
+	node
+
+
+
+Node -> 
+class Node {
+Int data;
+Node next;
+	Node(data){
+		this.data= data
+		this.next = null;
+	}
+}
+
+Insert -> o(1)
+Search -> o(n)
+Delete -> o(n)
+
+Node -> node -> node -> node
+
+Linked data structure -> insertion sequence maintained (write advantage)
+
+Linked List 
+
+nodeOne -> nodeTwo->nodeThree -> nodeFour->nodeFive->null
+
+
+Node nodeOne = new Node(1);
+Node nodeTwo = new Node(2);
+nodeOne.next = nodeTwo;
+
+
+Traversal ->>
+Node temp = nodeOne;
+
+while(temp.next != null){
+	Sysout(temp.data);
+	temp = temp.next;
+}
+
+
+
+Insert front ->>
+Node nodeZero = new Node(0);
+nodeZero.next = nodeOne;
+
+Insert last->>
+Node nodeZero = new Node(0);
+Node temp = nodeOne;
+
+while(temp.next != null){
+	temp = temp.next;
+}
+
+Temp.next = nodeZero;
+
+
+Insert at nth(3) ->>
+Int count = 0;
+Node temp = head;
+while(count<n(3) && temp.next != null){
+temp=temp.next;
+count++;
+}
+
+Node nodeZero = new Node(0);
+nodeZero.next = temp.next; // nodeZero->nodeFour->nodeFive->null
+temp.next = nodeZero;
+
+
+
+Delete front
+Node deleteFront(Node head){
+Head = head.next;
+Return head;
+}
+
+Function deleteLast(Node head){
+while(head.next.next != null){
+Head = head.next;
+}
+Head.next = null;
+}
+
+
+Function deleteNth(node head, int pos){
+
+while(pos-1>0){
+Head = head.next;
+Pos—;
+}
+Head.next = head.next.next;
+}
+
+Search ->>
+Value
+
+Int searchNode(Node head, int data){
+	int index = 1;
+	while(head.next != null){
+		if(head.data == data){
+			return index;
+		}
+		head = head.next;
+		index++;
+	}
+}
+
+
+Int/Node returnFrontNth(node head, int n){
+	while(n— > 0){
+		head = head.next
+	}
+
+	return head/head.data;
+}
+
+
+nodeOne -> nodeTwo->nodeThree -> nodeFour->nodeFive->null
+												|---------------| 
+
+Int/node returnLastNth(node head, int n){ //2
+	Node first = head;
+	Node second = head;
+	while(second.next != null && n-1 > 0){
+		second = second.next;
+		n—;		
+	}
+
+	while(second.next != null){
+		first = first.next;
+		second = second.next;
+	}
+	return first;
+	
+}
+
+Reverse
+Input —> nodeOne -> nodeTwo->nodeThree -> nodeFour->nodeFive->null
+Null<-nodeOne <-nodeTwo<-nodeThree<-nodeFour<-nodeFive
+
+
+Null<-nodeOne <- nodeTwo->nodeThree -> nodeFour->nodeFive->null
+P			C 			N
+Node Reverse(Node head){
+	Node Prev=null, curr=head, next=null;
+	while(current.next != null){
+		next = curr.next;
+		curr.next = prev;
+		prev = curr;
+		curr = next;
+	}
+
+Return prev;
+}
+
+
+

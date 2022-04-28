@@ -158,3 +158,77 @@ Return prev;
 
 
 
+nodeOne -> nodeTwo -> nodeThree -> nodeFour -> nodeFive  -> null
+
+
+Node findMiddle(Node head){
+	Node slow = head;
+	Node fast = head;
+	while(fast != null && fast.next != null){
+		fast = fast.next.next;
+		slow = slow.next;
+	}
+
+	return slow;
+}
+
+
+
+Node1->node2->node3->node4->node5->node6->node3
+
+
+Boolean isLoop(Node head){
+	Node slow = head;
+	Node fast = head;
+	while(slow != null && fast != null && fast.next != null){
+		fast = fast.next.next;
+		slow = slow.next;
+
+		if(slow == fast){
+			return true;
+		}
+	}
+}
+
+Node1->node2->node3->node4->node5->node6->node3
+						| ———————————|
+
+Void removeLoop(Node head){
+	Node slow = head;
+	Node fast = head;
+	while(slow != null && fast != null && fast.next != null){
+		fast = fast.next.next;
+		slow = slow.next;
+
+		if(slow == fast){
+			break;
+		}
+	}
+	Node temp = slow;
+	int length = 1;
+	while(temp.next != slow){
+		temp = temp.next;
+		length++;
+	}
+	
+	slow = fast = head;
+	while(length —> 0){
+		fast = fast.next;
+	}
+
+	while(slow != fast.next){
+		slow = slow.next;
+		fast = fast.next;
+	}
+	fast.next = null;
+}
+
+}
+
+// sort a linked list (merge sort)
+
+
+
+
+
+

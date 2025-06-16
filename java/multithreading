@@ -25,9 +25,21 @@ When we implements Runnable, it shares the same object to multiple threads.
 if possible runnable interface should be preferred as it reduces the no. of objects created, 
 hence reducing the total space used.
 
-Types?
+Multithreading In Spring boot :-
+Multithreading in Spring Boot allows your application to handle multiple tasks concurrently, improving performance and 
+responsiveness, especially for tasks that are I/O-bound or computationally expensive. Spring Boot provides
+several features to enable multithreading in your applications. one of the most common way is use of @Async annotation.
 
-Diff?
+@Async Annotation :-
+
+Annotating a method with @Async annotation executes it in a separate thread freeing the main thread. 
+This is useful for expensive computation and long running tasks.
+
+To use @Async annotation you need to add @EnableAsync annotation to your configuration class.
+
+Customising Asynchronous behaviour with thread pool configuration :-
+
+
 
 Q: How Singleton classes & beans work in multithreading enviorment - 
 Singleton - bydef thread safe (not) — how ??? Using synchronised block 

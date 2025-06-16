@@ -1,5 +1,29 @@
 Multithreading
+It is used to ensure high-performance , responsiveness, and scalability.
+A thread is the smallest unit of execution within a process. In the context of multithreading,
+a thread is a single sequence of instructions that the CPU can execute independently. A process may contain multiple threads, 
+all of which share the same memory space but can execute different parts of the program concurrently.
+
+Benefits of multithreading :-
+1. Better Utilisation of Resources: Multithreading ensures that all of the CPU cores are being using efficiently,
+without multithreading we would be utilising only single core of CPU at a particular time leaving others unused.
+2. Improved Performance: As said above, By dividing a task across multiple threads, work can be done faster than
+running it in a single thread due to better utilisation of resources , as more than one task can run in parallel now.
+3.Enhanced Responsiveness: Applications, especially GUIs or web servers, can remain responsive while handling
+long-running operations in the background.
 How to create threads?
+1. By Extending Thread class :-
+2. By Implementing Runnable Interface :-
+Extending Thread class Vs Implementation of Runnable Interface :- (Which is better)
+
+In the first approach, Our class always extends Thread class. There is no chance of extending any other class.
+Hence we are missing Inheritance benefits. 
+In the second approach, while implementing Runnable interface we can extend any other class. Hence we are able to use the benefits of Inheritance.
+
+When we extend Thread class, each of our thread creates unique object and associate with it.
+When we implements Runnable, it shares the same object to multiple threads.
+if possible runnable interface should be preferred as it reduces the no. of objects created, 
+hence reducing the total space used.
 
 Types?
 

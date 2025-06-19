@@ -1,0 +1,58 @@
+
+🔹 Multithreading in Java
+✅ Core Concepts
+Thread Lifecycle & States
+
+Can you explain the lifecycle of a thread in Java?
+What are the different thread states and how do transitions occur?
+Thread Safety & Synchronization
+
+How do you ensure thread safety in concurrent applications?
+What are the differences between synchronized, ReentrantLock, and ReadWriteLock?
+Concurrency Utilities
+
+How do ExecutorService, Callable, and Future work?
+What are CountDownLatch, CyclicBarrier, and Semaphore used for?
+Fork/Join Framework
+
+How does the Fork/Join framework work and when would you use it?
+ThreadLocal Usage
+
+What is ThreadLocal and what are its use cases and pitfalls?
+Deadlocks and Livelocks
+
+How do you detect and resolve deadlocks in Java applications?
+CompletableFuture & Asynchronous Programming
+
+How does CompletableFuture improve asynchronous programming in Java 8+?
+🔹 Spring Boot Microservices with Multithreading
+✅ Concurrency in Microservices
+Asynchronous Processing
+
+How do you implement asynchronous methods using @Async in Spring?
+What are the limitations and thread pool configurations?
+Reactive Programming
+
+How does Spring WebFlux handle concurrency differently from traditional Spring MVC?
+What are the benefits of using Project Reactor (Mono, Flux)?
+Thread Management in Microservices
+
+How do you manage thread pools in a Spring Boot application?
+What are best practices for tuning thread pools in high-load microservices?
+Concurrency and Database Transactions
+
+How do you handle concurrency in database operations (e.g., optimistic vs. pessimistic locking)?
+Distributed Systems Challenges
+
+How do you handle race conditions in distributed microservices?
+What strategies do you use for idempotency and retry mechanisms?
+Event-Driven Architecture
+
+How do you handle concurrency in event-driven systems using Kafka/RabbitMQ?
+Monitoring and Debugging
+
+What tools do you use to monitor thread usage and performance in production?
+🔹 Scenario-Based Questions
+Describe a situation where multithreading improved performance in your microservice.
+How would you debug a thread leak in a Spring Boot application?
+How do you ensure that a scheduled task does not run concurrently?

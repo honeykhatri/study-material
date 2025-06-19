@@ -1,1 +1,40 @@
 
+Multithreading & Spring Boot Microservices Interview Topics
+· Multithreading in Java
+· Core Concepts
+· Thread Lifecycle & States
+· Thread Safety & Synchronization
+· Concurrency Utilities
+· Fork/Join Framework
+· ThreadLocal Usage
+· Deadlocks and Livelocks
+· CompletableFuture & Asynchronous Programming
+· Sample Questions
+· Can you explain the lifecycle of a thread in Java?
+· What are the differences between synchronized, ReentrantLock, and ReadWriteLock?
+· How do ExecutorService, Callable, and Future work?
+· How does the Fork/Join framework work and when would you use it?
+· What is ThreadLocal and what are its use cases and pitfalls?
+· How do you detect and resolve deadlocks in Java applications?
+· How does CompletableFuture improve asynchronous programming in Java 8+?
+· Spring Boot Microservices with Multithreading
+· Concurrency in Microservices
+· Asynchronous Processing with @Async
+· Reactive Programming with WebFlux
+· Thread Management and Pool Tuning
+· Concurrency and Database Transactions
+· Distributed Systems Challenges
+· Event-Driven Architecture
+· Monitoring and Debugging
+· Sample Questions
+· How do you implement asynchronous methods using @Async in Spring?
+· What are the benefits of using Project Reactor (Mono, Flux)?
+· How do you manage thread pools in a Spring Boot application?
+· How do you handle concurrency in database operations?
+· How do you handle race conditions in distributed microservices?
+· How do you handle concurrency in event-driven systems using Kafka/RabbitMQ?
+· What tools do you use to monitor thread usage and performance in production?
+· Scenario-Based Questions
+· Describe a situation where multithreading improved performance in your microservice.
+· How would you debug a thread leak in a Spring Boot application?
+· How do you ensure that a scheduled task does not run concurrently?

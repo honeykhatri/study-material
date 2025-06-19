@@ -2,8 +2,39 @@
 Multithreading & Spring Boot Microservices Interview Topics
 · Multithreading in Java
 · Core Concepts
-· Thread Lifecycle & States
+-------------------------------------------------------------------
+*** Thread Lifecycle & States
+-------------------------------------------------------------------
+NEW --> RUNNABLE --> RUNNING
+           |           |
+           v           v
+       BLOCKED     WAITING / TIMED_WAITING
+           \           /
+            --> RUNNABLE --> TERMINATED
+
+🧵 1. NEW
+Description: The thread is created but not yet started.
+Transition: Moves to RUNNABLE when start() is called.
+🏃 2. RUNNABLE
+Description: The thread is ready to run and waiting for CPU time.
+Transition:
+Moves to RUNNING (internally) when the thread is picked by the scheduler.
+Can move to BLOCKED, WAITING, or TIMED_WAITING depending on synchronization or wait conditions.
+⛔ 3. BLOCKED
+Description: The thread is waiting to acquire a lock held by another thread.
+Transition: Moves back to RUNNABLE once the lock is available.
+⏳ 4. WAITING
+Description: The thread is waiting indefinitely for another thread to perform a specific action (e.g., wait(), join() without timeout).
+Transition: Moves to RUNNABLE when notified or the joined thread finishes.
+⏱️ 5. TIMED_WAITING
+Description: The thread is waiting for a specified amount of time (e.g., sleep(), join(timeout), wait(timeout)).
+Transition: Moves to RUNNABLE after the time expires or the event occurs.
+☠️ 6. TERMINATED
+Description: The thread has completed execution or was terminated.
+Transition: Final state — no further transitions.
+---------------------------------------------------------------------
 · Thread Safety & Synchronization
+
 · Concurrency Utilities
 · Fork/Join Framework
 · ThreadLocal Usage

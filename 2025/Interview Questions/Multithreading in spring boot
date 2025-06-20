@@ -56,3 +56,10 @@ What tools do you use to monitor thread usage and performance in production?
 Describe a situation where multithreading improved performance in your microservice.
 How would you debug a thread leak in a Spring Boot application?
 How do you ensure that a scheduled task does not run concurrently?
+
+How does the ForkJoinPool differ from ExecutorService?
+Explain the differences between synchronized, Lock, and ReentrantLock.
+What are the best practices for designing thread-safe classes?
+How would you detect and resolve deadlocks in a Java application?
+What is the role of CompletableFuture in asynchronous programming?
+

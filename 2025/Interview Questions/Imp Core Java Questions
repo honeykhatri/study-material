@@ -1,1 +1,132 @@
 
+🔷 Core Java & Language Features
+----------------------------------------------------------------------------------------------------------
+1. What are the key features introduced in Java 17 (or latest LTS)?
+ - Sealed Classes (JEP 409)
+ Allows class designers to control which other classes or interfaces may extend or implement them.
+ Improves code security and maintainability.
+ 
+ public sealed class Shape permits Circle, Square {}
+
+2. Pattern Matching for switch (Preview - JEP 406)
+Enhances the switch statement with pattern matching, making it more powerful and expressive.
+
+switch (obj) {
+    case String s -> System.out.println("String: " + s);
+    case Integer i -> System.out.println("Integer: " + i);
+}
+3. New macOS Rendering Pipeline (JEP 382)
+Introduces a new rendering pipeline for macOS using the Apple Metal API, replacing the deprecated OpenGL.
+4. Foreign Function & Memory API (Incubator - JEP 412)
+Provides a pure Java API to interoperate with native code and memory, replacing JNI in many cases.
+5. Strong Encapsulation of JDK Internals (JEP 403)
+Internal elements of the JDK are strongly encapsulated, even by default, improving security and modularity.
+6. Deprecate and Remove RMI Activation (JEP 407)
+The RMI Activation mechanism is removed due to its limited use and better alternatives.
+7. Enhanced Pseudo-Random Number Generators (JEP 356)
+Adds new interfaces and implementations for random number generation, including jumpable and splittable PRNGs.
+--------------------------------------------------------------------------------------------------------------
+
+2. How does the Java memory model work?
+-The Java Memory Model (JMM) defines how threads interact through memory and what behaviors are allowed in concurrent execution.
+It ensures visibility, ordering, and atomicity of variables shared between threads.
+🧠 Key Concepts of the Java Memory Model
+1. Main Memory vs. Working Memory
+Main Memory: Shared memory (like heap) where all variables are stored.
+Working Memory: Each thread has its own working memory (like CPU cache) where it copies variables from main memory.
+Threads do not communicate directly; they communicate through main memory by reading and writing shared variables.
+
+2. Happens-Before Relationship
+This is the core rule of the JMM. If one action happens-before another, then the first is visible and ordered before the second.
+Examples:
+•	A call to Thread.start() happens-before any action in the started thread.
+•	A call to Thread.join() happens-before the joined thread’s actions are visible.
+•	Writing to a volatile variable happens-before reading it.
+
+3. Volatile Variables
+•	Guarantees visibility: changes made by one thread are immediately visible to others.
+All writes to other variables that occur before a write to a volatile variable in one thread are guaranteed to be visible to another thread that subsequently reads that volatile variable. Similarly, all reads to other variables that occur after a read from a volatile variable in one thread are guaranteed to see the latest values.
+•	Does not guarantee atomicity for compound actions (like count++).
+For operations that involve reading, modifying, and then writing back a value, additional synchronization mechanisms like synchronized blocks or java.util.concurrent.atomic classes are required to prevent race conditions.
+•	private volatile boolean running = true;
+
+**The volatile keyword in Java is a variable modifier primarily used in multithreaded programming to ensure the visibility of variable changes across different threads.
+
+4. Synchronized Blocks
+•	Guarantees mutual exclusion and visibility.
+•	Entering a synchronized block flushes the thread’s working memory.
+
+synchronized (lock) {
+    // critical section
+}
+5. Atomicity, Visibility, and Ordering
+Feature	volatile	synchronized	AtomicInteger
+Atomicity	❌	✅	✅
+Visibility	✅	✅	✅
+Ordering	✅	✅	✅
+
+6. Reordering
+The JVM and CPU may reorder instructions for optimization, but the JMM ensures that such reordering does not violate the happens-before rules.
+
+Explain the difference between final, finally, and finalize().
+🔹 final — Keyword
+Used to declare constants, prevent method overriding, or inheritance.
+Final variable: Value cannot be changed once assigned.
+Final method: Cannot be overridden by subclasses.
+Final class: Cannot be subclassed.
+🔹 finally — Block
+Used in exception handling to execute code regardless of whether an exception is thrown or not.
+•	Always executes after try and catch.
+•	Commonly used for resource cleanup (e.g., closing files or database connections).
+
+🔹 finalize() — Method (Deprecated)
+•	A method from the Object class that was called by the Garbage Collector before reclaiming an object’s memory.
+•	Deprecated since Java 9 and removed in Java 18.
+•	Unreliable for resource cleanup — use try-with-resources or AutoCloseable instead.
+
+3. What are sealed classes and how do they help in design?
+Sealed classes (introduced in Java 17 via JEP 409) are a way to restrict which classes or interfaces can extend or implement a given class or interface.
+•	sealed keyword: Declares the base class as sealed.
+•	permits: Explicitly lists the allowed subclasses.
+•	Subclasses must be final, sealed, or non-sealed.
+
+🎯 Why Use Sealed Classes?
+1. Better Control Over Inheritance
+You can explicitly define the class hierarchy, preventing unintended subclassing.
+2. Improved Maintainability
+Limits the number of subclasses, making the codebase easier to understand and evolve.
+3. Enhanced Exhaustiveness in switch
+When used with pattern matching, the compiler can verify that all possible subclasses are handled.
+switch (shape) {
+    case Circle c -> ...
+    case Square s -> ...
+    // no default needed if all permitted types are covered
+}
+4. Security and Encapsulation
+Prevents third-party or malicious code from extending sensitive classes.
+
+
+4. How does pattern matching improve type safety and readability?
+✅ 1. Improved Type Safety
+if (obj instanceof String) {
+    String s = (String) obj; // Manual cast
+    System.out.println(s.length());
+}
+•	Risk: If the cast is incorrect or forgotten, it can cause a ClassCastException.
+✅ Pattern Matching:
+if (obj instanceof String s) {
+    System.out.println(s.length()); // No cast needed
+}
+
+•	The compiler ensures that s is only accessible if obj is a String.
+•	Reduces the chance of runtime type errors.
+✅ 2. Enhanced Readability
+Pattern matching makes code cleaner and more expressive, especially in complex conditionals or switch statements.
+•	Combines type check, cast, and condition in a single line.
+•	Easier to read and maintain.
+
+✅ 3. Better switch Statements
+•	No need for instanceof or casting.
+•	Cleaner and more declarative.
+✅ 4. Compiler-Assisted Exhaustiveness
+When used with sealed classes, pattern matching ensures all possible types are handled, reducing bugs:

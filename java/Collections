@@ -441,6 +441,18 @@ IdentityHashMap is similar to HashMap except that it uses reference equality whe
 
 WeakHashMap is an implementation of the Map interface that stores only weak references to its keys. Storing only weak references allows a key-value pair to be garbage collected when its key is no longer referenced outside of the WeakHashMap. This class is intended primarily for use with key objects whose equals methods test for object identity using the == operator. Once such a key is discarded it can never be recreated, so it is impossible to do a look-up of that key in a WeakHashMap at some later time and be surprised that its entry has been removed.
 
+IdentityHashMap: Uses reference equality instead of object equality
+Key Comparison: Unlike HashMap, which uses .equals() to compare keys, IdentityHashMap uses == (reference equality). This means two keys are considered equal only if they are the exact same object in memory.
+Use Case: Useful when you need to maintain mappings based on object identity rather than logical equality. For example, in frameworks or tools that track object instances.
+Performance: Slightly faster in some scenarios due to skipping .equals() and .hashCode() calls.
+Caveat: Can be confusing if you're not expecting reference-based behavior—two logically equal keys (like two Integer objects with the same value) will be treated as different.
+
+WeakHashMap: Allows keys to be garbage collected
+Key Behavior: Keys in a WeakHashMap are held using weak references. If a key is no longer referenced elsewhere in the application, it becomes eligible for garbage collection, and the entry is automatically removed from the map.
+Use Case: Ideal for caches, metadata storage, or listeners where you don’t want the map to prevent key objects from being garbage collected.
+Memory Efficiency: Helps avoid memory leaks by allowing unused keys to be cleaned up.
+Caveat: Entries may disappear unexpectedly if you're not aware of the weak reference behavior.
+
 13) Explain ConcurrentHashMap? How it works?
 
 Taking from java docs:

@@ -463,6 +463,9 @@ However, even though all operations are thread-safe, retrieval operations do not
 entire table in a way that prevents all access.
 This class is fully interoperable with Hashtable in programs that rely on its thread safety but not on its synchronization details.
 
+Internally, the map is divided into segments (in Java 7) or uses a bin-based locking mechanism (in Java 8 and later).
+Each segment/bin can be locked independently, allowing multiple threads to operate on different parts of the map simultaneously.
+In Java 8+, it uses a lock-free approach for reads and a synchronized block for writes, improving scalability.
 Read more about how ConcurrentHashMap interview questions.
 
 14) How hashmap works?

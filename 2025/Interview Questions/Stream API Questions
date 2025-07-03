@@ -41,8 +41,94 @@ Answer:
                           .count();
 
 
+✅ Question 4: Find the First Element Greater Than 50
 
-✅ Question 4: You have the following class:
+Problem:
+Given a list of integers, use the Java Stream API to find the first number greater than 50. If no such number exists, return an appropriate message or handle it gracefully.
+
+Example Input:
+List<Integer> numbers = Arrays.asList(10, 25, 60, 45, 70);
+Expected Output:
+Optional<Integer> result = Optional.of(60);
+
+Solution: numbers.stream().filter(n -> n > 50).findFirst();
+
+✅ Question 5: Sort a List of Strings by Length
+Problem:
+Given a list of strings, use the Java Stream API to sort the strings based on their length in ascending order.
+
+Example Input:List<String> words = Arrays.asList("apple", "banana", "kiwi", "cherry");
+Expected Output:[kiwi, apple, banana, cherry]
+
+Solution : words.stream()
+     .sorted((s1, s2) -> s1.length() - s2.length())
+     .collect(Collectors.toList());
+
+✅ Question 6: Sum of Squares
+Problem:
+Given a list of integers, use the Java Stream API to compute the sum of the squares of all the numbers.
+
+Example Input:
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4);
+Expected Output: 
+1² + 2² + 3² + 4² = 30
+Solution : 
+int sumOfSquares = numbers.stream()
+                          .mapToInt(n -> n * n)
+                          .sum();
+
+✅ Question 7: Group by First Character
+Problem:
+Given a list of strings, use the Java Stream API to group the strings by their first character. The result should be a Map<Character, List<String>>.
+
+Example Input:
+List<String> words = Arrays.asList("apple", "apricot", "banana", "blueberry", "cherry");
+Expected Output:
+
+{
+  a = [apple, apricot],
+  b = [banana, blueberry],
+  c = [cherry]
+}
+Solution : 
+        Map<Character, List<String>> grouped = words.stream()
+            .collect(Collectors.groupingBy(word -> word.charAt(0)));
+
+✅ Question 8: Find the Longest String
+Problem:
+Given a list of strings, use the Java Stream API to find the longest string in the list. If the list is empty, handle it gracefully using Optional.
+
+Example Input:List<String> words = Arrays.asList("apple", "banana", "kiwi", "watermelon");
+Expected Output: Optional<String> result = Optional.of("watermelon");
+Solution :
+Optional<String> longest = words.stream()
+                                .max((s1, s2) -> s1.length() - s2.length());
+OR
+Optional<String> longest = words.stream()
+                                .max(Comparator.comparingInt(String::length));
+
+✅ Question 9: FlatMap Example – Flatten a List of Lists
+Problem:
+Given a list of lists of integers, use the Java Stream API to flatten it into a single list of integers.
+
+Example Input:
+List<List<Integer>> listOfLists = Arrays.asList(
+    Arrays.asList(1, 2, 3),
+    Arrays.asList(4, 5),
+    Arrays.asList(6, 7, 8)
+);
+Example Output:
+[1, 2, 3, 4, 5, 6, 7, 8]
+Solution: 
+List<Integer> flattened = listOfLists.stream()
+                                     .flatMap(list -> list.stream())
+                                     .collect(Collectors.toList());
+OR
+List<Integer> flattened = listOfLists.stream()
+                                     .flatMap(List::stream)
+                                     .collect(Collectors.toList());
+
+✅ Question 10: You have the following class:
 class Employee {
     private String name;
     private List<String> projects;
@@ -67,7 +153,7 @@ List<String> uniqueProjects = employees.stream()
 
 
 
-✅ Question 5: You have the following class:
+✅ Question 11: You have the following class:
 class Order {
     private String id;
     private OrderStatus status;
@@ -98,7 +184,7 @@ Map<OrderStatus, Long> orderCountByStatus = orders.stream()
         Collectors.counting()
     ));
 
-✅ Question 6: You have the following class:
+✅ Question 12: You have the following class:
 Given:
 class Product {
     private String name;
@@ -123,7 +209,7 @@ Map<String, List<String>> productsByCategory = products.stream()
         Product::getCategory,
         Collectors.mapping(Product::getName, Collectors.toList())
     ));
-✅ Question 7: You have the following class:
+✅ Question 13: You have the following class:
 You have a list of Employee objects. Each employee has a name, department, and salary.
 Your task is to group employees by department and calculate the average salary for each department.
 

@@ -42,6 +42,84 @@ Answer:
 
 
 
+✅ Question 4: You have the following class:
+class Employee {
+    private String name;
+    private List<String> projects;
+
+    // constructor, getters
+}
+
+And this list:
+
+List<Employee> employees = Arrays.asList(
+    new Employee("Alice", Arrays.asList("Alpha", "Beta")),
+    new Employee("Bob", Arrays.asList("Beta", "Gamma")),
+    new Employee("Charlie", Arrays.asList("Gamma", "Delta"))
+);
+
+👉 Task: Use the Stream API to extract a List<String> of all unique project names across all employees.
+Solution:
+List<String> uniqueProjects = employees.stream()
+    .flatMap(emp -> emp.getProjects().stream())
+    .distinct()
+    .collect(Collectors.toList());
 
 
 
+✅ Question 5: You have the following class:
+class Order {
+    private String id;
+    private OrderStatus status;
+
+    // constructor, getters
+}
+
+enum OrderStatus {
+    NEW, IN_PROGRESS, COMPLETED
+}
+And a list of orders:
+List<Order> orders = Arrays.asList(
+    new Order("O1", OrderStatus.NEW),
+    new Order("O2", OrderStatus.IN_PROGRESS),
+    new Order("O3", OrderStatus.NEW),
+    new Order("O4", OrderStatus.COMPLETED),
+    new Order("O5", OrderStatus.NEW),
+    new Order("O6", OrderStatus.IN_PROGRESS)
+);
+
+👉 Task: Use the Stream API to group the orders by status and count how many orders are in each group. Your result should be a map like:
+{NEW=3, IN_PROGRESS=2, COMPLETED=1}
+
+Solution:
+Map<OrderStatus, Long> orderCountByStatus = orders.stream()
+    .collect(Collectors.groupingBy(
+        Order::getOrderStatus,
+        Collectors.counting()
+    ));
+
+✅ Question 6: You have the following class:
+Given:
+class Product {
+    private String name;
+    private String category;
+
+    // constructor, getters
+}
+and list:
+List<Product> products = Arrays.asList(
+    new Product("Laptop", "Electronics"),
+    new Product("TV", "Electronics"),
+    new Product("Apple", "Grocery"),
+    new Product("Bread", "Grocery"),
+    new Product("Smartphone", "Electronics")
+);
+
+👉 Goal: Produce a Map<String, List<String>> where the key is the category and the value is a list of product names in that category.
+
+Solution:
+Map<String, List<String>> productsByCategory = products.stream()
+    .collect(Collectors.groupingBy(
+        Product::getCategory,
+        Collectors.mapping(Product::getName, Collectors.toList())
+    ));

@@ -123,3 +123,15 @@ Map<String, List<String>> productsByCategory = products.stream()
         Product::getCategory,
         Collectors.mapping(Product::getName, Collectors.toList())
     ));
+✅ Question 7: You have the following class:
+You have a list of Employee objects. Each employee has a name, department, and salary.
+Your task is to group employees by department and calculate the average salary for each department.
+
+Solution :
+        Map<String, Double> avgSalaryByDept = employees.stream()
+            .collect(Collectors.groupingBy(
+                Employee::getDepartment,
+                Collectors.averagingDouble(Employee::getSalary)
+            ));
+
+

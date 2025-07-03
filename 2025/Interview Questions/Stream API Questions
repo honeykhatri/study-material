@@ -1,1 +1,47 @@
+✅ Question 1: Filter Even Numbers
+Problem:
+Given a list of integers, use the Java Stream API to filter out only the even numbers and collect them into a new list.
+
+Example Input:
+List<Integer> numbers = Arrays.asList(1, 2, 3, 4, 5, 6);
+Expected Output:
+[2, 4, 6]
+Answer:
+
+        List<Integer> evenNumbers = numbers.stream()
+                                           .filter(n -> n % 2 == 0)
+                                           .collect(Collectors.toList());
+✅ Question 2: Convert Strings to Uppercase
+Problem:
+Given a list of strings, use the Java Stream API to convert each string to uppercase and collect the results into a new list.
+
+Example Input:
+List<String> words = Arrays.asList("apple", "banana", "cherry");
+Expected Output:
+[APPLE, BANANA, CHERRY]
+
+Answer: 
+        List<String> uppercased = words.stream()
+                                       .map(s -> s.toUpperCase())
+                                       .collect(Collectors.toList());
+
+✅ Question 3: Count Strings Starting with a Specific Letter
+Problem:
+Given a list of strings, use the Java Stream API to count how many strings start with the letter "A" (case-insensitive).
+Example Input:
+List<String> names = Arrays.asList("Alice", "Bob", "Andrew", "alex", "Charlie");
+Expected Output:
+
+1 3
+2
+Answer:
+
+        long count = names.stream()
+                          .filter(s -> s.toLowerCase().startsWith("a"))
+                          .count();
+
+
+
+
+
 

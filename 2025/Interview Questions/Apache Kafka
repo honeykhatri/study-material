@@ -1,0 +1,44 @@
+1. What is Apache Kafka?
+Sample Answer:
+
+Apache Kafka is a distributed event streaming platform used to build real-time data pipelines and streaming applications. It allows producers to publish messages to topics, and consumers to subscribe to those topics and process the messages in real time.
+
+2. What are the main components of Kafka?
+Sample Answer:
+
+The main components of Kafka are:
+
+Producer: Sends data to Kafka topics.
+Consumer: Reads data from topics.
+Broker: A Kafka server that stores and serves messages.
+Topic: A category or feed name to which records are published.
+Zookeeper: Manages cluster metadata and leader election (optional in newer versions).
+3. What is a Kafka topic?
+Sample Answer:
+
+A Kafka topic is a logical channel to which producers send messages and from which consumers read messages. Topics can have multiple partitions to allow parallel processing and scalability.
+
+4. What is a Kafka partition and why is it important?
+Sample Answer:
+
+A partition is a subset of a topic. Each partition is an ordered, immutable sequence of records. Partitions allow Kafka to scale horizontally by distributing data across multiple brokers and enabling parallel processing by consumers.
+
+5. What is the role of Zookeeper in Kafka?
+Sample Answer:
+
+Zookeeper is used by Kafka to manage metadata, broker coordination, and leader election. However, newer versions of Kafka (2.8 and above) support running without Zookeeper using KRaft mode.
+
+6. What is the difference between a Kafka producer and a consumer?
+Sample Answer:
+
+A producer sends messages to Kafka topics, while a consumer subscribes to topics and processes the messages. Producers push data into Kafka, and consumers pull data from Kafka.
+
+7. How does Kafka ensure message durability?
+Sample Answer:
+
+Kafka ensures durability by writing messages to disk and replicating them across multiple brokers. A message is considered durable once it is written to the leader and acknowledged by the in-sync replicas.
+
+8. What is the difference between Kafka and traditional messaging systems like RabbitMQ?
+Sample Answer:
+
+Kafka is designed for high-throughput, distributed, and real-time event streaming. It stores messages for a configurable retention period, allowing multiple consumers to read at their own pace. Traditional systems like RabbitMQ focus more on message queuing and immediate delivery, often deleting messages once consumed.

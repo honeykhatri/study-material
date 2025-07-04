@@ -42,3 +42,61 @@ Kafka ensures durability by writing messages to disk and replicating them across
 Sample Answer:
 
 Kafka is designed for high-throughput, distributed, and real-time event streaming. It stores messages for a configurable retention period, allowing multiple consumers to read at their own pace. Traditional systems like RabbitMQ focus more on message queuing and immediate delivery, often deleting messages once consumed.
+
+
+🟡 Intermediate-Level Kafka Interview Questions & Answers
+1. How does Kafka achieve high throughput and low latency?
+Sample Answer:
+
+Kafka achieves high throughput and low latency through:
+
+Sequential disk writes using a log-based storage model.
+Batching of messages to reduce network overhead.
+Zero-copy technology for fast data transfer.
+Partitioning, which allows parallel processing across brokers and consumers.
+2. What is a consumer group and how does it work?
+Sample Answer:
+
+A consumer group is a set of consumers that work together to consume messages from a topic. Each partition in a topic is assigned to only one consumer in the group, ensuring parallelism and avoiding duplicate processing. Kafka tracks the offset for each consumer group independently.
+
+3. What is the difference between at-most-once, at-least-once, and exactly-once delivery semantics?
+Sample Answer:
+
+At-most-once: Messages may be lost but never redelivered.
+At-least-once: Messages are never lost but may be redelivered (duplicates possible).
+Exactly-once: Each message is delivered and processed only once (no loss, no duplicates).
+Kafka supports all three, with exactly-once requiring idempotent producers and transactional processing.
+
+4. How does Kafka handle message ordering?
+Sample Answer:
+
+Kafka guarantees message ordering within a partition. If you need strict ordering, you should ensure that all related messages go to the same partition using a consistent key.
+
+5. What is Kafka retention policy and how is it configured?
+Sample Answer:
+
+Kafka retains messages for a configurable period or until a size limit is reached, regardless of whether they’ve been consumed. This is controlled using:
+
+retention.ms: Time-based retention
+retention.bytes: Size-based retention
+6. How does Kafka handle backpressure?
+Sample Answer:
+
+Kafka handles backpressure by allowing consumers to process messages at their own pace. If a consumer is slow, Kafka retains the messages based on the retention policy. However, if the consumer lags too much and messages expire, data loss can occur.
+
+7. What is the role of Kafka offset and how is it managed?
+Sample Answer:
+
+An offset is a unique identifier for a message within a partition. Kafka uses offsets to track which messages have been consumed. Offsets can be:
+
+Automatically committed (default)
+Manually committed by the consumer for more control
+8. How can you secure a Kafka cluster?
+Sample Answer:
+
+Kafka supports several security features:
+
+Authentication: SASL or SSL
+Authorization: ACLs to control access to topics
+Encryption: SSL/TLS for data in transit
+Audit logging: For tracking access and changes

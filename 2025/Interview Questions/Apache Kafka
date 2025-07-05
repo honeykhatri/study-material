@@ -100,3 +100,65 @@ Authentication: SASL or SSL
 Authorization: ACLs to control access to topics
 Encryption: SSL/TLS for data in transit
 Audit logging: For tracking access and changes
+
+🔴 Advanced-Level Kafka Interview Questions & Answers
+1. Explain Kafka’s ISR (In-Sync Replicas) and how it affects availability.
+Sample Answer:
+
+ISR stands for In-Sync Replicas. It’s the set of replicas that are fully caught up with the leader. Kafka only acknowledges a write when it’s written to all replicas in the ISR (depending on the acks setting). If the ISR shrinks (e.g., due to network issues), 
+Kafka may stop acknowledging writes to maintain durability, which can affect availability.
+
+2. What happens when a Kafka broker goes down?
+Sample Answer:
+
+When a broker goes down:
+
+Its partitions become temporarily unavailable.
+Kafka automatically elects a new leader for each affected partition from the ISR.
+Producers and consumers are redirected to the new leader.
+When the broker comes back, it re-syncs and rejoins the ISR.
+
+3. How does Kafka handle leader election for partitions?
+Sample Answer:
+
+Kafka uses Zookeeper (or KRaft in newer versions) to manage leader election. Each partition has one leader and multiple followers. If the leader fails, a new leader is chosen from the ISR. The election is coordinated to ensure consistency and avoid split-brain scenarios.
+
+4. What are Kafka Streams and how do they differ from Kafka Connect?
+Sample Answer:
+
+Kafka Streams is a Java library for building real-time stream processing applications. It allows you to transform, aggregate, and join data streams.
+Kafka Connect is a tool for integrating Kafka with external systems (e.g., databases, file systems) using source and sink connectors.
+In short: Kafka Streams is for processing, Kafka Connect is for integration.
+5. How would you design a Kafka architecture for a high-throughput, fault-tolerant system?
+Sample Answer:
+
+Use multiple partitions per topic to enable parallelism.
+Deploy multiple brokers for load distribution.
+Enable replication (e.g., replication factor = 3) for fault tolerance.
+Use acks=all and min.insync.replicas for durability.
+Monitor with tools like Prometheus + Grafana.
+Use Kafka Connect for ingestion and Kafka Streams for processing.
+6. How do you monitor and tune Kafka performance?
+Sample Answer:
+
+Monitor metrics like consumer lag, broker disk usage, under-replicated partitions, and request latency.
+Use tools like Confluent Control Center, Prometheus, or Burrow.
+Tune parameters like:
+batch.size, linger.ms (producer)
+fetch.min.bytes, max.poll.records (consumer)
+num.io.threads, num.network.threads (broker)
+7. What are the trade-offs between increasing partitions vs. increasing consumers?
+Sample Answer:
+
+More partitions increase parallelism but also increase overhead (e.g., more open file handles, more metadata).
+More consumers improve throughput only if there are enough partitions.
+You need a balance: ideally, number of consumers ≤ number of partitions.
+8. How does Kafka achieve exactly-once semantics with transactions?
+Sample Answer:
+
+Kafka supports exactly-once semantics (EOS) using:
+
+Idempotent producers to avoid duplicate writes.
+Transactions to group multiple writes into an atomic unit.
+Transactional IDs to track producer sessions.
+Consumers must use read_committed isolation level to avoid reading uncommitted data.

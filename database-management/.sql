@@ -95,3 +95,34 @@ FROM employees e
 RIGHT JOIN departments d ON e.department_id = d.id;
 
 Multi-table JOIN challenges
+🧱 Sample Tables
+Table: employees
+id	name	department_id
+1	Alice	1
+2	Bob	2
+3	Charlie	2
+4	Diana	3
+  
+Table: departments
+id	department_name
+1	HR
+2	IT
+3	Finance
+4	Legal
+  
+Table: projects
+id	project_name	employee_id
+1	Apollo	1
+2	Mercury	2
+3	Gemini	2
+4	Orion	4
+
+JOIN Challenge Questions:
+Get a list of employee names and the projects they are working on.
+  SELECT e.name, p.project_name
+FROM employees e
+INNER JOIN projects p ON e.id = p.employee_id;
+
+Get a list of project names along with the department name of the employee working on them.
+Get a list of departments and the number of employees in each, including departments with zero employees.
+Get a list of employees who are not assigned to any project.

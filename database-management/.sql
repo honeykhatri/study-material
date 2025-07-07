@@ -58,3 +58,40 @@ SELECT department, COUNT(*) FROM employees GROUP BY department;
 
 🔗 What is a JOIN?
 A JOIN lets you combine rows from two or more tables based on a related column between them.
+
+  🧱 Sample Tables
+Table: employees
+id	name	department_id
+1	Alice	1
+2	Bob	2
+3	Charlie	2
+4	Diana	3
+Table: departments
+id	department_name
+1	HR
+2	IT
+3	Finance
+
+🔹 Common JOIN Types
+Type	Description
+INNER JOIN	Only matching rows from both tables
+LEFT JOIN	All rows from the left table + matching rows from the right
+RIGHT JOIN	All rows from the right table + matching rows from the left
+FULL JOIN	All rows from both tables (not supported in all DBs)
+
+Get a list of employee names along with their department names.
+  SELECT e.name, d.department_name
+FROM employees e
+INNER JOIN departments d ON e.department_id = d.id;
+
+Get all employees, even if they don’t belong to a department.
+  SELECT e.name, d.department_name
+FROM employees e
+LEFT JOIN departments d ON e.department_id = d.id;
+
+Get all departments, even if they have no employees.
+  SELECT e.name, d.department_name
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.id;
+
+Multi-table JOIN challenges

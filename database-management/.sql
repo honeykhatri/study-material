@@ -142,3 +142,7 @@ FROM employees e
 LEFT JOIN projects p ON e.id = p.employee_id
 WHERE p.employee_id IS NULL;
 
+
+🔹 What is a Subquery?
+A subquery is a query nested inside another query. It can be used in SELECT, FROM, or WHERE clauses.
+

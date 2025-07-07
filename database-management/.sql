@@ -124,5 +124,21 @@ FROM employees e
 INNER JOIN projects p ON e.id = p.employee_id;
 
 Get a list of project names along with the department name of the employee working on them.
+  SELECT p.project_name, d.department_name
+FROM projects p
+INNER JOIN employees e ON p.employee_id = e.id
+INNER JOIN departments d ON e.department_id = d.id;
+
 Get a list of departments and the number of employees in each, including departments with zero employees.
+  SELECT d.department_name, COUNT(e.id)
+FROM employees e
+RIGHT JOIN departments d ON e.department_id = d.id
+GROUP BY d.department_name;
+
 Get a list of employees who are not assigned to any project.
+
+  SELECT e.*
+FROM employees e
+LEFT JOIN projects p ON e.id = p.employee_id
+WHERE p.employee_id IS NULL;
+

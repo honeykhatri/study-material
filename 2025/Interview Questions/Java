@@ -1,0 +1,39 @@
+- What are the differences between == and .equals() in Java?
+    - == compares object references (memory addresses).
+    - .equals() compares object values, as defined by the class
+
+            String a = new String("Hello");
+            String b = new String("Hello");
+            a == b;        // false
+            a.equals(b);   // true
+
+
+- What is the purpose of the final keyword?
+    - Used to declare:
+        - A final variable: cannot be reassigned.
+        - A final method: cannot be overridden.
+        - A final class: cannot be extended.
+    - Encourages immutability and stability in code.
+
+
+- Explain the concept of Java Virtual Machine (JVM).
+    - JVM is the engine that runs Java bytecode.
+    - Converts compiled .class files into machine code for execution.
+    - It provides abstraction from hardware specifics and enables platform independence.
+
+
+- How does garbage collection work in Java?
+    - JVM periodically removes unreferenced objects from memory.
+    - Uses algorithms like Mark-and-Sweep, Generational GC.
+    - Developer hints GC via System.gc() but it’s non-deterministic.
+
+- What is the difference between ArrayList and LinkedList?
+    | Feature        | ArrayList                     | LinkedList                  |
+    |----------------|-------------------------------|-----------------------------|
+    | Access speed   | Faster (index-based)          | Slower                      |
+    | Insert/delete  | Slower (shifting elements)    | Faster (no shifting needed) |
+    | Memory usage   | Less (contiguous)             | More (node pointers)        |
+
+
+
+

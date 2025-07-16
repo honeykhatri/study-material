@@ -1,3 +1,34 @@
+
+1. What are JDK, JRE & JVM?
+1. JVM (Java Virtual Machine)
+What it is: The JVM is the engine that runs Java bytecode. It provides a runtime environment in which Java programs can execute.
+Key role: It converts bytecode (compiled Java code) into machine code that your computer can understand.
+Platform independence: JVM allows Java to be platform-independent — "write once, run anywhere."
+
+2. JRE (Java Runtime Environment)
+What it is: JRE is a package that contains the JVM along with libraries and other components needed to run Java applications.
+Key role: It’s used to run Java programs, but not to develop them.
+Includes:
+JVM
+Core libraries
+Supporting files
+
+3. JDK (Java Development Kit)
+What it is: JDK is a full-featured software development kit for Java. It includes everything in the JRE, plus tools for developing Java applications.
+Key role: It’s used to develop Java programs.
+Includes:
+JRE (and thus JVM)
+Compiler (javac)
+Debugger
+JavaDoc
+Other development tools
+Summary Table
+
+Component	           Contains	                        Purpose
+JVM	                 Bytecode interpreter	            Runs Java bytecode
+JRE	                 JVM + Libraries	                Runs Java applications
+JDK	                 JRE + Development tools	        Develops and runs Java applications
+
 CLASSLOADERS
 https://javarevisited.blogspot.com/2012/12/how-classloader-works-in-java.html#axzz59AWpr6cb
 
